@@ -35,7 +35,6 @@ public class dashboard extends javax.swing.JFrame {
         setBackground(new java.awt.Color(102, 255, 153));
         setBounds(new java.awt.Rectangle(70, 50, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1300, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(102, 255, 153));

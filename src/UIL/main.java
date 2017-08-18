@@ -17,6 +17,8 @@ public class main extends javax.swing.JFrame {
 
     dashboard dashboard = new dashboard();
     notifications notifications = new notifications();
+    customers customers = new customers();
+    suppliers suppliers = new suppliers();
     
     public main() {
         initComponents();
@@ -130,10 +132,20 @@ public class main extends javax.swing.JFrame {
 
         menu_button_group.add(jToggleButton8);
         jToggleButton8.setText("CUS");
+        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 70, -1));
 
         menu_button_group.add(jToggleButton9);
         jToggleButton9.setText("SUP");
+        jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton9ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 70, -1));
 
         menu_button_group.add(jToggleButton10);
@@ -170,6 +182,8 @@ public class main extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.setState(ICONIFIED);
+        //dashboard.setState(ICONIFIED);
+        //notifications.setState(ICONIFIED);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
@@ -179,6 +193,18 @@ public class main extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         notifications.setVisible(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+        
+        customers.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton8ActionPerformed
+
+    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
+        
+        suppliers.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     /**
      * @param args the command line arguments
