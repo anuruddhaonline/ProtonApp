@@ -63,7 +63,6 @@ public class main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jToggleButton11 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -172,9 +171,6 @@ public class main extends javax.swing.JFrame {
         jButton4.setText("Forgot your password ?");
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
-        jToggleButton11.setText("jToggleButton11");
-        jPanel3.add(jToggleButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, -1));
-
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 590, 390));
 
         pack();
@@ -259,7 +255,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
-    private javax.swing.JToggleButton jToggleButton11;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
