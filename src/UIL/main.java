@@ -63,6 +63,8 @@ public class main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -171,6 +173,12 @@ public class main extends javax.swing.JFrame {
         jButton4.setText("Forgot your password ?");
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
+        jButton5.setText("jButton5");
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, -1, -1));
+
+        jButton6.setText("jButton6");
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 590, 390));
 
         pack();
@@ -246,6 +254,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
