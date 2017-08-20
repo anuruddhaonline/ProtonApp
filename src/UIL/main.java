@@ -19,6 +19,12 @@ public class main extends javax.swing.JFrame {
     notifications notifications = new notifications();
     customers customers = new customers();
     suppliers suppliers = new suppliers();
+    inventory inventory = new inventory();
+    purchase purchase = new purchase();
+    production production = new production();
+    sales sales = new sales();
+    settings settings = new settings();
+    help help = new help();
     
     public main() {
         initComponents();
@@ -94,6 +100,11 @@ public class main extends javax.swing.JFrame {
 
         menu_button_group.add(jToggleButton1);
         jToggleButton1.setText("HELP");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 70, -1));
 
         menu_button_group.add(jToggleButton2);
@@ -116,18 +127,38 @@ public class main extends javax.swing.JFrame {
 
         menu_button_group.add(jToggleButton4);
         jToggleButton4.setText("INVEN");
+        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 70, -1));
 
         menu_button_group.add(jToggleButton5);
         jToggleButton5.setText("PURCH");
+        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 70, -1));
 
         menu_button_group.add(jToggleButton6);
         jToggleButton6.setText("PROD");
+        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 70, -1));
 
         menu_button_group.add(jToggleButton7);
         jToggleButton7.setText("SALES");
+        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton7ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 70, -1));
 
         menu_button_group.add(jToggleButton8);
@@ -150,6 +181,11 @@ public class main extends javax.swing.JFrame {
 
         menu_button_group.add(jToggleButton10);
         jToggleButton10.setText("SETT");
+        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton10ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jToggleButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 70, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 70, 720));
@@ -205,6 +241,41 @@ public class main extends javax.swing.JFrame {
         suppliers.setVisible(true);
         
     }//GEN-LAST:event_jToggleButton9ActionPerformed
+
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        
+        inventory.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton4ActionPerformed
+
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+       
+        purchase.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton5ActionPerformed
+
+    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+        
+        production.setVisible(true);
+    }//GEN-LAST:event_jToggleButton6ActionPerformed
+
+    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+        
+        sales.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton7ActionPerformed
+
+    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
+        
+        settings.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton10ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        
+        help.setVisible(true);
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
