@@ -105,7 +105,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 70, -1));
+        jPanel2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
         menu_button_group.add(jToggleButton2);
         jToggleButton2.setText("NOTI");
@@ -114,7 +114,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 70, -1));
+        jPanel2.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, -1));
 
         menu_button_group.add(jToggleButton3);
         jToggleButton3.setText("DASH");
@@ -123,7 +123,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 70, -1));
+        jPanel2.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 140, -1));
 
         menu_button_group.add(jToggleButton4);
         jToggleButton4.setText("INVEN");
@@ -132,7 +132,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 70, -1));
+        jPanel2.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, -1));
 
         menu_button_group.add(jToggleButton5);
         jToggleButton5.setText("PURCH");
@@ -141,7 +141,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 70, -1));
+        jPanel2.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
 
         menu_button_group.add(jToggleButton6);
         jToggleButton6.setText("PROD");
@@ -150,7 +150,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 70, -1));
+        jPanel2.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
 
         menu_button_group.add(jToggleButton7);
         jToggleButton7.setText("SALES");
@@ -159,7 +159,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 70, -1));
+        jPanel2.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
 
         menu_button_group.add(jToggleButton8);
         jToggleButton8.setText("CUS");
@@ -168,7 +168,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton8ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 70, -1));
+        jPanel2.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, -1));
 
         menu_button_group.add(jToggleButton9);
         jToggleButton9.setText("SUP");
@@ -177,7 +177,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 70, -1));
+        jPanel2.add(jToggleButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
 
         menu_button_group.add(jToggleButton10);
         jToggleButton10.setText("SETT");
@@ -186,9 +186,9 @@ public class main extends javax.swing.JFrame {
                 jToggleButton10ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 70, -1));
+        jPanel2.add(jToggleButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 70, 720));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
         jPanel3.setBackground(new java.awt.Color(102, 255, 0));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

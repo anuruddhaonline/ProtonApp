@@ -33,9 +33,9 @@ public class notifications extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(70, 50, 0, 0));
+        setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1300, 720));
+        setPreferredSize(new java.awt.Dimension(1230, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
