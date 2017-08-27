@@ -229,11 +229,11 @@ public class main extends javax.swing.JFrame {
         login_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_border.png"))); // NOI18N
         login_panel.add(login_border, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 100, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Password :");
         login_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Username :");
         login_panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
