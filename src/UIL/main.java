@@ -54,6 +54,7 @@ public class main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         menu_button = new javax.swing.JToggleButton();
+        jToggleButton11 = new javax.swing.JToggleButton();
         menu_panel = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -108,6 +109,9 @@ public class main extends javax.swing.JFrame {
             }
         });
         header_panel.add(menu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 50));
+
+        jToggleButton11.setText("jToggleButton11");
+        header_panel.add(jToggleButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 5, 50, 40));
 
         getContentPane().add(header_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
 
@@ -394,6 +398,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
+    private javax.swing.JToggleButton jToggleButton11;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
