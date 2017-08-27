@@ -67,21 +67,22 @@ public class main extends javax.swing.JFrame {
         jToggleButton10 = new javax.swing.JToggleButton();
         main_panel = new javax.swing.JPanel();
         login_panel = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        username_txt = new javax.swing.JTextField();
+        password_txt = new javax.swing.JPasswordField();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         login_logo = new javax.swing.JLabel();
         login_border = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        password_lbl = new javax.swing.JLabel();
+        username_lbl = new javax.swing.JLabel();
+        login_message_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        header_panel.setBackground(new java.awt.Color(204, 255, 0));
+        header_panel.setBackground(new java.awt.Color(144, 19, 62));
         header_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Minimize");
@@ -211,15 +212,31 @@ public class main extends javax.swing.JFrame {
         login_panel.setBackground(new java.awt.Color(255, 255, 255));
         login_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        login_panel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 230, 30));
-        login_panel.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 230, -1));
+        username_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        login_panel.add(username_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
 
-        jButton4.setText("Forgot your password ?");
-        login_panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+        password_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        password_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_txtActionPerformed(evt);
+            }
+        });
+        login_panel.add(password_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 230, 30));
 
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(0, 102, 204));
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setLabel("Forgot your password?");
+        login_panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+
+        jButton3.setBackground(new java.awt.Color(0, 153, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Login");
-        login_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
+        jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 340, 40));
 
         login_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_panel_logo.png"))); // NOI18N
         login_logo.setToolTipText("");
@@ -229,13 +246,17 @@ public class main extends javax.swing.JFrame {
         login_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_border.png"))); // NOI18N
         login_panel.add(login_border, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 100, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setText("Password :");
-        login_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        password_lbl.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        password_lbl.setText("Password :");
+        login_panel.add(password_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Username :");
-        login_panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        username_lbl.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        username_lbl.setText("Username :");
+        login_panel.add(username_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, -1));
+
+        login_message_lbl.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        login_message_lbl.setText("Please Login to Continue!");
+        login_panel.add(login_message_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 180, -1, -1));
 
         main_panel.add(login_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 470, 490));
 
@@ -324,6 +345,10 @@ public class main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_menu_buttonActionPerformed
 
+    private void password_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_txtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -365,10 +390,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton2;
@@ -381,10 +402,15 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton9;
     private javax.swing.JLabel login_border;
     private javax.swing.JLabel login_logo;
+    private javax.swing.JLabel login_message_lbl;
     private javax.swing.JPanel login_panel;
     private javax.swing.JPanel main_panel;
     private javax.swing.JToggleButton menu_button;
     private javax.swing.ButtonGroup menu_button_group;
     private javax.swing.JPanel menu_panel;
+    private javax.swing.JLabel password_lbl;
+    private javax.swing.JPasswordField password_txt;
+    private javax.swing.JLabel username_lbl;
+    private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
 }
