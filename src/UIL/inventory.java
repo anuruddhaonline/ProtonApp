@@ -36,6 +36,12 @@ public class inventory extends javax.swing.JFrame {
         pack_size_txt = new javax.swing.JTextField();
         product_category_cmb = new javax.swing.JComboBox();
         product_unit_cmb = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -48,30 +54,54 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Inventory");
-        inventory_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jLabel1.setText("Product Category :");
+        inventory_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         product_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 230, 30));
+        inventory_panel.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 230, 30));
 
         selling_price_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         selling_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(selling_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 230, 30));
+        inventory_panel.add(selling_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 230, 30));
 
         product_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(product_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 230, 30));
+        inventory_panel.add(product_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 230, 30));
 
         pack_size_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         pack_size_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 230, 30));
+        inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 230, 30));
 
         product_category_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 220, 30));
+        inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 220, 30));
 
         product_unit_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, 220, 30));
+        inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 220, 30));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Inventory");
+        inventory_panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Product ID :");
+        inventory_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Product Name :");
+        inventory_panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Pack Size :");
+        inventory_panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Selling Price :");
+        inventory_panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Unit of Measure :");
+        inventory_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -116,6 +146,12 @@ public class inventory extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel inventory_panel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField pack_size_txt;
     private javax.swing.JComboBox product_category_cmb;
     private javax.swing.JTextField product_id_txt;
