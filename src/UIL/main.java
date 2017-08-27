@@ -36,6 +36,8 @@ public class main extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         
+        menu_panel.setVisible(false);
+        
     }
 
     /**
@@ -48,10 +50,11 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         menu_button_group = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        header_panel = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        menu_button = new javax.swing.JToggleButton();
+        menu_panel = new javax.swing.JPanel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
@@ -62,20 +65,24 @@ public class main extends javax.swing.JFrame {
         jToggleButton8 = new javax.swing.JToggleButton();
         jToggleButton9 = new javax.swing.JToggleButton();
         jToggleButton10 = new javax.swing.JToggleButton();
-        jPanel3 = new javax.swing.JPanel();
+        main_panel = new javax.swing.JPanel();
+        login_panel = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jButton4 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        login_logo = new javax.swing.JLabel();
+        login_border = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        header_panel.setBackground(new java.awt.Color(204, 255, 0));
+        header_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Minimize");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +90,7 @@ public class main extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, -1, -1));
+        header_panel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, -1, -1));
 
         jButton1.setText("Close");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -91,12 +98,20 @@ public class main extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, -1, -1));
+        header_panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
+        menu_button.setText("jToggleButton11");
+        menu_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_buttonActionPerformed(evt);
+            }
+        });
+        header_panel.add(menu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 50));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(header_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
+
+        menu_panel.setBackground(new java.awt.Color(255, 51, 51));
+        menu_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menu_button_group.add(jToggleButton1);
         jToggleButton1.setText("HELP");
@@ -105,7 +120,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
+        menu_panel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
         menu_button_group.add(jToggleButton2);
         jToggleButton2.setText("NOTI");
@@ -114,7 +129,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, -1));
+        menu_panel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, -1));
 
         menu_button_group.add(jToggleButton3);
         jToggleButton3.setText("DASH");
@@ -123,7 +138,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 140, -1));
+        menu_panel.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 140, -1));
 
         menu_button_group.add(jToggleButton4);
         jToggleButton4.setText("INVEN");
@@ -132,7 +147,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, -1));
+        menu_panel.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, -1));
 
         menu_button_group.add(jToggleButton5);
         jToggleButton5.setText("PURCH");
@@ -141,7 +156,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
+        menu_panel.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
 
         menu_button_group.add(jToggleButton6);
         jToggleButton6.setText("PROD");
@@ -150,7 +165,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
+        menu_panel.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
 
         menu_button_group.add(jToggleButton7);
         jToggleButton7.setText("SALES");
@@ -159,7 +174,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
+        menu_panel.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
 
         menu_button_group.add(jToggleButton8);
         jToggleButton8.setText("CUS");
@@ -168,7 +183,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton8ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, -1));
+        menu_panel.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, -1));
 
         menu_button_group.add(jToggleButton9);
         jToggleButton9.setText("SUP");
@@ -177,7 +192,7 @@ public class main extends javax.swing.JFrame {
                 jToggleButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
+        menu_panel.add(jToggleButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
 
         menu_button_group.add(jToggleButton10);
         jToggleButton10.setText("SETT");
@@ -186,28 +201,45 @@ public class main extends javax.swing.JFrame {
                 jToggleButton10ActionPerformed(evt);
             }
         });
-        jPanel2.add(jToggleButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, -1));
+        menu_panel.add(jToggleButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
+        getContentPane().add(menu_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
-        jPanel3.setBackground(new java.awt.Color(102, 255, 0));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 230, -1));
-        jPanel3.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 230, -1));
+        main_panel.setBackground(new java.awt.Color(255, 255, 255));
+        main_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Password :");
-        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
+        login_panel.setBackground(new java.awt.Color(255, 255, 255));
+        login_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Username :");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
-
-        jButton3.setText("Login");
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 300, -1, -1));
+        jTextField1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        login_panel.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 230, 30));
+        login_panel.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 230, -1));
 
         jButton4.setText("Forgot your password ?");
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
+        login_panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, 590, 390));
+        jButton3.setText("Login");
+        login_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
+
+        login_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_panel_logo.png"))); // NOI18N
+        login_logo.setToolTipText("");
+        login_panel.add(login_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 9, -1, -1));
+
+        login_border.setBackground(new java.awt.Color(255, 255, 255));
+        login_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_border.png"))); // NOI18N
+        login_panel.add(login_border, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 100, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Password :");
+        login_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setText("Username :");
+        login_panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+
+        main_panel.add(login_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 470, 490));
+
+        getContentPane().add(main_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -277,6 +309,21 @@ public class main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
+    private void menu_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_buttonActionPerformed
+        
+        if(menu_button.isSelected()){
+            
+            menu_panel.setVisible(true);
+        }
+        
+        else{
+            
+            menu_panel.setVisible(false);
+            
+        }
+        
+    }//GEN-LAST:event_menu_buttonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -313,15 +360,13 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel header_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
@@ -334,6 +379,12 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JToggleButton jToggleButton8;
     private javax.swing.JToggleButton jToggleButton9;
+    private javax.swing.JLabel login_border;
+    private javax.swing.JLabel login_logo;
+    private javax.swing.JPanel login_panel;
+    private javax.swing.JPanel main_panel;
+    private javax.swing.JToggleButton menu_button;
     private javax.swing.ButtonGroup menu_button_group;
+    private javax.swing.JPanel menu_panel;
     // End of variables declaration//GEN-END:variables
 }
