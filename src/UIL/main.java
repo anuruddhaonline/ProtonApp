@@ -212,9 +212,11 @@ public class main extends javax.swing.JFrame {
         login_panel.setBackground(new java.awt.Color(255, 255, 255));
         login_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        username_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         username_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         login_panel.add(username_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
 
+        password_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         password_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         password_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,9 +230,9 @@ public class main extends javax.swing.JFrame {
         jButton4.setContentAreaFilled(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton4.setLabel("Forgot your password?");
-        login_panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        login_panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 340, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 0));
+        jButton3.setBackground(new java.awt.Color(0, 153, 51));
         jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Login");
