@@ -17,6 +17,8 @@ public class inventory extends javax.swing.JFrame {
      */
     public inventory() {
         initComponents();
+        
+        readymade_product_type_tb.setSelected(true);
     }
 
     /**
@@ -28,6 +30,7 @@ public class inventory extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        product_type_group = new javax.swing.ButtonGroup();
         inventory_panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         product_id_txt = new javax.swing.JTextField();
@@ -42,6 +45,13 @@ public class inventory extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        assembled_product_type_tb = new javax.swing.JToggleButton();
+        readymade_product_type_tb = new javax.swing.JToggleButton();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        component_product_type_tb = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -54,8 +64,8 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Product Category :");
-        inventory_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        jLabel1.setText("Ready-made Product");
+        inventory_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, -1, -1));
 
         product_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
@@ -103,10 +113,74 @@ public class inventory extends javax.swing.JFrame {
         jLabel7.setText("Unit of Measure :");
         inventory_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Product Category :");
+        inventory_panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+
+        product_type_group.add(assembled_product_type_tb);
+        assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        assembled_product_type_tb.setContentAreaFilled(false);
+        assembled_product_type_tb.setRolloverEnabled(false);
+        assembled_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        assembled_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assembled_product_type_tbActionPerformed(evt);
+            }
+        });
+        inventory_panel.add(assembled_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 40, -1));
+
+        product_type_group.add(readymade_product_type_tb);
+        readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        readymade_product_type_tb.setContentAreaFilled(false);
+        readymade_product_type_tb.setRolloverEnabled(false);
+        readymade_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        readymade_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                readymade_product_type_tbActionPerformed(evt);
+            }
+        });
+        inventory_panel.add(readymade_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 40, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Product Type :");
+        inventory_panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setText("Assembled Product");
+        inventory_panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setText("Component Product");
+        inventory_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
+
+        product_type_group.add(component_product_type_tb);
+        component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        component_product_type_tb.setContentAreaFilled(false);
+        component_product_type_tb.setRolloverEnabled(false);
+        component_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        component_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                component_product_type_tbActionPerformed(evt);
+            }
+        });
+        inventory_panel.add(component_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 40, -1));
+
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void assembled_product_type_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assembled_product_type_tbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assembled_product_type_tbActionPerformed
+
+    private void readymade_product_type_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_readymade_product_type_tbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_readymade_product_type_tbActionPerformed
+
+    private void component_product_type_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_component_product_type_tbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_component_product_type_tbActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,19 +218,27 @@ public class inventory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton assembled_product_type_tb;
+    private javax.swing.JToggleButton component_product_type_tb;
     private javax.swing.JPanel inventory_panel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField pack_size_txt;
     private javax.swing.JComboBox product_category_cmb;
     private javax.swing.JTextField product_id_txt;
     private javax.swing.JTextField product_name_txt;
+    private javax.swing.ButtonGroup product_type_group;
     private javax.swing.JComboBox product_unit_cmb;
+    private javax.swing.JToggleButton readymade_product_type_tb;
     private javax.swing.JTextField selling_price_txt;
     // End of variables declaration//GEN-END:variables
 }
