@@ -52,6 +52,14 @@ public class inventory extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         component_product_type_tb = new javax.swing.JToggleButton();
+        jLabel12 = new javax.swing.JLabel();
+        inventory_id_txt = new javax.swing.JTextField();
+        bin_location_txt = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        min_stock_txt = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        max_stock_txt = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -164,6 +172,38 @@ public class inventory extends javax.swing.JFrame {
         });
         inventory_panel.add(component_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 40, -1));
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setText("Inventory ID :");
+        inventory_panel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, -1, -1));
+
+        inventory_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        inventory_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        inventory_panel.add(inventory_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 100, 230, 30));
+
+        bin_location_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        bin_location_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        inventory_panel.add(bin_location_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 150, 230, 30));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setText("Bin Location :");
+        inventory_panel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, -1, -1));
+
+        min_stock_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        min_stock_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        inventory_panel.add(min_stock_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 190, 230, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Min. Stock Level :");
+        inventory_panel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, -1));
+
+        max_stock_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        max_stock_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        inventory_panel.add(max_stock_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, 230, 30));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("Max. Stocl Level :");
+        inventory_panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
+
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -218,11 +258,17 @@ public class inventory extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton assembled_product_type_tb;
+    private javax.swing.JTextField bin_location_txt;
     private javax.swing.JToggleButton component_product_type_tb;
+    private javax.swing.JTextField inventory_id_txt;
     private javax.swing.JPanel inventory_panel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -231,6 +277,8 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField max_stock_txt;
+    private javax.swing.JTextField min_stock_txt;
     private javax.swing.JTextField pack_size_txt;
     private javax.swing.JComboBox product_category_cmb;
     private javax.swing.JTextField product_id_txt;
