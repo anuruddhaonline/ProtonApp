@@ -12,11 +12,12 @@ package UIL;
  */
 public class quick_menu extends javax.swing.JFrame {
 
-    /**
-     * Creates new form quick_menu
-     */
+    stock_adjustment stock_adjustment = new stock_adjustment();
+    
     public quick_menu() {
         initComponents();
+        stock_adjustment.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -31,7 +32,7 @@ public class quick_menu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         view_invoice_quick_btn = new javax.swing.JButton();
         view_supplier_quick_btn = new javax.swing.JButton();
-        sock_adjustment_quick_btn = new javax.swing.JButton();
+        stock_adjustment_quick_btn = new javax.swing.JButton();
         warehouse_transfer_quick_btn = new javax.swing.JButton();
         view_purchase_quick_btn = new javax.swing.JButton();
         supplier_return_quick_btn = new javax.swing.JButton();
@@ -53,11 +54,16 @@ public class quick_menu extends javax.swing.JFrame {
         view_supplier_quick_btn.setText("v sup");
         jPanel2.add(view_supplier_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 180, 185, 50));
 
-        sock_adjustment_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon.png"))); // NOI18N
-        sock_adjustment_quick_btn.setContentAreaFilled(false);
-        sock_adjustment_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon_hover.png"))); // NOI18N
-        sock_adjustment_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon_hover.png"))); // NOI18N
-        jPanel2.add(sock_adjustment_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 60, 185, 50));
+        stock_adjustment_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon.png"))); // NOI18N
+        stock_adjustment_quick_btn.setContentAreaFilled(false);
+        stock_adjustment_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon_hover.png"))); // NOI18N
+        stock_adjustment_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon_hover.png"))); // NOI18N
+        stock_adjustment_quick_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stock_adjustment_quick_btnActionPerformed(evt);
+            }
+        });
+        jPanel2.add(stock_adjustment_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 60, 185, 50));
 
         warehouse_transfer_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/warehouse_transfer_icon.png"))); // NOI18N
         warehouse_transfer_quick_btn.setContentAreaFilled(false);
@@ -80,6 +86,12 @@ public class quick_menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void stock_adjustment_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_adjustment_quick_btnActionPerformed
+        
+            stock_adjustment.setVisible(true);
+        
+    }//GEN-LAST:event_stock_adjustment_quick_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,7 +131,7 @@ public class quick_menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton sock_adjustment_quick_btn;
+    private javax.swing.JButton stock_adjustment_quick_btn;
     private javax.swing.JButton supplier_return_quick_btn;
     private javax.swing.JButton view_invoice_quick_btn;
     private javax.swing.JButton view_purchase_quick_btn;
