@@ -61,6 +61,8 @@ public class sales extends javax.swing.JFrame {
         pack_size_txt = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         item_count_lbl = new javax.swing.JLabel();
+        save_and_print_btn = new javax.swing.JButton();
+        complete_invoice_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -205,6 +207,12 @@ public class sales extends javax.swing.JFrame {
         item_count_lbl.setText("LKR 0.00");
         jPanel1.add(item_count_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, -1, -1));
 
+        save_and_print_btn.setText("Save & Print");
+        jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 670, -1, -1));
+
+        complete_invoice_btn.setText("Complete");
+        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 670, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -248,6 +256,7 @@ public class sales extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField available_txt;
     private javax.swing.JLabel balance_lbl;
+    private javax.swing.JButton complete_invoice_btn;
     private javax.swing.JTextField customer_name_txt;
     private javax.swing.JTextField discount_txt;
     private javax.swing.JLabel gross_amount_lbl;
@@ -278,6 +287,7 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JTextField product_id_txt7;
     private javax.swing.JTable product_list_table;
     private javax.swing.JTextField quantity_txt;
+    private javax.swing.JButton save_and_print_btn;
     private javax.swing.JButton search_customer_btn;
     // End of variables declaration//GEN-END:variables
 }
