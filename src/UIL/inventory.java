@@ -60,6 +60,7 @@ public class inventory extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         max_stock_txt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        add_product_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -204,6 +205,9 @@ public class inventory extends javax.swing.JFrame {
         jLabel15.setText("Max. Stocl Level :");
         inventory_panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
 
+        add_product_btn.setText("Save Product");
+        inventory_panel.add(add_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
+
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -257,6 +261,7 @@ public class inventory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_product_btn;
     private javax.swing.JToggleButton assembled_product_type_tb;
     private javax.swing.JTextField bin_location_txt;
     private javax.swing.JToggleButton component_product_type_tb;
