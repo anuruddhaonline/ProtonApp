@@ -209,22 +209,31 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(max_stock_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 230, 230, 30));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setText("Max. Stocl Level :");
+        jLabel15.setText("Max. Stock Level :");
         inventory_panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
 
+        add_product_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_product_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_product_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_product_btn.setText("Save Product");
         add_product_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 add_product_btnActionPerformed(evt);
             }
         });
-        inventory_panel.add(add_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
+        inventory_panel.add(add_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, -1, -1));
 
+        stock_adjust_btn.setBackground(new java.awt.Color(34, 155, 60));
+        stock_adjust_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        stock_adjust_btn.setForeground(new java.awt.Color(255, 255, 255));
         stock_adjust_btn.setText("Stock Adjustment");
-        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, -1, -1));
+        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, -1, -1));
 
+        warehouse_transfers_btn.setBackground(new java.awt.Color(34, 155, 60));
+        warehouse_transfers_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        warehouse_transfers_btn.setForeground(new java.awt.Color(255, 255, 255));
         warehouse_transfers_btn.setText("Warehouse Transfers");
-        inventory_panel.add(warehouse_transfers_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, -1, -1));
+        inventory_panel.add(warehouse_transfers_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, -1, -1));
 
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 

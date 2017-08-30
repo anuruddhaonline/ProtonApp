@@ -29,65 +29,54 @@ public class quick_menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
+        view_invoice_quick_btn = new javax.swing.JButton();
+        view_supplier_quick_btn = new javax.swing.JButton();
+        sock_adjustment_quick_btn = new javax.swing.JButton();
+        warehouse_transfer_quick_btn = new javax.swing.JButton();
+        view_purchase_quick_btn = new javax.swing.JButton();
+        supplier_return_quick_btn = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(650, 50, 0, 0));
+        setBounds(new java.awt.Rectangle(485, 55, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(310, 350));
+        setPreferredSize(new java.awt.Dimension(400, 250));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 2, true));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 54));
+        view_invoice_quick_btn.setText("v invoice");
+        jPanel2.add(view_invoice_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 185, 50));
 
-        jButton2.setText("jButton1");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 90, 54));
+        view_supplier_quick_btn.setText("v sup");
+        jPanel2.add(view_supplier_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 180, 185, 50));
 
-        jButton3.setText("jButton1");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 90, 54));
+        sock_adjustment_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon.png"))); // NOI18N
+        sock_adjustment_quick_btn.setContentAreaFilled(false);
+        sock_adjustment_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon_hover.png"))); // NOI18N
+        sock_adjustment_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon_hover.png"))); // NOI18N
+        jPanel2.add(sock_adjustment_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 60, 185, 50));
 
-        jButton4.setText("jButton1");
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 90, 54));
+        warehouse_transfer_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/warehouse_transfer_icon.png"))); // NOI18N
+        warehouse_transfer_quick_btn.setContentAreaFilled(false);
+        warehouse_transfer_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/warehouse_transfer_icon_hover.png"))); // NOI18N
+        warehouse_transfer_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/warehouse_transfer_icon_hover.png"))); // NOI18N
+        jPanel2.add(warehouse_transfer_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 185, 50));
 
-        jButton5.setText("jButton1");
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 90, 54));
+        view_purchase_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_purchase_icon.png"))); // NOI18N
+        view_purchase_quick_btn.setContentAreaFilled(false);
+        jPanel2.add(view_purchase_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 185, 50));
 
-        jButton6.setText("jButton1");
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 90, 54));
+        supplier_return_quick_btn.setText("s return");
+        jPanel2.add(supplier_return_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 120, 185, 50));
 
-        jButton7.setText("jButton1");
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, 54));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Quick Launch");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
-        jButton8.setText("jButton1");
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 90, 54));
-
-        jButton9.setText("jButton1");
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 90, 54));
-
-        jButton10.setText("jButton1");
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 90, 54));
-
-        jButton11.setText("jButton1");
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 90, 54));
-
-        jButton12.setText("jButton1");
-        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 190, 90, 54));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 350));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 250));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -128,18 +117,13 @@ public class quick_menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton sock_adjustment_quick_btn;
+    private javax.swing.JButton supplier_return_quick_btn;
+    private javax.swing.JButton view_invoice_quick_btn;
+    private javax.swing.JButton view_purchase_quick_btn;
+    private javax.swing.JButton view_supplier_quick_btn;
+    private javax.swing.JButton warehouse_transfer_quick_btn;
     // End of variables declaration//GEN-END:variables
 }
