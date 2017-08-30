@@ -61,6 +61,8 @@ public class inventory extends javax.swing.JFrame {
         max_stock_txt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         add_product_btn = new javax.swing.JButton();
+        stock_adjust_btn = new javax.swing.JButton();
+        warehouse_transfers_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -208,6 +210,12 @@ public class inventory extends javax.swing.JFrame {
         add_product_btn.setText("Save Product");
         inventory_panel.add(add_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
 
+        stock_adjust_btn.setText("Stock Adjustment");
+        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 20, -1, -1));
+
+        warehouse_transfers_btn.setText("Warehouse Transfers");
+        inventory_panel.add(warehouse_transfers_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, -1, -1));
+
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -292,5 +300,7 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JComboBox product_unit_cmb;
     private javax.swing.JToggleButton readymade_product_type_tb;
     private javax.swing.JTextField selling_price_txt;
+    private javax.swing.JButton stock_adjust_btn;
+    private javax.swing.JButton warehouse_transfers_btn;
     // End of variables declaration//GEN-END:variables
 }
