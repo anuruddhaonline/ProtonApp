@@ -56,16 +56,16 @@ public class main extends javax.swing.JFrame {
         menu_button = new javax.swing.JToggleButton();
         jToggleButton11 = new javax.swing.JToggleButton();
         menu_panel = new javax.swing.JPanel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
-        jToggleButton5 = new javax.swing.JToggleButton();
-        jToggleButton6 = new javax.swing.JToggleButton();
-        jToggleButton7 = new javax.swing.JToggleButton();
-        jToggleButton8 = new javax.swing.JToggleButton();
-        jToggleButton9 = new javax.swing.JToggleButton();
-        jToggleButton10 = new javax.swing.JToggleButton();
+        help_tb = new javax.swing.JToggleButton();
+        notification_tb = new javax.swing.JToggleButton();
+        dashboard_tb = new javax.swing.JToggleButton();
+        inventory_tb = new javax.swing.JToggleButton();
+        purchase_tb = new javax.swing.JToggleButton();
+        production_tb = new javax.swing.JToggleButton();
+        invoice_tb = new javax.swing.JToggleButton();
+        customer_tb = new javax.swing.JToggleButton();
+        supplier_tb = new javax.swing.JToggleButton();
+        settings_tb = new javax.swing.JToggleButton();
         main_panel = new javax.swing.JPanel();
         login_panel = new javax.swing.JPanel();
         username_txt = new javax.swing.JTextField();
@@ -118,95 +118,95 @@ public class main extends javax.swing.JFrame {
         menu_panel.setBackground(new java.awt.Color(255, 51, 51));
         menu_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        menu_button_group.add(jToggleButton1);
-        jToggleButton1.setText("HELP");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(help_tb);
+        help_tb.setText("HELP");
+        help_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                help_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
+        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
 
-        menu_button_group.add(jToggleButton2);
-        jToggleButton2.setText("NOTI");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(notification_tb);
+        notification_tb.setText("NOTI");
+        notification_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                notification_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, -1));
+        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, -1));
 
-        menu_button_group.add(jToggleButton3);
-        jToggleButton3.setText("DASH");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(dashboard_tb);
+        dashboard_tb.setText("DASH");
+        dashboard_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                dashboard_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 140, -1));
+        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 140, -1));
 
-        menu_button_group.add(jToggleButton4);
-        jToggleButton4.setText("INVEN");
-        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(inventory_tb);
+        inventory_tb.setText("INVEN");
+        inventory_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton4ActionPerformed(evt);
+                inventory_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, -1));
+        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, -1));
 
-        menu_button_group.add(jToggleButton5);
-        jToggleButton5.setText("PURCH");
-        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(purchase_tb);
+        purchase_tb.setText("PURCH");
+        purchase_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton5ActionPerformed(evt);
+                purchase_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
+        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
 
-        menu_button_group.add(jToggleButton6);
-        jToggleButton6.setText("PROD");
-        jToggleButton6.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(production_tb);
+        production_tb.setText("PROD");
+        production_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton6ActionPerformed(evt);
+                production_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
+        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
 
-        menu_button_group.add(jToggleButton7);
-        jToggleButton7.setText("SALES");
-        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(invoice_tb);
+        invoice_tb.setText("INVOICE");
+        invoice_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton7ActionPerformed(evt);
+                invoice_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
+        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
 
-        menu_button_group.add(jToggleButton8);
-        jToggleButton8.setText("CUS");
-        jToggleButton8.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(customer_tb);
+        customer_tb.setText("CUS");
+        customer_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton8ActionPerformed(evt);
+                customer_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, -1));
+        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, -1));
 
-        menu_button_group.add(jToggleButton9);
-        jToggleButton9.setText("SUP");
-        jToggleButton9.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(supplier_tb);
+        supplier_tb.setText("SUP");
+        supplier_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton9ActionPerformed(evt);
+                supplier_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
+        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
 
-        menu_button_group.add(jToggleButton10);
-        jToggleButton10.setText("SETT");
-        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+        menu_button_group.add(settings_tb);
+        settings_tb.setText("SETT");
+        settings_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton10ActionPerformed(evt);
+                settings_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(jToggleButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, -1));
+        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, -1));
 
         getContentPane().add(menu_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
@@ -281,60 +281,60 @@ public class main extends javax.swing.JFrame {
         //notifications.setState(ICONIFIED);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+    private void dashboard_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboard_tbActionPerformed
        dashboard.setVisible(true);
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    }//GEN-LAST:event_dashboard_tbActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void notification_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notification_tbActionPerformed
         notifications.setVisible(true);
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }//GEN-LAST:event_notification_tbActionPerformed
 
-    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+    private void customer_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_tbActionPerformed
         
         customers.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton8ActionPerformed
+    }//GEN-LAST:event_customer_tbActionPerformed
 
-    private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
+    private void supplier_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_tbActionPerformed
         
         suppliers.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton9ActionPerformed
+    }//GEN-LAST:event_supplier_tbActionPerformed
 
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+    private void inventory_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventory_tbActionPerformed
         
         inventory.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
+    }//GEN-LAST:event_inventory_tbActionPerformed
 
-    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+    private void purchase_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase_tbActionPerformed
        
         purchase.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton5ActionPerformed
+    }//GEN-LAST:event_purchase_tbActionPerformed
 
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+    private void production_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_production_tbActionPerformed
         
         production.setVisible(true);
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
+    }//GEN-LAST:event_production_tbActionPerformed
 
-    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+    private void invoice_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoice_tbActionPerformed
         
         sales.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton7ActionPerformed
+    }//GEN-LAST:event_invoice_tbActionPerformed
 
-    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
+    private void settings_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_tbActionPerformed
         
         settings.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton10ActionPerformed
+    }//GEN-LAST:event_settings_tbActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void help_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_help_tbActionPerformed
         
         help.setVisible(true);
         
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_help_tbActionPerformed
 
     private void menu_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_buttonActionPerformed
         
@@ -391,22 +391,17 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton customer_tb;
+    private javax.swing.JToggleButton dashboard_tb;
     private javax.swing.JPanel header_panel;
+    private javax.swing.JToggleButton help_tb;
+    private javax.swing.JToggleButton inventory_tb;
+    private javax.swing.JToggleButton invoice_tb;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton11;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
-    private javax.swing.JToggleButton jToggleButton5;
-    private javax.swing.JToggleButton jToggleButton6;
-    private javax.swing.JToggleButton jToggleButton7;
-    private javax.swing.JToggleButton jToggleButton8;
-    private javax.swing.JToggleButton jToggleButton9;
     private javax.swing.JLabel login_border;
     private javax.swing.JLabel login_logo;
     private javax.swing.JLabel login_message_lbl;
@@ -415,8 +410,13 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton menu_button;
     private javax.swing.ButtonGroup menu_button_group;
     private javax.swing.JPanel menu_panel;
+    private javax.swing.JToggleButton notification_tb;
     private javax.swing.JLabel password_lbl;
     private javax.swing.JPasswordField password_txt;
+    private javax.swing.JToggleButton production_tb;
+    private javax.swing.JToggleButton purchase_tb;
+    private javax.swing.JToggleButton settings_tb;
+    private javax.swing.JToggleButton supplier_tb;
     private javax.swing.JLabel username_lbl;
     private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables

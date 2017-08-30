@@ -56,7 +56,6 @@ public class inventory extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1230, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         inventory_panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -65,29 +64,29 @@ public class inventory extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Ready-made Product");
-        inventory_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, -1, -1));
+        inventory_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 410, -1, -1));
 
         product_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 230, 30));
+        inventory_panel.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 230, 30));
 
         selling_price_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         selling_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(selling_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 230, 30));
+        inventory_panel.add(selling_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 230, 30));
 
         product_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(product_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 230, 30));
+        inventory_panel.add(product_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 230, 30));
 
         pack_size_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         pack_size_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 230, 30));
+        inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 230, 30));
 
         product_category_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 220, 30));
+        inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 220, 30));
 
         product_unit_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 220, 30));
+        inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 220, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Inventory");
@@ -95,27 +94,27 @@ public class inventory extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Product ID :");
-        inventory_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        inventory_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Product Name :");
-        inventory_panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        inventory_panel.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Pack Size :");
-        inventory_panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        inventory_panel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Selling Price :");
-        inventory_panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        inventory_panel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Unit of Measure :");
-        inventory_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        inventory_panel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Product Category :");
-        inventory_panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
+        inventory_panel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         product_type_group.add(assembled_product_type_tb);
         assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
@@ -127,7 +126,7 @@ public class inventory extends javax.swing.JFrame {
                 assembled_product_type_tbActionPerformed(evt);
             }
         });
-        inventory_panel.add(assembled_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 40, -1));
+        inventory_panel.add(assembled_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 40, -1));
 
         product_type_group.add(readymade_product_type_tb);
         readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
@@ -139,19 +138,19 @@ public class inventory extends javax.swing.JFrame {
                 readymade_product_type_tbActionPerformed(evt);
             }
         });
-        inventory_panel.add(readymade_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 40, -1));
+        inventory_panel.add(readymade_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, 40, -1));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Product Type :");
-        inventory_panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, -1, -1));
+        inventory_panel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Assembled Product");
-        inventory_panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 470, -1, -1));
+        inventory_panel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Component Product");
-        inventory_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
+        inventory_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
 
         product_type_group.add(component_product_type_tb);
         component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
@@ -163,7 +162,7 @@ public class inventory extends javax.swing.JFrame {
                 component_product_type_tbActionPerformed(evt);
             }
         });
-        inventory_panel.add(component_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 40, -1));
+        inventory_panel.add(component_product_type_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 40, -1));
 
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
