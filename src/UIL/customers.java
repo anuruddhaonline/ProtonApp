@@ -30,43 +30,27 @@ public class customers extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        address_2_txt = new javax.swing.JTextField();
+        loyalty_card_txt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        honorifics = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        address_1_txt = new javax.swing.JTextField();
+        mobile_txt = new javax.swing.JTextField();
+        email_txt = new javax.swing.JTextField();
+        issue_date_txt = new javax.swing.JTextField();
+        expire_date_txt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        customer_name_txt = new javax.swing.JTextField();
+        hon_combo = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -77,87 +61,51 @@ public class customers extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("E mail :");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 170, -1));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 170, -1));
+        jLabel1.setText("Address Line 02");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        jPanel1.add(address_2_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 170, -1));
+        jPanel1.add(loyalty_card_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Customers");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jLabel3.setText("Salutation :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        honorifics.setText("Honorifics");
+        jPanel1.add(honorifics, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
 
         jLabel4.setText("Name");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
 
-        jLabel5.setText("Contact :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 170, -1));
+        jLabel5.setText("Address Line 01");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        jPanel1.add(address_1_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 170, -1));
+        jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 170, -1));
+        jPanel1.add(email_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 170, -1));
+        jPanel1.add(issue_date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 170, -1));
+        jPanel1.add(expire_date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 170, -1));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Customer Address");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 170, -1));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 170, -1));
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 170, -1));
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 170, -1));
+        jLabel7.setText("Mobile No");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
-        jLabel7.setText("Line 01");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
+        jLabel8.setText("Email");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
-        jLabel8.setText("Line 02");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
+        jLabel9.setText("Issue Date");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
-        jLabel9.setText("City/Town");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, -1, -1));
+        jLabel10.setText("Expire Name");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, -1));
 
-        jLabel10.setText("State/province");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 480, -1, -1));
-
-        jLabel11.setText("Customer Code");
+        jLabel11.setText("Loyalty Card");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 170, -1));
+        jPanel1.add(customer_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 170, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 170, -1));
-        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 140, 170, -1));
-
-        jLabel14.setText("Tax Rate :");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
-
-        jLabel15.setText("Discount :");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 180, -1, -1));
-
-        jLabel16.setText("VAT No :");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, -1, -1));
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 170, -1));
+        hon_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(hon_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 170, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("Delivery Address");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, -1, -1));
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 350, 170, -1));
-        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 170, -1));
-        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, 170, -1));
-        jPanel1.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, 170, -1));
-
-        jLabel18.setText("Line 01");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, -1, -1));
-
-        jLabel19.setText("Line 02");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, -1, -1));
-
-        jLabel20.setText("City/Town");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 440, -1, -1));
-
-        jLabel21.setText("State/province");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, -1, -1));
-
-        jLabel22.setText("Tax No :");
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 100, -1, -1));
-        jPanel1.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 170, -1));
-        jPanel1.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 170, -1));
+        jLabel17.setText("Contact Details");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
 
         jButton1.setText("Create");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +113,11 @@ public class customers extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 470, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setText("Card Details");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, 20));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -212,44 +164,28 @@ public class customers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField address_1_txt;
+    private javax.swing.JTextField address_2_txt;
+    private javax.swing.JTextField customer_name_txt;
+    private javax.swing.JTextField email_txt;
+    private javax.swing.JTextField expire_date_txt;
+    private javax.swing.JComboBox hon_combo;
+    private javax.swing.JLabel honorifics;
+    private javax.swing.JTextField issue_date_txt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField loyalty_card_txt;
+    private javax.swing.JTextField mobile_txt;
     // End of variables declaration//GEN-END:variables
 }

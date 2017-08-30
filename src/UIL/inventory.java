@@ -79,6 +79,11 @@ public class inventory extends javax.swing.JFrame {
 
         product_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        product_id_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                product_id_txtActionPerformed(evt);
+            }
+        });
         inventory_panel.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 230, 30));
 
         selling_price_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -208,6 +213,11 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 230, -1, -1));
 
         add_product_btn.setText("Save Product");
+        add_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_product_btnActionPerformed(evt);
+            }
+        });
         inventory_panel.add(add_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
 
         stock_adjust_btn.setText("Stock Adjustment");
@@ -232,6 +242,62 @@ public class inventory extends javax.swing.JFrame {
     private void component_product_type_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_component_product_type_tbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_component_product_type_tbActionPerformed
+
+    private void add_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_product_btnActionPerformed
+        
+        double packSize =0.0;
+        double sellingPrice=0.0;
+       
+        String productID = product_id_txt.getText();
+        String productName = product_name_txt.getText();
+        packSize = Double.parseDouble(pack_size_txt.getText());
+        sellingPrice = Double.parseDouble(selling_price_txt.getText());
+        String unitOfMes = product_category_cmb.getSelectedItem().toString();
+        String category = product_category_cmb.getSelectedItem().toString();
+        
+        String productType=null;
+        if(readymade_product_type_tb.isSelected()){
+        
+            productType="readyMade";
+        
+        }
+        
+        else if(component_product_type_tb.isSelected()){
+        
+            productType ="componentProduct";
+        
+        }
+        
+        else if(assembled_product_type_tb.isSelected()){
+        
+            productType ="assembledProduct";
+        
+        }
+        
+        
+        
+        if(productID.isEmpty()||productName.isEmpty() || pack_size_txt.getText().isEmpty() || selling_price_txt.getText().isEmpty() || unitOfMes.isEmpty() || category.isEmpty() || productType.isEmpty() ){}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_add_product_btnActionPerformed
+
+    private void product_id_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_id_txtActionPerformed
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_product_id_txtActionPerformed
 
     /**
      * @param args the command line arguments

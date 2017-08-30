@@ -49,7 +49,7 @@ public class sales extends javax.swing.JFrame {
         discount_txt = new javax.swing.JTextField();
         balance_lbl = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        product_id_txt7 = new javax.swing.JTextField();
+        cash_txt = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         quantity_txt = new javax.swing.JTextField();
@@ -160,9 +160,9 @@ public class sales extends javax.swing.JFrame {
         jLabel12.setText("Cash :");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 290, -1, -1));
 
-        product_id_txt7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        product_id_txt7.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(product_id_txt7, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 290, 230, 30));
+        cash_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        cash_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(cash_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 290, 230, 30));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel13.setText("Net Amount :");
@@ -211,12 +211,72 @@ public class sales extends javax.swing.JFrame {
         jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 670, -1, -1));
 
         complete_invoice_btn.setText("Complete");
+        complete_invoice_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complete_invoice_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 670, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void complete_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complete_invoice_btnActionPerformed
+        
+        
+//         int loyaltyCardNo=0;
+//         int packSize=0;
+//         int quantity=0;
+//         double discount=0.0;
+//         double cash=0.0;
+//         double grossAmount=0.0;
+//         double netAmount=0.0;
+//         double balance=0.0;
+//         int itemCount=0;
+        
+        
+        String invoiceId= invoice_id_txt.getText();
+        String customerName= customer_name_txt.getText();
+        int loyaltyCardNo= Integer.parseInt(loyalty_card_txt.getText());
+        String date = invoice_date_txt.getText();
+        String productCode= product_code_txt.getText();
+        int packSize= Integer.parseInt(pack_size_txt.getText());
+        int quantity = Integer.parseInt(quantity_txt.getText());
+        double discount = Double.parseDouble(discount_txt.getText());
+        double cash= Double.parseDouble(cash_txt.getText());
+        String availablity = available_txt.getText();
+        
+        double grossAmount= Double.parseDouble(gross_amount_lbl.getText());
+        double netAmount= Double.parseDouble(net_amount_lbl.getText());
+        double balance= Double.parseDouble(balance_lbl.getText());
+        
+        int itemCount= Integer.parseInt(item_count_lbl.getText());
+        
+        
+        
+        
+        if (invoiceId.isEmpty()|| customerName.isEmpty() || loyalty_card_txt.getText().isEmpty() || date.isEmpty() || productCode.isEmpty() || pack_size_txt.getText().isEmpty() || quantity_txt.getText().isEmpty() || discount_txt.getText().isEmpty() || cash_txt.getText().isEmpty() || availablity.isEmpty() || gross_amount_lbl.getText().isEmpty() || net_amount_lbl.getText().isEmpty() || balance_lbl.getText().isEmpty()|| item_count_lbl.getText().isEmpty()  ){}
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_complete_invoice_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,6 +316,7 @@ public class sales extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField available_txt;
     private javax.swing.JLabel balance_lbl;
+    private javax.swing.JTextField cash_txt;
     private javax.swing.JButton complete_invoice_btn;
     private javax.swing.JTextField customer_name_txt;
     private javax.swing.JTextField discount_txt;
@@ -284,7 +345,6 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JLabel net_amount_lbl;
     private javax.swing.JTextField pack_size_txt;
     private javax.swing.JTextField product_code_txt;
-    private javax.swing.JTextField product_id_txt7;
     private javax.swing.JTable product_list_table;
     private javax.swing.JTextField quantity_txt;
     private javax.swing.JButton save_and_print_btn;

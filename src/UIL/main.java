@@ -8,6 +8,7 @@ package UIL;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -242,6 +243,11 @@ public class main extends javax.swing.JFrame {
         jButton3.setText("Login");
         jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         login_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 340, 40));
 
         login_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_panel_logo.png"))); // NOI18N
@@ -354,6 +360,54 @@ public class main extends javax.swing.JFrame {
     private void password_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_password_txtActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        
+        String username= username_txt.getText();
+        String password = new String(password_txt.getPassword());
+        
+        if(username.isEmpty() ||  password.isEmpty()){
+          
+            
+            
+        }else {
+        
+          int loginAttempts=0;
+          boolean loginStatus = true;
+          
+          while(loginStatus){
+          
+              if(loginAttempts<=3){
+              
+                  if(username.equals("username") && password.equals("password")){
+                  
+                  //dis
+                      
+                  
+                  }
+                  
+                  
+                  //optionPane(retry)
+                  
+              }
+              
+              else{
+              
+                  //closeApplication
+              
+              }
+          
+          
+          }
+          
+            
+        
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
