@@ -76,7 +76,6 @@ public class main extends javax.swing.JFrame {
         username_txt = new javax.swing.JTextField();
         password_txt = new javax.swing.JPasswordField();
         jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         login_logo = new javax.swing.JLabel();
         login_border = new javax.swing.JLabel();
         password_lbl = new javax.swing.JLabel();
@@ -267,19 +266,6 @@ public class main extends javax.swing.JFrame {
         jButton4.setLabel("Forgot your password?");
         login_panel.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 340, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Login");
-        jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        login_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 340, 40));
-
         login_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_panel_logo.png"))); // NOI18N
         login_logo.setToolTipText("");
         login_panel.add(login_logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 9, -1, -1));
@@ -450,7 +436,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton invoice_tb;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel login_border;
     private javax.swing.JLabel login_logo;
