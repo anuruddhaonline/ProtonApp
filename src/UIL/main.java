@@ -26,6 +26,10 @@ public class main extends javax.swing.JFrame {
     settings settings = new settings();
     help help = new help();
     
+    //quick menu
+    
+    quick_menu quick_menu = new quick_menu();
+    
     public main() {
         initComponents();
         
@@ -54,7 +58,7 @@ public class main extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         menu_button = new javax.swing.JToggleButton();
-        jToggleButton11 = new javax.swing.JToggleButton();
+        quick_links_tb = new javax.swing.JToggleButton();
         menu_panel = new javax.swing.JPanel();
         help_tb = new javax.swing.JToggleButton();
         notification_tb = new javax.swing.JToggleButton();
@@ -110,103 +114,129 @@ public class main extends javax.swing.JFrame {
         });
         header_panel.add(menu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 50));
 
-        jToggleButton11.setText("jToggleButton11");
-        header_panel.add(jToggleButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 5, 50, 40));
+        quick_links_tb.setText("jToggleButton11");
+        quick_links_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quick_links_tbActionPerformed(evt);
+            }
+        });
+        header_panel.add(quick_links_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(662, 5, 45, 40));
 
         getContentPane().add(header_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
 
-        menu_panel.setBackground(new java.awt.Color(255, 51, 51));
+        menu_panel.setBackground(new java.awt.Color(31, 36, 39));
         menu_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         menu_button_group.add(help_tb);
-        help_tb.setText("HELP");
+        help_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/help_icon.png"))); // NOI18N
+        help_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/help_icon_icon.png"))); // NOI18N
+        help_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/help_icon_icon.png"))); // NOI18N
         help_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 help_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, -1));
+        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 140, 35));
 
         menu_button_group.add(notification_tb);
-        notification_tb.setText("NOTI");
+        notification_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/notifications_icon.png"))); // NOI18N
+        notification_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/notifications_icon_hover.png"))); // NOI18N
+        notification_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/notifications_icon_hover.png"))); // NOI18N
         notification_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 notification_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, -1));
+        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, 35));
 
         menu_button_group.add(dashboard_tb);
-        dashboard_tb.setText("DASH");
+        dashboard_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_icon.png"))); // NOI18N
+        dashboard_tb.setToolTipText("");
+        dashboard_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_icon_hover.png"))); // NOI18N
+        dashboard_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_icon_hover.png"))); // NOI18N
         dashboard_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dashboard_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 140, -1));
+        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 140, 35));
 
         menu_button_group.add(inventory_tb);
-        inventory_tb.setText("INVEN");
+        inventory_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inventory_icon.png"))); // NOI18N
+        inventory_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inventory_icon_hover.png"))); // NOI18N
+        inventory_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inventory_icon_hover.png"))); // NOI18N
         inventory_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inventory_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, -1));
+        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 140, 35));
 
         menu_button_group.add(purchase_tb);
-        purchase_tb.setText("PURCH");
+        purchase_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purchase_icon.png"))); // NOI18N
+        purchase_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purchase_icon_hover.png"))); // NOI18N
+        purchase_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purchase_icon_hover.png"))); // NOI18N
         purchase_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 purchase_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, -1));
+        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 35));
 
         menu_button_group.add(production_tb);
-        production_tb.setText("PROD");
+        production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon.png"))); // NOI18N
+        production_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon_hover.png"))); // NOI18N
+        production_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon_hover.png"))); // NOI18N
         production_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 production_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 140, -1));
+        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 140, 35));
 
         menu_button_group.add(invoice_tb);
-        invoice_tb.setText("INVOICE");
+        invoice_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sales_icon.png"))); // NOI18N
+        invoice_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sales_icon_hover.png"))); // NOI18N
+        invoice_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sales_icon_hover.png"))); // NOI18N
         invoice_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 invoice_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
+        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 35));
 
         menu_button_group.add(customer_tb);
-        customer_tb.setText("CUS");
+        customer_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_icon.png"))); // NOI18N
+        customer_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_icon_hover.png"))); // NOI18N
+        customer_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_icon_hover.png"))); // NOI18N
         customer_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 customer_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, -1));
+        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 35));
 
         menu_button_group.add(supplier_tb);
-        supplier_tb.setText("SUP");
+        supplier_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suppliers_icon.png"))); // NOI18N
+        supplier_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suppliers_icon_hover.png"))); // NOI18N
+        supplier_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suppliers_icon_hover.png"))); // NOI18N
         supplier_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplier_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 140, -1));
+        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, 35));
 
         menu_button_group.add(settings_tb);
-        settings_tb.setText("SETT");
+        settings_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settings_icon.png"))); // NOI18N
+        settings_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settings_icon_hover.png"))); // NOI18N
+        settings_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settings_icon_hover.png"))); // NOI18N
         settings_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 settings_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, -1));
+        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, 35));
 
         getContentPane().add(menu_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
@@ -355,6 +385,21 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_password_txtActionPerformed
 
+    private void quick_links_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quick_links_tbActionPerformed
+        
+        if(quick_links_tb.isSelected()){
+            
+            quick_menu.setVisible(true);
+        }
+        
+        else{
+            
+            quick_menu.setVisible(false);
+            
+        }
+        
+    }//GEN-LAST:event_quick_links_tbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -401,7 +446,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JToggleButton jToggleButton11;
     private javax.swing.JLabel login_border;
     private javax.swing.JLabel login_logo;
     private javax.swing.JLabel login_message_lbl;
@@ -415,6 +459,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPasswordField password_txt;
     private javax.swing.JToggleButton production_tb;
     private javax.swing.JToggleButton purchase_tb;
+    private javax.swing.JToggleButton quick_links_tb;
     private javax.swing.JToggleButton settings_tb;
     private javax.swing.JToggleButton supplier_tb;
     private javax.swing.JLabel username_lbl;
