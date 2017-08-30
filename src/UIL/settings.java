@@ -30,6 +30,7 @@ public class settings extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -44,6 +45,9 @@ public class settings extends javax.swing.JFrame {
         jLabel1.setText("Settings");
         jLabel1.setToolTipText("");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jButton1.setText("jButton1");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -86,6 +90,7 @@ public class settings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
