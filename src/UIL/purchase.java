@@ -102,7 +102,9 @@ public class purchase extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Total : ");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 600, -1, -1));
-        jPanel1.add(pro_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 160, 20));
+
+        pro_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(pro_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 230, 30));
 
         product_list_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,9 +120,15 @@ public class purchase extends javax.swing.JFrame {
         jScrollPane1.setViewportView(product_list_table);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 1100, 180));
-        jPanel1.add(pur_Id_txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 160, -1));
-        jPanel1.add(pur_code_txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 160, -1));
-        jPanel1.add(pu_orenr_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 160, 30));
+
+        pur_Id_txt1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(pur_Id_txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 230, 30));
+
+        pur_code_txt1.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(pur_code_txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 230, 30));
+
+        pu_orenr_Id.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(pu_orenr_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 230, 30));
 
         save_and_print_btn.setBackground(new java.awt.Color(34, 155, 60));
         save_and_print_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -155,9 +163,12 @@ public class purchase extends javax.swing.JFrame {
         qty_lbl.setText("quantity");
         jPanel1.add(qty_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 600, 110, -1));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Quantity :");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
-        jPanel1.add(qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 160, -1));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
+
+        qty_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 230, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 

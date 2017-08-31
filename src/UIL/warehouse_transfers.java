@@ -52,40 +52,67 @@ public class warehouse_transfers extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Warehouse Transfer");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 160, -1));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Product ID :");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Transfer ID :");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Date :");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText(" Warehouse Source :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Warehouse Destination :");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, -1));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setText("Comments :");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
-        jPanel1.add(pro_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 130, -1));
-        jPanel1.add(trans_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 130, -1));
-        jPanel1.add(date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 130, -1));
-        jPanel1.add(ware_source_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 130, -1));
-        jPanel1.add(ware_dest_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 130, -1));
-        jPanel1.add(com_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 130, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
+        pro_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(pro_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 230, 30));
+
+        trans_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        trans_id_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trans_id_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(trans_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 230, 30));
+
+        date_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 230, 30));
+
+        ware_source_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(ware_source_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 230, 30));
+
+        ware_dest_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(ware_dest_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 230, 30));
+
+        com_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(com_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 230, 30));
+
+        bt_warehouse_complete.setBackground(new java.awt.Color(34, 155, 60));
+        bt_warehouse_complete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        bt_warehouse_complete.setForeground(new java.awt.Color(255, 255, 255));
         bt_warehouse_complete.setText("Complete");
         bt_warehouse_complete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_warehouse_completeActionPerformed(evt);
             }
         });
-        jPanel1.add(bt_warehouse_complete, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 340, -1, -1));
+        jPanel1.add(bt_warehouse_complete, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 400));
 
@@ -107,6 +134,10 @@ public class warehouse_transfers extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_bt_warehouse_completeActionPerformed
+
+    private void trans_id_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trans_id_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_trans_id_txtActionPerformed
 
     /**
      * @param args the command line arguments

@@ -207,16 +207,22 @@ public class sales extends javax.swing.JFrame {
         item_count_lbl.setText("LKR 0.00");
         jPanel1.add(item_count_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 580, -1, -1));
 
+        save_and_print_btn.setBackground(new java.awt.Color(34, 155, 60));
+        save_and_print_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        save_and_print_btn.setForeground(new java.awt.Color(255, 255, 255));
         save_and_print_btn.setText("Save & Print");
-        jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 670, -1, -1));
+        jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 670, -1, -1));
 
+        complete_invoice_btn.setBackground(new java.awt.Color(34, 155, 60));
+        complete_invoice_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        complete_invoice_btn.setForeground(new java.awt.Color(255, 255, 255));
         complete_invoice_btn.setText("Complete");
         complete_invoice_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 complete_invoice_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 670, -1, -1));
+        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 670, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 

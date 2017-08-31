@@ -74,7 +74,7 @@ public class customers extends javax.swing.JFrame {
         jPanel1.add(loyalty_card_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Customers");
+        jLabel2.setText("Loyalty");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         honorifics.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -140,6 +140,9 @@ public class customers extends javax.swing.JFrame {
         jLabel17.setText("Contact Details");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
 
+        jButton1.setBackground(new java.awt.Color(34, 155, 60));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Create");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
