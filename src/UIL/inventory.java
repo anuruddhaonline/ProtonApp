@@ -99,10 +99,10 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 230, 30));
 
         product_category_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 220, 30));
+        inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 230, 30));
 
         product_unit_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 220, 30));
+        inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Inventory");

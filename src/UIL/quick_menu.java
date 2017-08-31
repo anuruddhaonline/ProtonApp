@@ -41,17 +41,22 @@ public class quick_menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(485, 55, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 250));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 0, 51), 2, true));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        view_invoice_quick_btn.setText("v invoice");
+        view_invoice_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/vew_invoice_icon.png"))); // NOI18N
+        view_invoice_quick_btn.setContentAreaFilled(false);
+        view_invoice_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/vew_invoice_icon_hover.png"))); // NOI18N
+        view_invoice_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/vew_invoice_icon_hover.png"))); // NOI18N
         jPanel2.add(view_invoice_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 185, 50));
 
-        view_supplier_quick_btn.setText("v sup");
+        view_supplier_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_suppliers_icon.png"))); // NOI18N
+        view_supplier_quick_btn.setContentAreaFilled(false);
+        view_supplier_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_suppliers_icon_hover.png"))); // NOI18N
+        view_supplier_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_suppliers_icon_hover.png"))); // NOI18N
         jPanel2.add(view_supplier_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 180, 185, 50));
 
         stock_adjustment_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/stock_adjustment_icon.png"))); // NOI18N
@@ -73,10 +78,15 @@ public class quick_menu extends javax.swing.JFrame {
 
         view_purchase_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_purchase_icon.png"))); // NOI18N
         view_purchase_quick_btn.setContentAreaFilled(false);
-        jPanel2.add(view_purchase_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 185, 50));
+        view_purchase_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_purchase_icon_hover.png"))); // NOI18N
+        view_purchase_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_purchase_icon_hover.png"))); // NOI18N
+        jPanel2.add(view_purchase_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 120, 185, 50));
 
-        supplier_return_quick_btn.setText("s return");
-        jPanel2.add(supplier_return_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 120, 185, 50));
+        supplier_return_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/supplier_return_icon.png"))); // NOI18N
+        supplier_return_quick_btn.setContentAreaFilled(false);
+        supplier_return_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/supplier_return_icon_hover.png"))); // NOI18N
+        supplier_return_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/supplier_return_icon_hover.png"))); // NOI18N
+        jPanel2.add(supplier_return_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 185, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Quick Launch");

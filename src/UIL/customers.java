@@ -61,49 +61,82 @@ public class customers extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Address Line 02");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
-        jPanel1.add(address_2_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 170, -1));
-        jPanel1.add(loyalty_card_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 170, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setText("Address Line 02 :");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+
+        address_2_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        address_2_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(address_2_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 230, 30));
+
+        loyalty_card_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        loyalty_card_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(loyalty_card_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Customers");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        honorifics.setText("Honorifics");
-        jPanel1.add(honorifics, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, -1, -1));
+        honorifics.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        honorifics.setText("Honorific :");
+        jPanel1.add(honorifics, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        jLabel4.setText("Name");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Name :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
-        jLabel5.setText("Address Line 01");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
-        jPanel1.add(address_1_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 170, -1));
-        jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 170, -1));
-        jPanel1.add(email_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 170, -1));
-        jPanel1.add(issue_date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 170, -1));
-        jPanel1.add(expire_date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 170, -1));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Address Line 01 :");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
-        jLabel7.setText("Mobile No");
+        address_1_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        address_1_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(address_1_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, 30));
+
+        mobile_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mobile_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 230, 30));
+
+        email_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        email_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(email_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 230, 30));
+
+        issue_date_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        issue_date_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(issue_date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 230, 30));
+
+        expire_date_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        expire_date_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(expire_date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 230, 30));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Mobile No :");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 130, -1, -1));
 
-        jLabel8.setText("Email");
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Email :");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 170, -1, -1));
 
-        jLabel9.setText("Issue Date");
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Issue Date :");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 250, -1, -1));
 
-        jLabel10.setText("Expire Name");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel10.setText("Expire Name :");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, -1, -1));
 
-        jLabel11.setText("Loyalty Card");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, -1, -1));
-        jPanel1.add(customer_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 170, -1));
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel11.setText("Loyalty Card :");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        customer_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        customer_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(customer_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 230, 30));
 
         hon_combo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(hon_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 170, -1));
+        jPanel1.add(hon_combo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 230, 30));
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel17.setText("Contact Details");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
 
@@ -115,7 +148,7 @@ public class customers extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 460, -1, -1));
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel23.setText("Card Details");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, 20));
 
