@@ -30,18 +30,122 @@ public class stock_adjustment extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        pro_id_txt = new javax.swing.JTextField();
+        adj_id_txt = new javax.swing.JTextField();
+        date_txt = new javax.swing.JTextField();
+        ware_txt = new javax.swing.JTextField();
+        reason_txt = new javax.swing.JTextField();
+        qty_txt = new javax.swing.JTextField();
+        value_qty_txt = new javax.swing.JTextField();
+        bt_complete_stock = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(300, 200, 0, 0));
-        setPreferredSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Stock Adjustments");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 130, -1));
+
+        jLabel2.setText("Product ID");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+
+        jLabel3.setText("Adjustment ID");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+
+        jLabel4.setText("Date ");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+
+        jLabel5.setText("Warehouse");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
+        jLabel6.setText("Reason");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+
+        jLabel7.setText("Quantity");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
+
+        jLabel8.setText("Value of quantity ");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
+        jPanel1.add(pro_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 200, -1));
+        jPanel1.add(adj_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 200, -1));
+
+        date_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                date_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 200, -1));
+        jPanel1.add(ware_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 200, -1));
+
+        reason_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reason_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(reason_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 200, -1));
+
+        qty_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qty_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 200, -1));
+        jPanel1.add(value_qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 200, -1));
+
+        bt_complete_stock.setText("Complete");
+        bt_complete_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_complete_stockActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bt_complete_stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void date_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_date_txtActionPerformed
+
+    private void reason_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reason_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reason_txtActionPerformed
+
+    private void qty_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qty_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_qty_txtActionPerformed
+
+    private void bt_complete_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_complete_stockActionPerformed
+        
+
+        String productID= pro_id_txt.getText();
+        String adjustmentID = adj_id_txt.getText();
+        String date=date_txt.getText();
+        String warehouse= ware_txt.getText();
+        String reason= reason_txt.getText();
+        int quantity= Integer.parseInt(qty_txt.getText());
+        int valueOfQuantity = Integer.parseInt(value_qty_txt.getText());
+        
+        if (productID.isEmpty() || adjustmentID.isEmpty() || date.isEmpty() || warehouse.isEmpty() || reason.isEmpty() || qty_txt.getText().isEmpty() || value_qty_txt.getText().isEmpty()){}
+        
+
+
+
+
+    }//GEN-LAST:event_bt_complete_stockActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,6 +183,22 @@ public class stock_adjustment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adj_id_txt;
+    private javax.swing.JButton bt_complete_stock;
+    private javax.swing.JTextField date_txt;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField pro_id_txt;
+    private javax.swing.JTextField qty_txt;
+    private javax.swing.JTextField reason_txt;
+    private javax.swing.JTextField value_qty_txt;
+    private javax.swing.JTextField ware_txt;
     // End of variables declaration//GEN-END:variables
 }
