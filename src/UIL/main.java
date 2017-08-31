@@ -74,6 +74,7 @@ public class main extends javax.swing.JFrame {
         supplier_tb = new javax.swing.JToggleButton();
         settings_tb = new javax.swing.JToggleButton();
         user_icon_btn = new javax.swing.JButton();
+        logout_btn = new javax.swing.JButton();
         main_panel = new javax.swing.JPanel();
         login_panel = new javax.swing.JPanel();
         username_txt = new javax.swing.JTextField();
@@ -269,6 +270,12 @@ public class main extends javax.swing.JFrame {
         user_icon_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         user_icon_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female_hover.png"))); // NOI18N
         menu_panel.add(user_icon_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 90, 90));
+
+        logout_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout_icon.png"))); // NOI18N
+        logout_btn.setContentAreaFilled(false);
+        logout_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logout_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout_icon_hover.png"))); // NOI18N
+        menu_panel.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 140, 30));
 
         getContentPane().add(menu_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
@@ -487,6 +494,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel login_logo;
     private javax.swing.JLabel login_message_lbl;
     private javax.swing.JPanel login_panel;
+    private javax.swing.JButton logout_btn;
     private javax.swing.JPanel main_panel;
     private javax.swing.JToggleButton menu_button;
     private javax.swing.ButtonGroup menu_button_group;
