@@ -27,9 +27,10 @@ public class main extends javax.swing.JFrame {
     settings settings = new settings();
     help help = new help();
     
-    //quick menu
+    //other interfaces
     
     quick_menu quick_menu = new quick_menu();
+    option_pane option_pane = new option_pane();
     
     public main() {
         initComponents();
@@ -60,6 +61,7 @@ public class main extends javax.swing.JFrame {
         close_btn = new javax.swing.JButton();
         menu_button = new javax.swing.JToggleButton();
         quick_links_tb = new javax.swing.JToggleButton();
+        jButton1 = new javax.swing.JButton();
         menu_panel = new javax.swing.JPanel();
         help_tb = new javax.swing.JToggleButton();
         notification_tb = new javax.swing.JToggleButton();
@@ -71,6 +73,7 @@ public class main extends javax.swing.JFrame {
         customer_tb = new javax.swing.JToggleButton();
         supplier_tb = new javax.swing.JToggleButton();
         settings_tb = new javax.swing.JToggleButton();
+        user_icon_btn = new javax.swing.JButton();
         main_panel = new javax.swing.JPanel();
         login_panel = new javax.swing.JPanel();
         username_txt = new javax.swing.JTextField();
@@ -91,24 +94,31 @@ public class main extends javax.swing.JFrame {
         header_panel.setBackground(new java.awt.Color(144, 19, 62));
         header_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        minimize_btn.setText("Minimize");
+        minimize_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minimize_btn.png"))); // NOI18N
+        minimize_btn.setContentAreaFilled(false);
+        minimize_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimize_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/minimize_btn_hover.png"))); // NOI18N
         minimize_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 minimize_btnActionPerformed(evt);
             }
         });
-        header_panel.add(minimize_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 10, -1, -1));
+        header_panel.add(minimize_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1270, 0, 50, 50));
 
-        close_btn.setText("Close");
+        close_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close_button_icon.png"))); // NOI18N
+        close_btn.setContentAreaFilled(false);
+        close_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        close_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/close_button_icon_hover.png"))); // NOI18N
         close_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 close_btnActionPerformed(evt);
             }
         });
-        header_panel.add(close_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, -1, -1));
+        header_panel.add(close_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1315, 0, 50, 50));
 
         menu_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu_icon.png"))); // NOI18N
         menu_button.setContentAreaFilled(false);
+        menu_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menu_button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu_icon_hover.png"))); // NOI18N
         menu_button.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu_icon_hover.png"))); // NOI18N
         menu_button.addActionListener(new java.awt.event.ActionListener() {
@@ -120,6 +130,7 @@ public class main extends javax.swing.JFrame {
 
         quick_links_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quick_launch_icon.png"))); // NOI18N
         quick_links_tb.setContentAreaFilled(false);
+        quick_links_tb.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         quick_links_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quick_launch_icon_hover.png"))); // NOI18N
         quick_links_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quick_launch_icon_hover.png"))); // NOI18N
         quick_links_tb.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +139,14 @@ public class main extends javax.swing.JFrame {
             }
         });
         header_panel.add(quick_links_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(662, 5, 45, 40));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        header_panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
 
         getContentPane().add(header_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
 
@@ -143,7 +162,7 @@ public class main extends javax.swing.JFrame {
                 help_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 140, 35));
+        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 140, 35));
 
         menu_button_group.add(notification_tb);
         notification_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/notifications_icon.png"))); // NOI18N
@@ -154,7 +173,7 @@ public class main extends javax.swing.JFrame {
                 notification_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 140, 35));
+        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 140, 35));
 
         menu_button_group.add(dashboard_tb);
         dashboard_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_icon.png"))); // NOI18N
@@ -166,7 +185,7 @@ public class main extends javax.swing.JFrame {
                 dashboard_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 140, 35));
+        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 35));
 
         menu_button_group.add(inventory_tb);
         inventory_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inventory_icon.png"))); // NOI18N
@@ -177,7 +196,7 @@ public class main extends javax.swing.JFrame {
                 inventory_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 140, 35));
+        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 140, 35));
 
         menu_button_group.add(purchase_tb);
         purchase_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purchase_icon.png"))); // NOI18N
@@ -188,7 +207,7 @@ public class main extends javax.swing.JFrame {
                 purchase_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 35));
+        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 35));
 
         menu_button_group.add(production_tb);
         production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon.png"))); // NOI18N
@@ -199,7 +218,7 @@ public class main extends javax.swing.JFrame {
                 production_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 140, 35));
+        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 35));
 
         menu_button_group.add(invoice_tb);
         invoice_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sales_icon.png"))); // NOI18N
@@ -210,7 +229,7 @@ public class main extends javax.swing.JFrame {
                 invoice_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 35));
+        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, 35));
 
         menu_button_group.add(customer_tb);
         customer_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_icon.png"))); // NOI18N
@@ -221,7 +240,7 @@ public class main extends javax.swing.JFrame {
                 customer_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 35));
+        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, 35));
 
         menu_button_group.add(supplier_tb);
         supplier_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suppliers_icon.png"))); // NOI18N
@@ -232,7 +251,7 @@ public class main extends javax.swing.JFrame {
                 supplier_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, 35));
+        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 140, 35));
 
         menu_button_group.add(settings_tb);
         settings_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settings_icon.png"))); // NOI18N
@@ -243,7 +262,13 @@ public class main extends javax.swing.JFrame {
                 settings_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, 35));
+        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 140, 35));
+
+        user_icon_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female.png"))); // NOI18N
+        user_icon_btn.setContentAreaFilled(false);
+        user_icon_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        user_icon_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female_hover.png"))); // NOI18N
+        menu_panel.add(user_icon_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 90, 90));
 
         getContentPane().add(menu_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
@@ -406,6 +431,12 @@ public class main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_quick_links_tbActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        option_pane.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -450,6 +481,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton help_tb;
     private javax.swing.JToggleButton inventory_tb;
     private javax.swing.JToggleButton invoice_tb;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel login_border;
     private javax.swing.JButton login_btn;
     private javax.swing.JLabel login_logo;
@@ -468,6 +500,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton quick_links_tb;
     private javax.swing.JToggleButton settings_tb;
     private javax.swing.JToggleButton supplier_tb;
+    private javax.swing.JButton user_icon_btn;
     private javax.swing.JLabel username_lbl;
     private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
