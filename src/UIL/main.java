@@ -107,15 +107,21 @@ public class main extends javax.swing.JFrame {
         });
         header_panel.add(close_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 10, -1, -1));
 
-        menu_button.setText("jToggleButton11");
+        menu_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu_icon.png"))); // NOI18N
+        menu_button.setContentAreaFilled(false);
+        menu_button.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu_icon_hover.png"))); // NOI18N
+        menu_button.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu_icon_hover.png"))); // NOI18N
         menu_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menu_buttonActionPerformed(evt);
             }
         });
-        header_panel.add(menu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 50));
+        header_panel.add(menu_button, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
-        quick_links_tb.setText("jToggleButton11");
+        quick_links_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quick_launch_icon.png"))); // NOI18N
+        quick_links_tb.setContentAreaFilled(false);
+        quick_links_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quick_launch_icon_hover.png"))); // NOI18N
+        quick_links_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/quick_launch_icon_hover.png"))); // NOI18N
         quick_links_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quick_links_tbActionPerformed(evt);

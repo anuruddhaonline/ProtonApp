@@ -10,13 +10,14 @@ package UIL;
  *
  * @author ASUS
  */
-public class stock_adjustment extends javax.swing.JFrame {
+public class warehouse_transfers extends javax.swing.JFrame {
 
     /**
-     * Creates new form stock_adjustment
+     * Creates new form warehouse_transfers
      */
-    public stock_adjustment() {
+    public warehouse_transfers() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
     }
 
@@ -32,7 +33,6 @@ public class stock_adjustment extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(300, 200, 0, 0));
         setPreferredSize(new java.awt.Dimension(600, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -60,20 +60,20 @@ public class stock_adjustment extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(stock_adjustment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(stock_adjustment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(stock_adjustment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(stock_adjustment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new stock_adjustment().setVisible(true);
+                new warehouse_transfers().setVisible(true);
             }
         });
     }

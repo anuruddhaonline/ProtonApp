@@ -13,10 +13,10 @@ package UIL;
 public class quick_menu extends javax.swing.JFrame {
 
     stock_adjustment stock_adjustment = new stock_adjustment();
+    warehouse_transfers warehouse_transfers = new warehouse_transfers();
     
     public quick_menu() {
         initComponents();
-        stock_adjustment.setLocationRelativeTo(null);
         
     }
 
@@ -74,6 +74,11 @@ public class quick_menu extends javax.swing.JFrame {
         warehouse_transfer_quick_btn.setContentAreaFilled(false);
         warehouse_transfer_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/warehouse_transfer_icon_hover.png"))); // NOI18N
         warehouse_transfer_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/warehouse_transfer_icon_hover.png"))); // NOI18N
+        warehouse_transfer_quick_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                warehouse_transfer_quick_btnActionPerformed(evt);
+            }
+        });
         jPanel2.add(warehouse_transfer_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 185, 50));
 
         view_purchase_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_purchase_icon.png"))); // NOI18N
@@ -102,6 +107,12 @@ public class quick_menu extends javax.swing.JFrame {
             stock_adjustment.setVisible(true);
         
     }//GEN-LAST:event_stock_adjustment_quick_btnActionPerformed
+
+    private void warehouse_transfer_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warehouse_transfer_quick_btnActionPerformed
+        
+        warehouse_transfers.setVisible(true);
+        
+    }//GEN-LAST:event_warehouse_transfer_quick_btnActionPerformed
 
     /**
      * @param args the command line arguments
