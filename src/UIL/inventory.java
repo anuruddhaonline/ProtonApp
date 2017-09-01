@@ -255,7 +255,7 @@ public class inventory extends javax.swing.JFrame {
         stock_adjust_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stock_adjust_btn.setForeground(new java.awt.Color(255, 255, 255));
         stock_adjust_btn.setText("Stock Adjustment");
-        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, -1, -1));
+        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 20, -1, -1));
 
         warehouse_transfers_btn.setBackground(new java.awt.Color(34, 155, 60));
         warehouse_transfers_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N

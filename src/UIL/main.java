@@ -75,6 +75,8 @@ public class main extends javax.swing.JFrame {
         settings_tb = new javax.swing.JToggleButton();
         user_icon_btn = new javax.swing.JButton();
         logout_btn = new javax.swing.JButton();
+        side_usertype_lbl = new javax.swing.JLabel();
+        side_username_lbl = new javax.swing.JLabel();
         main_panel = new javax.swing.JPanel();
         login_panel = new javax.swing.JPanel();
         username_txt = new javax.swing.JTextField();
@@ -163,7 +165,7 @@ public class main extends javax.swing.JFrame {
                 help_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 140, 35));
+        menu_panel.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 140, 35));
 
         menu_button_group.add(notification_tb);
         notification_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/notifications_icon.png"))); // NOI18N
@@ -174,7 +176,7 @@ public class main extends javax.swing.JFrame {
                 notification_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 140, 35));
+        menu_panel.add(notification_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 140, 35));
 
         menu_button_group.add(dashboard_tb);
         dashboard_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/dashboard_icon.png"))); // NOI18N
@@ -186,7 +188,7 @@ public class main extends javax.swing.JFrame {
                 dashboard_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 230, 140, 35));
+        menu_panel.add(dashboard_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 250, 140, 35));
 
         menu_button_group.add(inventory_tb);
         inventory_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/inventory_icon.png"))); // NOI18N
@@ -197,7 +199,7 @@ public class main extends javax.swing.JFrame {
                 inventory_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 140, 35));
+        menu_panel.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 35));
 
         menu_button_group.add(purchase_tb);
         purchase_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/purchase_icon.png"))); // NOI18N
@@ -208,7 +210,7 @@ public class main extends javax.swing.JFrame {
                 purchase_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 140, 35));
+        menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, 35));
 
         menu_button_group.add(production_tb);
         production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon.png"))); // NOI18N
@@ -219,7 +221,7 @@ public class main extends javax.swing.JFrame {
                 production_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 140, 35));
+        menu_panel.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 370, 140, 35));
 
         menu_button_group.add(invoice_tb);
         invoice_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/sales_icon.png"))); // NOI18N
@@ -230,7 +232,7 @@ public class main extends javax.swing.JFrame {
                 invoice_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 140, 35));
+        menu_panel.add(invoice_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 140, 35));
 
         menu_button_group.add(customer_tb);
         customer_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_icon.png"))); // NOI18N
@@ -241,7 +243,7 @@ public class main extends javax.swing.JFrame {
                 customer_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 140, 35));
+        menu_panel.add(customer_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 450, 140, 35));
 
         menu_button_group.add(supplier_tb);
         supplier_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/suppliers_icon.png"))); // NOI18N
@@ -252,7 +254,7 @@ public class main extends javax.swing.JFrame {
                 supplier_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 140, 35));
+        menu_panel.add(supplier_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 490, 140, 35));
 
         menu_button_group.add(settings_tb);
         settings_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/settings_icon.png"))); // NOI18N
@@ -263,7 +265,7 @@ public class main extends javax.swing.JFrame {
                 settings_tbActionPerformed(evt);
             }
         });
-        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 140, 35));
+        menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 140, 35));
 
         user_icon_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female.png"))); // NOI18N
         user_icon_btn.setContentAreaFilled(false);
@@ -276,6 +278,18 @@ public class main extends javax.swing.JFrame {
         logout_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout_icon_hover.png"))); // NOI18N
         menu_panel.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 140, 30));
+
+        side_usertype_lbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        side_usertype_lbl.setForeground(new java.awt.Color(153, 153, 153));
+        side_usertype_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        side_usertype_lbl.setText("User Type");
+        menu_panel.add(side_usertype_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 140, -1));
+
+        side_username_lbl.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        side_username_lbl.setForeground(new java.awt.Color(0, 102, 204));
+        side_username_lbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        side_username_lbl.setText("Username");
+        menu_panel.add(side_username_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 140, -1));
 
         getContentPane().add(menu_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 140, 720));
 
@@ -507,6 +521,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton purchase_tb;
     private javax.swing.JToggleButton quick_links_tb;
     private javax.swing.JToggleButton settings_tb;
+    private javax.swing.JLabel side_username_lbl;
+    private javax.swing.JLabel side_usertype_lbl;
     private javax.swing.JToggleButton supplier_tb;
     private javax.swing.JButton user_icon_btn;
     private javax.swing.JLabel username_lbl;
