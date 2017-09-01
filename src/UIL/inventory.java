@@ -6,6 +6,10 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ASUS
@@ -387,16 +391,23 @@ public class inventory extends javax.swing.JFrame {
     }//GEN-LAST:event_component_product_type_tbActionPerformed
 
     private void add_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_product_btnActionPerformed
-        
+         try {
         double packSize =0.0;
         double sellingPrice=0.0;
        
-        String productID = product_id_txt.getText();
+        String productID =(product_id_txt.getText());
+
         String productName = product_name_txt.getText();
         packSize = Double.parseDouble(pack_size_txt.getText());
         sellingPrice = Double.parseDouble(selling_price_txt.getText());
         String unitOfMes = product_category_cmb.getSelectedItem().toString();
         String category = product_category_cmb.getSelectedItem().toString();
+        String bin=bin_location_txt.getText();
+        double min=Double.parseDouble(min_stock_txt.getText());
+        double max=Double.parseDouble(max_stock_txt.getText());
+        double value=Double.parseDouble(stock_value_txt.getText());
+        double qty=Double.parseDouble(total_qty_txt.getText());
+        
         
         String productType=null;
         if(readymade_product_type_tb.isSelected()){
@@ -421,11 +432,17 @@ public class inventory extends javax.swing.JFrame {
         
         if(productID.isEmpty()||productName.isEmpty() || pack_size_txt.getText().isEmpty() || selling_price_txt.getText().isEmpty() || unitOfMes.isEmpty() || category.isEmpty() || productType.isEmpty() ){}
         
+         
+            ConnDB.iud("insert into product values('"+productID+"','"+productName+"','"+unitOfMes+"','"+category+"','"+ packSize+"','"+productType+"','"+ sellingPrice+"')");
+              ConnDB.iud("INSERT INTO inventory( product_code, bin_location, min_stock_level, max_stock_level, qty, stock_value) values('"+productID+"','"+bin+"','"+min+"','"+max+"','"+qty+"','"+value+"')");
+         
+         } catch (Exception e) {
+            e.printStackTrace();
+        }
         
         
         
-        
-        
+        System.out.println("");
         
         
         
@@ -443,7 +460,25 @@ public class inventory extends javax.swing.JFrame {
     }//GEN-LAST:event_product_id_txtActionPerformed
 
     private void product_search_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_search_buttonActionPerformed
-        // TODO add your handling code here:
+        ResultSet rs;
+        try {
+            rs = ConnDB.search("select * from product where product_code='"+product_id_txt.getText()+"' ");
+             if(rs.next()){
+                 
+          
+           product_id_txt.setText(rs.getString("product_code"));
+           product_name_txt.setText(rs.getString("product_name"));
+           pack_size_txt.setText(rs.getString("pack_size"));
+           product_unit_cmb.setSelectedItem(rs.getString("unit"));
+           selling_price_txt.setText(rs.getString("selling_price"));
+           product_category_cmb.setSelectedItem(rs.getString("product_category"));
+           
+           
+             }
+        } catch (Exception ex) {
+            Logger.getLogger(inventory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
     }//GEN-LAST:event_product_search_buttonActionPerformed
 
     private void total_qty_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_qty_txtActionPerformed
