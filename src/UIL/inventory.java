@@ -83,6 +83,8 @@ public class inventory extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
+        delete_product_btn = new javax.swing.JButton();
+        update_product_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -355,6 +357,18 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 80, 10, 340));
         inventory_panel.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 1208, 10));
 
+        delete_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
+        delete_product_btn.setToolTipText("Delete Product");
+        delete_product_btn.setContentAreaFilled(false);
+        delete_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        inventory_panel.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 30, 30));
+
+        update_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon.png"))); // NOI18N
+        update_product_btn.setToolTipText("Update Product");
+        update_product_btn.setContentAreaFilled(false);
+        update_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        inventory_panel.add(update_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 30, 30));
+
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -480,6 +494,7 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JToggleButton assembled_product_type_tb;
     private javax.swing.JTextField bin_location_txt;
     private javax.swing.JToggleButton component_product_type_tb;
+    private javax.swing.JButton delete_product_btn;
     private javax.swing.JPanel inventory_panel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -527,6 +542,7 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JTextField supplier_code_txt;
     private javax.swing.JTextField supplier_name_txt;
     private javax.swing.JTextField total_qty_txt;
+    private javax.swing.JButton update_product_btn;
     private javax.swing.JButton warehouse_transfers_btn;
     // End of variables declaration//GEN-END:variables
 }
