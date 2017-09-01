@@ -51,6 +51,7 @@ public class customers extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
+        search_loyalty_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -155,6 +156,11 @@ public class customers extends javax.swing.JFrame {
         jLabel23.setText("Card Details");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, -1, 20));
 
+        search_loyalty_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_loyalty_btn.setContentAreaFilled(false);
+        search_loyalty_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_loyalty_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 30, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -223,5 +229,6 @@ public class customers extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField loyalty_card_txt;
     private javax.swing.JTextField mobile_txt;
+    private javax.swing.JButton search_loyalty_btn;
     // End of variables declaration//GEN-END:variables
 }

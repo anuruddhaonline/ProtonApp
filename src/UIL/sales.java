@@ -63,6 +63,7 @@ public class sales extends javax.swing.JFrame {
         item_count_lbl = new javax.swing.JLabel();
         save_and_print_btn = new javax.swing.JButton();
         complete_invoice_btn = new javax.swing.JButton();
+        search_invoice_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -95,11 +96,11 @@ public class sales extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Customer Name :");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
 
         customer_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         customer_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(customer_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 230, 30));
+        jPanel1.add(customer_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, 230, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel6.setText("Invoice Date :");
@@ -188,8 +189,10 @@ public class sales extends javax.swing.JFrame {
         net_amount_lbl.setText("LKR 0.00");
         jPanel1.add(net_amount_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 620, -1, -1));
 
-        search_customer_btn.setText("jButton1");
-        jPanel1.add(search_customer_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 90, 40, 30));
+        search_customer_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_customer_btn.setContentAreaFilled(false);
+        search_customer_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_customer_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 90, 30, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel18.setText("Pack Size :");
@@ -223,6 +226,11 @@ public class sales extends javax.swing.JFrame {
             }
         });
         jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 670, -1, -1));
+
+        search_invoice_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_invoice_btn.setContentAreaFilled(false);
+        search_invoice_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -355,5 +363,6 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JTextField quantity_txt;
     private javax.swing.JButton save_and_print_btn;
     private javax.swing.JButton search_customer_btn;
+    private javax.swing.JButton search_invoice_btn;
     // End of variables declaration//GEN-END:variables
 }

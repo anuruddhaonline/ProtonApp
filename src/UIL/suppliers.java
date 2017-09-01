@@ -53,6 +53,7 @@ public class suppliers extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        search_supplier_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -122,28 +123,28 @@ public class suppliers extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel17.setText("Contact Details");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
 
         mobile_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 230, 30));
+        jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 110, 230, 30));
 
         office_no_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(office_no_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 230, 30));
+        jPanel1.add(office_no_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 150, 230, 30));
 
         email_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(email_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 230, 30));
+        jPanel1.add(email_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 230, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel18.setText("Mobile No");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, -1, -1));
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel19.setText("Office No");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, -1, -1));
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel20.setText("Email");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, -1, -1));
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(34, 155, 60));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -155,6 +156,11 @@ public class suppliers extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 460, -1, -1));
+
+        search_supplier_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_supplier_btn.setContentAreaFilled(false);
+        search_supplier_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_supplier_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -225,6 +231,7 @@ public class suppliers extends javax.swing.JFrame {
     private javax.swing.JTextField mobile_txt;
     private javax.swing.JTextField office_no_txt;
     private javax.swing.JTextField postal_code_txt;
+    private javax.swing.JButton search_supplier_btn;
     private javax.swing.JTextField sup_code_txt;
     // End of variables declaration//GEN-END:variables
 }
