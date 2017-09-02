@@ -6,9 +6,13 @@
 
 package UIL;
 
+import com.sun.javafx.geom.Vec2d;
+import java.awt.Toolkit;
 import java.sql.ResultSet;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,7 +25,7 @@ public class inventory extends javax.swing.JFrame {
      */
     public inventory() {
         initComponents();
-        
+        createPro();
         readymade_product_type_tb.setSelected(true);
         product_name_txt.grabFocus();
     }
@@ -122,6 +126,11 @@ public class inventory extends javax.swing.JFrame {
 
         pack_size_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         pack_size_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        pack_size_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pack_size_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
 
         product_category_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -163,7 +172,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(assembled_product_type_tb);
         assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         assembled_product_type_tb.setContentAreaFilled(false);
-        assembled_product_type_tb.setRolloverEnabled(false);
         assembled_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         assembled_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +183,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(readymade_product_type_tb);
         readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         readymade_product_type_tb.setContentAreaFilled(false);
-        readymade_product_type_tb.setRolloverEnabled(false);
         readymade_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         readymade_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -199,7 +206,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(component_product_type_tb);
         component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         component_product_type_tb.setContentAreaFilled(false);
-        component_product_type_tb.setRolloverEnabled(false);
         component_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         component_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -335,11 +341,7 @@ public class inventory extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Supplier Code", "Supplier Name", "Purchase Price"
@@ -355,6 +357,11 @@ public class inventory extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Add Price");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         inventory_panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 660, 120, -1));
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -406,7 +413,8 @@ public class inventory extends javax.swing.JFrame {
         double min=Double.parseDouble(min_stock_txt.getText());
         double max=Double.parseDouble(max_stock_txt.getText());
         double value=Double.parseDouble(stock_value_txt.getText());
-        double qty=Double.parseDouble(total_qty_txt.getText());
+        String qty=total_qty_txt.getText();
+        double qty1=Double.parseDouble(qty);
         
         
         String productType=null;
@@ -435,6 +443,23 @@ public class inventory extends javax.swing.JFrame {
          
             ConnDB.iud("insert into product values('"+productID+"','"+productName+"','"+unitOfMes+"','"+category+"','"+ packSize+"','"+productType+"','"+ sellingPrice+"')");
               ConnDB.iud("INSERT INTO inventory( product_code, bin_location, min_stock_level, max_stock_level, qty, stock_value) values('"+productID+"','"+bin+"','"+min+"','"+max+"','"+qty+"','"+value+"')");
+         
+         
+           DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+            Vector v = new Vector();
+
+            for (int i = 0; i < dtm.getRowCount(); ++i) {
+
+                String supCode = dtm.getValueAt(i, 0).toString();
+                String supName = dtm.getValueAt(i, 1).toString();
+                String price =dtm.getValueAt(i, 2).toString();
+                double price1=Double.parseDouble(price);
+                ConnDB.iud("insert into product_purchase(product_code,supplier_name,supplier_code,purchase_price) values('"+productID+"','"+supCode+"','"+supName+"','"+price1+"')");
+
+            }
+         
+         
+         
          
          } catch (Exception e) {
             e.printStackTrace();
@@ -475,6 +500,36 @@ public class inventory extends javax.swing.JFrame {
            
            
              }
+             
+             rs = ConnDB.search("select * from inventory where product_code='"+product_id_txt.getText()+"' ");
+             if(rs.next()){
+                 
+          
+           bin_location_txt.setText(rs.getString("bin_location"));
+           min_stock_txt.setText(rs.getString("min_stock_level"));
+           max_stock_txt.setText(rs.getString("max_stock_level"));
+           total_qty_txt.setText(rs.getString("qty"));
+           stock_value_txt.setText(rs.getString("stock_value"));
+           
+           
+             }
+             
+               
+            DefaultTableModel dtm=(DefaultTableModel)jTable1.getModel();
+            dtm.setRowCount(0);
+            
+             Vector v=new Vector();
+              rs = ConnDB.search("select * from product_purchase where product_code='"+product_id_txt.getText()+"' ");
+             while(rs.next()){
+                 
+           v.add(rs.getString("supplier_code"));
+           v.add(rs.getString("supplier_name"));
+           v.add(rs.getString("purchase_price"));
+           dtm.addRow(v);
+           
+           
+             }
+             
         } catch (Exception ex) {
             Logger.getLogger(inventory.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -488,6 +543,26 @@ public class inventory extends javax.swing.JFrame {
     private void supplier_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_name_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_supplier_name_txtActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+      DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+        Vector v=new Vector();
+        v.add(supplier_code_txt.getText());
+        v.add(supplier_name_txt.getText());
+        v.add(purchase_price_txt.getText());
+         
+        
+         dtm.addRow(v);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pack_size_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pack_size_txtKeyTyped
+        
+        String text=pack_size_txt.getText();
+        
+
+
+    }//GEN-LAST:event_pack_size_txtKeyTyped
 
     /**
      * @param args the command line arguments
@@ -580,4 +655,26 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JButton update_product_btn;
     private javax.swing.JButton warehouse_transfers_btn;
     // End of variables declaration//GEN-END:variables
+
+
+
+  private void createPro() {
+ try {
+            
+            ResultSet rs=ConnDB.search("select count(product_code) as x from product");
+        if(rs.next()){
+        int i=Integer.parseInt(rs.getString("x"));
+        i++;
+        product_id_txt.setText("PRO"+i);
+        product_name_txt.grabFocus();
+        }
+        
+        
+        } catch (Exception ex) {
+            
+        }
+    }
+
+
+
 }

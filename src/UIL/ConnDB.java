@@ -9,6 +9,7 @@ package UIL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import jdk.nashorn.internal.ir.TryNode;
 
 /**
  *
@@ -16,12 +17,20 @@ import java.sql.ResultSet;
  */
 public class ConnDB {
         private static Connection con;
- 
-    public static void createMyconnection() throws Exception {
+    
+    public static void createMyconnection() {
+        try{
         Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://148.66.136.214:3306/proton_db", "protonDB", "Codelife2017");
-    
+    }catch(Exception e){
+        
+        createMyconnection();
     }
+
+
+
+
+}
     public static void iud (String sql) throws Exception {
         if (con==null) {
              createMyconnection();
@@ -39,6 +48,7 @@ public class ConnDB {
 
 public static Connection getMyconnection () throws Exception  {
     if (con==null) {
+        
         createMyconnection ();
         
     }

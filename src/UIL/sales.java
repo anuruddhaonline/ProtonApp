@@ -74,7 +74,6 @@ public class sales extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1230, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
