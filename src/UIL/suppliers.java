@@ -69,6 +69,11 @@ public class suppliers extends javax.swing.JFrame {
         update_supplier_btn = new javax.swing.JButton();
         delete_supplier_btn = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JSeparator();
+        jLabel13 = new javax.swing.JLabel();
+        supplier_bank_name_txt = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        suupler_account_num_txt = new javax.swing.JTextField();
+        add_new_supplier_clear_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -250,6 +255,28 @@ public class suppliers extends javax.swing.JFrame {
         jPanel1.add(delete_supplier_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 20, 30, 30));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 1208, 10));
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setText("Bank Name :");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 290, -1, -1));
+
+        supplier_bank_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        supplier_bank_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(supplier_bank_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 230, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Account No :");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 340, -1, -1));
+
+        suupler_account_num_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        suupler_account_num_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(suupler_account_num_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 230, 30));
+
+        add_new_supplier_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_supplier_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_supplier_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_supplier_clear_btn.setText("New");
+        jPanel1.add(add_new_supplier_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -295,6 +322,7 @@ public class suppliers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_new_supplier_clear_btn;
     private javax.swing.JButton add_supplier_btn;
     private javax.swing.JTextField address_1_txt;
     private javax.swing.JTextField address_2_txt;
@@ -307,6 +335,8 @@ public class suppliers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -331,8 +361,10 @@ public class suppliers extends javax.swing.JFrame {
     private javax.swing.JTextField postal_code_txt;
     private javax.swing.JButton search_supplier_btn;
     private javax.swing.JTextField sup_code_txt;
+    private javax.swing.JTextField supplier_bank_name_txt;
     private javax.swing.JTextField supplier_name_txt;
     private javax.swing.JTextField supplier_website_txt;
+    private javax.swing.JTextField suupler_account_num_txt;
     private javax.swing.JButton update_supplier_btn;
     private javax.swing.JButton view_suppliers_btn;
     private javax.swing.JTable view_suppliers_jt;

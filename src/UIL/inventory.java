@@ -20,9 +20,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class inventory extends javax.swing.JFrame {
 
-    /**
-     * Creates new form inventory
-     */
+    stock_adjustment stock_adjustment = new stock_adjustment();
+    warehouse_transfers warehouse_transfers = new warehouse_transfers();
+    
     public inventory() {
         initComponents();
         createPro();
@@ -71,7 +71,7 @@ public class inventory extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         add_product_btn = new javax.swing.JButton();
         stock_adjust_btn = new javax.swing.JButton();
-        warehouse_transfers_btn = new javax.swing.JButton();
+        stock_count_btn = new javax.swing.JButton();
         product_search_button = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -93,6 +93,7 @@ public class inventory extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         delete_product_btn = new javax.swing.JButton();
         update_product_btn = new javax.swing.JButton();
+        add_new_pro_clear_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -261,13 +262,23 @@ public class inventory extends javax.swing.JFrame {
         stock_adjust_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         stock_adjust_btn.setForeground(new java.awt.Color(255, 255, 255));
         stock_adjust_btn.setText("Stock Adjustment");
-        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 20, -1, -1));
+        stock_adjust_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stock_adjust_btnActionPerformed(evt);
+            }
+        });
+        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
-        warehouse_transfers_btn.setBackground(new java.awt.Color(34, 155, 60));
-        warehouse_transfers_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        warehouse_transfers_btn.setForeground(new java.awt.Color(255, 255, 255));
-        warehouse_transfers_btn.setText("Warehouse Transfers");
-        inventory_panel.add(warehouse_transfers_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1047, 20, -1, -1));
+        stock_count_btn.setBackground(new java.awt.Color(34, 155, 60));
+        stock_count_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        stock_count_btn.setForeground(new java.awt.Color(255, 255, 255));
+        stock_count_btn.setText("Stock Count");
+        stock_count_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stock_count_btnActionPerformed(evt);
+            }
+        });
+        inventory_panel.add(stock_count_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 20, -1, -1));
 
         product_search_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         product_search_button.setContentAreaFilled(false);
@@ -379,6 +390,12 @@ public class inventory extends javax.swing.JFrame {
         update_product_btn.setContentAreaFilled(false);
         update_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
         inventory_panel.add(update_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 30, 30));
+
+        add_new_pro_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn.setText("New");
+        inventory_panel.add(add_new_pro_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -564,6 +581,18 @@ public class inventory extends javax.swing.JFrame {
 
     }//GEN-LAST:event_pack_size_txtKeyTyped
 
+    private void stock_adjust_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_adjust_btnActionPerformed
+       
+        stock_adjustment.setVisible(true);
+        
+    }//GEN-LAST:event_stock_adjust_btnActionPerformed
+
+    private void stock_count_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_count_btnActionPerformed
+        
+        warehouse_transfers.setVisible(true);
+        
+    }//GEN-LAST:event_stock_count_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -600,6 +629,7 @@ public class inventory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_new_pro_clear_btn;
     private javax.swing.JButton add_product_btn;
     private javax.swing.JToggleButton assembled_product_type_tb;
     private javax.swing.JTextField bin_location_txt;
@@ -647,13 +677,13 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JToggleButton readymade_product_type_tb;
     private javax.swing.JTextField selling_price_txt;
     private javax.swing.JButton stock_adjust_btn;
+    private javax.swing.JButton stock_count_btn;
     private javax.swing.JTextField stock_value_txt;
     private javax.swing.JButton supplier_code_btn;
     private javax.swing.JTextField supplier_code_txt;
     private javax.swing.JTextField supplier_name_txt;
     private javax.swing.JTextField total_qty_txt;
     private javax.swing.JButton update_product_btn;
-    private javax.swing.JButton warehouse_transfers_btn;
     // End of variables declaration//GEN-END:variables
 
 

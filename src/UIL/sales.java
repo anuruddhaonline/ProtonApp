@@ -12,9 +12,8 @@ package UIL;
  */
 public class sales extends javax.swing.JFrame {
 
-    /**
-     * Creates new form sales
-     */
+    view_invoice view_invoice = new view_invoice();
+    
     public sales() {
         initComponents();
         
@@ -70,6 +69,7 @@ public class sales extends javax.swing.JFrame {
         search_product_btn = new javax.swing.JButton();
         view_invoice_btn = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
+        add_new_invoice_clear_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -255,8 +255,19 @@ public class sales extends javax.swing.JFrame {
         view_invoice_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         view_invoice_btn.setForeground(new java.awt.Color(255, 255, 255));
         view_invoice_btn.setText("View Invoice");
+        view_invoice_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view_invoice_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(view_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 20, -1, -1));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
+
+        add_new_invoice_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_invoice_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_invoice_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_invoice_clear_btn.setText("New");
+        jPanel1.add(add_new_invoice_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -318,6 +329,12 @@ public class sales extends javax.swing.JFrame {
         
     }//GEN-LAST:event_complete_invoice_btnActionPerformed
 
+    private void view_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_invoice_btnActionPerformed
+       
+        view_invoice.setVisible(true);
+        
+    }//GEN-LAST:event_view_invoice_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -354,6 +371,7 @@ public class sales extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_new_invoice_clear_btn;
     private javax.swing.JTextField available_txt;
     private javax.swing.JLabel balance_lbl;
     private javax.swing.JTextField cash_txt;

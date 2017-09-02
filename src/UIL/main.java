@@ -31,6 +31,7 @@ public class main extends javax.swing.JFrame {
     
     quick_menu quick_menu = new quick_menu();
     option_pane option_pane = new option_pane();
+    change_password change_password = new change_password();
     
     public main() {
         initComponents();
@@ -271,6 +272,11 @@ public class main extends javax.swing.JFrame {
         user_icon_btn.setContentAreaFilled(false);
         user_icon_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         user_icon_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female_hover.png"))); // NOI18N
+        user_icon_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                user_icon_btnActionPerformed(evt);
+            }
+        });
         menu_panel.add(user_icon_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, 90, 90));
 
         logout_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout_icon.png"))); // NOI18N
@@ -457,6 +463,12 @@ public class main extends javax.swing.JFrame {
         option_pane.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void user_icon_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_icon_btnActionPerformed
+        
+        change_password.setVisible(true);
+        
+    }//GEN-LAST:event_user_icon_btnActionPerformed
 
     /**
      * @param args the command line arguments

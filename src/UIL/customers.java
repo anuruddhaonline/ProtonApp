@@ -62,6 +62,7 @@ public class customers extends javax.swing.JFrame {
         view_loyalty_jt = new javax.swing.JTable();
         view_loyalty_btn = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
+        add_new_loyalty_clear_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -226,6 +227,12 @@ public class customers extends javax.swing.JFrame {
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 70, 10, 312));
 
+        add_new_loyalty_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_loyalty_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_loyalty_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_loyalty_clear_btn.setText("New");
+        jPanel1.add(add_new_loyalty_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -271,6 +278,7 @@ public class customers extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_new_loyalty_clear_btn;
     private javax.swing.JTextField address_1_txt;
     private javax.swing.JTextField address_2_txt;
     private javax.swing.JTextField customer_name_txt;
