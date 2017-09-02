@@ -6,7 +6,7 @@
 
 package UIL;
 
-import com.sun.javafx.geom.Vec2d;
+
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class inventory extends javax.swing.JFrame {
 
     stock_adjustment stock_adjustment = new stock_adjustment();
-    warehouse_transfers warehouse_transfers = new warehouse_transfers();
+    Stock_count warehouse_transfers = new Stock_count();
     
     public inventory() {
         initComponents();

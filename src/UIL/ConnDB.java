@@ -9,7 +9,6 @@ package UIL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import jdk.nashorn.internal.ir.TryNode;
 
 /**
  *
@@ -35,7 +34,9 @@ public class ConnDB {
         if (con==null) {
              createMyconnection();
         }
+        
         con.createStatement().executeUpdate(sql);
+        
         
         }
         

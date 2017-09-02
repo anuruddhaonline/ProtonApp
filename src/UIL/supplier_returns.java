@@ -42,8 +42,6 @@ public class supplier_returns extends javax.swing.JFrame {
         prod_id_txt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         qty_txt = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        warehouse_cmb = new javax.swing.JComboBox();
         unit_price_txt = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         pro_name_txt = new javax.swing.JTextField();
@@ -67,7 +65,6 @@ public class supplier_returns extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(830, 490));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -105,14 +102,6 @@ public class supplier_returns extends javax.swing.JFrame {
 
         qty_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 230, 30));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setText("Warehouse :");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
-
-        warehouse_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        warehouse_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(warehouse_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 230, 30));
 
         unit_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(unit_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 290, 230, 30));
@@ -160,10 +149,10 @@ public class supplier_returns extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel14.setText("Comments :");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         comment_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(comment_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 230, 30));
+        jPanel1.add(comment_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 230, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("GRN ID :");
@@ -190,14 +179,14 @@ public class supplier_returns extends javax.swing.JFrame {
         supplier_return_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         supplier_return_btn.setForeground(new java.awt.Color(255, 255, 255));
         supplier_return_btn.setText("Return Item");
-        jPanel1.add(supplier_return_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, -1, -1));
+        jPanel1.add(supplier_return_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, -1, -1));
 
         search_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_product_btn.setContentAreaFilled(false);
         search_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
         jPanel1.add(search_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, 30, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 490));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,7 +239,6 @@ public class supplier_returns extends javax.swing.JFrame {
     private javax.swing.JTextField grn_id_txt;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -276,6 +264,5 @@ public class supplier_returns extends javax.swing.JFrame {
     private javax.swing.JTextField supplier_return_id_txt;
     private javax.swing.JTextField total_txt;
     private javax.swing.JTextField unit_price_txt;
-    private javax.swing.JComboBox warehouse_cmb;
     // End of variables declaration//GEN-END:variables
 }

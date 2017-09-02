@@ -37,10 +37,10 @@ public class stock_adjustment extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        product_id_txt = new javax.swing.JTextField();
+        stock_count_id_txt = new javax.swing.JTextField();
         adj_id_txt = new javax.swing.JTextField();
+        product_name_txt = new javax.swing.JTextField();
         date_txt = new javax.swing.JTextField();
-        ware_txt = new javax.swing.JTextField();
         reason_txt = new javax.swing.JTextField();
         qty_txt = new javax.swing.JTextField();
         value_qty_txt = new javax.swing.JTextField();
@@ -48,12 +48,11 @@ public class stock_adjustment extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         stock_adj_close_btn = new javax.swing.JButton();
-        search_product_btn = new javax.swing.JButton();
+        search_stock_count_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(300, 200, 0, 0));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -61,7 +60,7 @@ public class stock_adjustment extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Product ID :");
+        jLabel2.setText("Stock Count ID :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -69,11 +68,11 @@ public class stock_adjustment extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setText("Date : ");
+        jLabel4.setText("Product Name :");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setText("Warehouse :");
+        jLabel5.setText("Date :");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -88,26 +87,26 @@ public class stock_adjustment extends javax.swing.JFrame {
         jLabel8.setText("Total Value :");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
-        product_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 230, 30));
+        stock_count_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        stock_count_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(stock_count_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 230, 30));
 
         adj_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         adj_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(adj_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 230, 30));
 
-        date_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        date_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        date_txt.addActionListener(new java.awt.event.ActionListener() {
+        product_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        product_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        product_name_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                date_txtActionPerformed(evt);
+                product_name_txtActionPerformed(evt);
             }
         });
-        jPanel1.add(date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 230, 30));
+        jPanel1.add(product_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 230, 30));
 
-        ware_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        ware_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(ware_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 230, 30));
+        date_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        date_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 230, 30));
 
         reason_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         reason_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
@@ -162,19 +161,19 @@ public class stock_adjustment extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 50));
 
-        search_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
-        search_product_btn.setContentAreaFilled(false);
-        search_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
-        jPanel1.add(search_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 30, 30));
+        search_stock_count_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_stock_count_btn.setContentAreaFilled(false);
+        search_stock_count_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_stock_count_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void date_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_date_txtActionPerformed
+    private void product_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_name_txtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_date_txtActionPerformed
+    }//GEN-LAST:event_product_name_txtActionPerformed
 
     private void reason_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reason_txtActionPerformed
         // TODO add your handling code here:
@@ -187,15 +186,15 @@ public class stock_adjustment extends javax.swing.JFrame {
     private void bt_complete_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_complete_stockActionPerformed
         
 
-        String productID= product_id_txt.getText();
+        String stockCountID= stock_count_id_txt.getText();
         String adjustmentID = adj_id_txt.getText();
-        String date=date_txt.getText();
-        String warehouse= ware_txt.getText();
-        String reason= reason_txt.getText();
+        String productName = product_name_txt.getText();
+        String date = date_txt.getText();
+        String reason = reason_txt.getText();
         int quantity= Integer.parseInt(qty_txt.getText());
         int valueOfQuantity = Integer.parseInt(value_qty_txt.getText());
         
-        if (productID.isEmpty() || adjustmentID.isEmpty() || date.isEmpty() || warehouse.isEmpty() || reason.isEmpty() || qty_txt.getText().isEmpty() || value_qty_txt.getText().isEmpty()){}
+        if (stockCountID.isEmpty() || adjustmentID.isEmpty() || date.isEmpty() || date.isEmpty() || reason.isEmpty() || qty_txt.getText().isEmpty() || value_qty_txt.getText().isEmpty()){}
         
 
 
@@ -259,12 +258,12 @@ public class stock_adjustment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField product_id_txt;
+    private javax.swing.JTextField product_name_txt;
     private javax.swing.JTextField qty_txt;
     private javax.swing.JTextField reason_txt;
-    private javax.swing.JButton search_product_btn;
+    private javax.swing.JButton search_stock_count_btn;
     private javax.swing.JButton stock_adj_close_btn;
+    private javax.swing.JTextField stock_count_id_txt;
     private javax.swing.JTextField value_qty_txt;
-    private javax.swing.JTextField ware_txt;
     // End of variables declaration//GEN-END:variables
 }

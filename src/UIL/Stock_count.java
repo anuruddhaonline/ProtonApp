@@ -12,12 +12,12 @@ import com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary;
  *
  * @author ASUS
  */
-public class warehouse_transfers extends javax.swing.JFrame {
+public class Stock_count extends javax.swing.JFrame {
 
     /**
      * Creates new form warehouse_transfers
      */
-    public warehouse_transfers() {
+    public Stock_count() {
         initComponents();
         
         this.setLocationRelativeTo(null);
@@ -214,20 +214,20 @@ public class warehouse_transfers extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stock_count.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stock_count.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stock_count.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(warehouse_transfers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Stock_count.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new warehouse_transfers().setVisible(true);
+                new Stock_count().setVisible(true);
             }
         });
     }

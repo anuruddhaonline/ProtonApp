@@ -44,7 +44,7 @@ public class grn extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         product_list_table = new javax.swing.JTable();
-        jLabel13 = new javax.swing.JLabel();
+        discount_lbl = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         total_qty_lbl = new javax.swing.JLabel();
         total_amountl_lbl = new javax.swing.JLabel();
@@ -52,6 +52,8 @@ public class grn extends javax.swing.JFrame {
         complete_grn_btn = new javax.swing.JButton();
         purchase_order_txt = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -137,9 +139,9 @@ public class grn extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 1130, 200));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setText("Total Amount :");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
+        discount_lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        discount_lbl.setText("0");
+        jPanel1.add(discount_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Total Quantity : ");
@@ -177,6 +179,14 @@ public class grn extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel19.setText("Add New GRN");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Total Amount :");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 560, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("Discount :");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1215, 650));
 
@@ -239,11 +249,13 @@ public class grn extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton complete_grn_btn;
     private javax.swing.JButton complete_print_grn_btn;
+    private javax.swing.JLabel discount_lbl;
     private javax.swing.JButton grn_close_btn;
     private javax.swing.JTextField grn_id_txt;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

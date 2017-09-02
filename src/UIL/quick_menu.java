@@ -13,7 +13,7 @@ package UIL;
 public class quick_menu extends javax.swing.JFrame {
 
     stock_adjustment stock_adjustment = new stock_adjustment();
-    warehouse_transfers warehouse_transfers = new warehouse_transfers();
+    Stock_count warehouse_transfers = new Stock_count();
     supplier_returns supplier_returns = new supplier_returns();
     view_purchase view_purchase = new view_purchase();
     view_invoice view_invoice = new view_invoice();
