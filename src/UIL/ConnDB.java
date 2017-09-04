@@ -9,6 +9,7 @@ package UIL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import javax.swing.Timer;
 
 /**
  *
@@ -21,13 +22,14 @@ public class ConnDB {
         try{
         Class.forName("com.mysql.jdbc.Driver");
       con = DriverManager.getConnection("jdbc:mysql://148.66.136.214:3306/proton_db", "protonDB", "Codelife2017");
+      con.createStatement().executeQuery("SET wait_timeout=1800000");
+      
+      
     }catch(Exception e){
         
-        createMyconnection();
+       
     }
-
-
-
+        
 
 }
     public static void iud (String sql) throws Exception {

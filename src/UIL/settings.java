@@ -12,9 +12,8 @@ package UIL;
  */
 public class settings extends javax.swing.JFrame {
 
-    /**
-     * Creates new form settings
-     */
+    company_details company_details = new company_details();
+    
     public settings() {
         initComponents();
     }
@@ -30,7 +29,82 @@ public class settings extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        user_type_cmb = new javax.swing.JComboBox();
+        username_txt = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        confirm_password_txt = new javax.swing.JPasswordField();
+        jLabel8 = new javax.swing.JLabel();
+        password_txt = new javax.swing.JPasswordField();
+        create_user_btn = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        role_name_txt = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        dash_tb = new javax.swing.JToggleButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        noti_tb = new javax.swing.JToggleButton();
+        inventory_tb = new javax.swing.JToggleButton();
+        purchase_tb = new javax.swing.JToggleButton();
+        production_tb = new javax.swing.JToggleButton();
+        suppliers_tb = new javax.swing.JToggleButton();
+        loyalty_tb = new javax.swing.JToggleButton();
+        sales_tb = new javax.swing.JToggleButton();
+        settings_tb = new javax.swing.JToggleButton();
+        quick_launch_access_tb = new javax.swing.JToggleButton();
+        jLabel25 = new javax.swing.JLabel();
+        mobile_num_txt = new javax.swing.JTextField();
+        search_user_role_btn = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        search_user_btn = new javax.swing.JButton();
+        create_role_btn = new javax.swing.JButton();
+        help_tb = new javax.swing.JToggleButton();
+        update_user_btn = new javax.swing.JButton();
+        delete_user_btn = new javax.swing.JButton();
+        update_role_btn = new javax.swing.JButton();
+        delete_role_btn = new javax.swing.JButton();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        product_pre_txt = new javax.swing.JTextField();
+        stock_count_pre_txt = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        stock_adj_pre_txt = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        supplier_return_pre_txt = new javax.swing.JTextField();
+        grn_pre_txt = new javax.swing.JTextField();
+        po_pre_txt = new javax.swing.JTextField();
+        supplier_txt = new javax.swing.JTextField();
+        sales_invoice_pre_txt = new javax.swing.JTextField();
+        product_txt = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        set_prefixes_btn = new javax.swing.JButton();
+        company_details_btn = new javax.swing.JButton();
+        add_new_unit_txt = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        add_new_categories_txt = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        add_new_unit_btn = new javax.swing.JButton();
+        add_new_categories_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -41,18 +115,425 @@ public class settings extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel1.setText("Settings");
         jLabel1.setToolTipText("");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
-        jButton1.setText("jButton1");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel10.setText("Role and Role Permission");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 90, -1, -1));
+
+        user_type_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jPanel1.add(user_type_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
+
+        username_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(username_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 230, 30));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Confirm Password :");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 340, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("User Role :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 240, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setText("Production :");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, -1, -1));
+
+        confirm_password_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        confirm_password_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        confirm_password_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirm_password_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(confirm_password_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 230, 30));
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Password :");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 290, -1, -1));
+
+        password_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        password_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        password_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(password_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 230, 30));
+
+        create_user_btn.setBackground(new java.awt.Color(34, 155, 60));
+        create_user_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        create_user_btn.setForeground(new java.awt.Color(255, 255, 255));
+        create_user_btn.setText("Create User");
+        create_user_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_user_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(create_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 110, -1));
+
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel11.setText("User Settings");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel13.setText("Mobile No :");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 190, -1, -1));
+
+        role_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        role_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(role_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 230, 30));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel14.setText("Role Name :");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 140, -1, -1));
+
+        dash_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        dash_tb.setContentAreaFilled(false);
+        dash_tb.setRolloverEnabled(false);
+        dash_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(dash_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 40, -1));
+
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel15.setText("Quick Launch Access :");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel16.setText("Notifications :");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel17.setText("Dashboard :");
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 230, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel18.setText("Inventory :");
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 270, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel19.setText("Purchase :");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 310, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel20.setText("Sales :");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel21.setText("Loyalty :");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 230, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel22.setText("Suppliers :");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 270, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel23.setText("Settings :");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 310, -1, -1));
+
+        noti_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        noti_tb.setContentAreaFilled(false);
+        noti_tb.setRolloverEnabled(false);
+        noti_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(noti_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 40, -1));
+
+        inventory_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        inventory_tb.setContentAreaFilled(false);
+        inventory_tb.setRolloverEnabled(false);
+        inventory_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, 40, -1));
+
+        purchase_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        purchase_tb.setContentAreaFilled(false);
+        purchase_tb.setRolloverEnabled(false);
+        purchase_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 40, -1));
+
+        production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        production_tb.setContentAreaFilled(false);
+        production_tb.setRolloverEnabled(false);
+        production_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, 40, -1));
+
+        suppliers_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        suppliers_tb.setContentAreaFilled(false);
+        suppliers_tb.setRolloverEnabled(false);
+        suppliers_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(suppliers_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 270, 40, -1));
+
+        loyalty_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        loyalty_tb.setContentAreaFilled(false);
+        loyalty_tb.setRolloverEnabled(false);
+        loyalty_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(loyalty_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, -1));
+
+        sales_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        sales_tb.setContentAreaFilled(false);
+        sales_tb.setRolloverEnabled(false);
+        sales_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(sales_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 190, 40, -1));
+
+        settings_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        settings_tb.setContentAreaFilled(false);
+        settings_tb.setRolloverEnabled(false);
+        settings_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 40, -1));
+
+        quick_launch_access_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        quick_launch_access_tb.setContentAreaFilled(false);
+        quick_launch_access_tb.setRolloverEnabled(false);
+        quick_launch_access_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(quick_launch_access_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 40, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel25.setText("Username :");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 140, -1, -1));
+
+        mobile_num_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        mobile_num_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(mobile_num_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 230, 30));
+
+        search_user_role_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_user_role_btn.setContentAreaFilled(false);
+        search_user_role_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_user_role_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_user_role_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(search_user_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 140, 30, 30));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel26.setText("Help :");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 350, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel24.setText("Permission :");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, -1, -1));
+
+        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 10, 380));
+
+        search_user_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_user_btn.setContentAreaFilled(false);
+        search_user_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 30, 30));
+
+        create_role_btn.setBackground(new java.awt.Color(34, 155, 60));
+        create_role_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        create_role_btn.setForeground(new java.awt.Color(255, 255, 255));
+        create_role_btn.setText("Create Role");
+        jPanel1.add(create_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, -1, -1));
+
+        help_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        help_tb.setContentAreaFilled(false);
+        help_tb.setRolloverEnabled(false);
+        help_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        jPanel1.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 350, 40, -1));
+
+        update_user_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon.png"))); // NOI18N
+        update_user_btn.setToolTipText("Update User Details");
+        update_user_btn.setContentAreaFilled(false);
+        update_user_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        jPanel1.add(update_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 30, 30));
+
+        delete_user_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
+        delete_user_btn.setToolTipText("Delete User Details");
+        delete_user_btn.setContentAreaFilled(false);
+        delete_user_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        jPanel1.add(delete_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 30, 30));
+
+        update_role_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon.png"))); // NOI18N
+        update_role_btn.setToolTipText("Update Role Permissions");
+        update_role_btn.setContentAreaFilled(false);
+        update_role_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        jPanel1.add(update_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 70, 30, 30));
+
+        delete_role_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
+        delete_role_btn.setToolTipText("Delete Role");
+        delete_role_btn.setContentAreaFilled(false);
+        delete_role_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        jPanel1.add(delete_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 30, 30));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 1208, 10));
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel27.setText("System Prefixes");
+        jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 490, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Products :");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 540, -1, -1));
+
+        product_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        product_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(product_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 230, 30));
+
+        stock_count_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        stock_count_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(stock_count_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 590, 230, 30));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel28.setText("Stock Count :");
+        jPanel1.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 590, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel29.setText("Stock Adjustment :");
+        jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, -1, -1));
+
+        stock_adj_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        stock_adj_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(stock_adj_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 640, 230, 30));
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel30.setText("Purchase Order :");
+        jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel31.setText("GRN :");
+        jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 590, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel32.setText("Supplier Return :");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 640, -1, -1));
+
+        supplier_return_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        supplier_return_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(supplier_return_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 640, 230, 30));
+
+        grn_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        grn_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(grn_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 590, 230, 30));
+
+        po_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        po_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        po_pre_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                po_pre_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(po_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 540, 230, 30));
+
+        supplier_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        supplier_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(supplier_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 540, 230, 30));
+
+        sales_invoice_pre_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        sales_invoice_pre_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(sales_invoice_pre_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 640, 230, 30));
+
+        product_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        product_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(product_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 590, 230, 30));
+
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel33.setText("Supplier :");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 540, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel34.setText("Sales Invoice :");
+        jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 640, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel35.setText("Production :");
+        jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(865, 590, -1, -1));
+
+        set_prefixes_btn.setBackground(new java.awt.Color(34, 155, 60));
+        set_prefixes_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        set_prefixes_btn.setForeground(new java.awt.Color(255, 255, 255));
+        set_prefixes_btn.setText("Set Prefixes");
+        jPanel1.add(set_prefixes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 680, 140, -1));
+
+        company_details_btn.setBackground(new java.awt.Color(34, 155, 60));
+        company_details_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        company_details_btn.setForeground(new java.awt.Color(255, 255, 255));
+        company_details_btn.setText("Company Details");
+        company_details_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                company_details_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(company_details_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, -1, -1));
+
+        add_new_unit_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(add_new_unit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 140, 230, 30));
+
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel36.setText("Add Unit of Measure");
+        jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel37.setText("Add Product Categories");
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, -1, -1));
+
+        add_new_categories_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(add_new_categories_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 310, 230, 30));
+
+        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 80, 10, 380));
+
+        add_new_unit_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_unit_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_unit_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_unit_btn.setText("Add");
+        add_new_unit_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_unit_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_unit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1155, 180, -1, -1));
+
+        add_new_categories_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_categories_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_categories_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_categories_btn.setText("Add");
+        add_new_categories_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_categories_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_categories_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1155, 350, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void confirm_password_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirm_password_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirm_password_txtActionPerformed
+
+    private void password_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password_txtActionPerformed
+
+    private void create_user_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_user_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_create_user_btnActionPerformed
+
+    private void search_user_role_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_user_role_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search_user_role_btnActionPerformed
+
+    private void po_pre_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_po_pre_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_po_pre_txtActionPerformed
+
+    private void company_details_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_company_details_btnActionPerformed
+       
+        company_details.setVisible(true);
+        
+    }//GEN-LAST:event_company_details_btnActionPerformed
+
+    private void add_new_unit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_unit_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_unit_btnActionPerformed
+
+    private void add_new_categories_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_categories_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_categories_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,8 +571,83 @@ public class settings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton add_new_categories_btn;
+    private javax.swing.JTextField add_new_categories_txt;
+    private javax.swing.JButton add_new_unit_btn;
+    private javax.swing.JTextField add_new_unit_txt;
+    private javax.swing.JButton company_details_btn;
+    private javax.swing.JPasswordField confirm_password_txt;
+    private javax.swing.JButton create_role_btn;
+    private javax.swing.JButton create_user_btn;
+    private javax.swing.JToggleButton dash_tb;
+    private javax.swing.JButton delete_role_btn;
+    private javax.swing.JButton delete_user_btn;
+    private javax.swing.JTextField grn_pre_txt;
+    private javax.swing.JToggleButton help_tb;
+    private javax.swing.JToggleButton inventory_tb;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JToggleButton loyalty_tb;
+    private javax.swing.JTextField mobile_num_txt;
+    private javax.swing.JToggleButton noti_tb;
+    private javax.swing.JPasswordField password_txt;
+    private javax.swing.JTextField po_pre_txt;
+    private javax.swing.JTextField product_pre_txt;
+    private javax.swing.JTextField product_txt;
+    private javax.swing.JToggleButton production_tb;
+    private javax.swing.JToggleButton purchase_tb;
+    private javax.swing.JToggleButton quick_launch_access_tb;
+    private javax.swing.JTextField role_name_txt;
+    private javax.swing.JTextField sales_invoice_pre_txt;
+    private javax.swing.JToggleButton sales_tb;
+    private javax.swing.JButton search_user_btn;
+    private javax.swing.JButton search_user_role_btn;
+    private javax.swing.JButton set_prefixes_btn;
+    private javax.swing.JToggleButton settings_tb;
+    private javax.swing.JTextField stock_adj_pre_txt;
+    private javax.swing.JTextField stock_count_pre_txt;
+    private javax.swing.JTextField supplier_return_pre_txt;
+    private javax.swing.JTextField supplier_txt;
+    private javax.swing.JToggleButton suppliers_tb;
+    private javax.swing.JButton update_role_btn;
+    private javax.swing.JButton update_user_btn;
+    private javax.swing.JComboBox user_type_cmb;
+    private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
 }

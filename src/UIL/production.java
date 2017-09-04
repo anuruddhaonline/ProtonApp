@@ -30,6 +30,10 @@ public class production extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        add_new_production_clear_btn = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        username_txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -40,9 +44,23 @@ public class production extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel1.setText("Production");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
+
+        add_new_production_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_production_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_production_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_production_clear_btn.setText("New");
+        jPanel1.add(add_new_production_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel25.setText("Username :");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 140, -1, -1));
+
+        username_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(username_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 230, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -85,7 +103,11 @@ public class production extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_new_production_clear_btn;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
 }

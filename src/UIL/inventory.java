@@ -22,6 +22,7 @@ public class inventory extends javax.swing.JFrame {
 
     stock_adjustment stock_adjustment = new stock_adjustment();
     Stock_count warehouse_transfers = new Stock_count();
+    loyalty_products loyalty_products = new loyalty_products();
     
     public inventory() {
         initComponents();
@@ -94,6 +95,7 @@ public class inventory extends javax.swing.JFrame {
         delete_product_btn = new javax.swing.JButton();
         update_product_btn = new javax.swing.JButton();
         add_new_pro_clear_btn = new javax.swing.JButton();
+        add_loyalty_product_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -173,6 +175,7 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(assembled_product_type_tb);
         assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         assembled_product_type_tb.setContentAreaFilled(false);
+        assembled_product_type_tb.setRolloverEnabled(false);
         assembled_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         assembled_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +187,7 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(readymade_product_type_tb);
         readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         readymade_product_type_tb.setContentAreaFilled(false);
+        readymade_product_type_tb.setRolloverEnabled(false);
         readymade_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         readymade_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +211,7 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(component_product_type_tb);
         component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         component_product_type_tb.setContentAreaFilled(false);
+        component_product_type_tb.setRolloverEnabled(false);
         component_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         component_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,6 +401,17 @@ public class inventory extends javax.swing.JFrame {
         add_new_pro_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_pro_clear_btn.setText("New");
         inventory_panel.add(add_new_pro_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+
+        add_loyalty_product_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_loyalty_product_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_loyalty_product_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_loyalty_product_btn.setText("Loyalty Products");
+        add_loyalty_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_loyalty_product_btnActionPerformed(evt);
+            }
+        });
+        inventory_panel.add(add_loyalty_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(804, 20, -1, -1));
 
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -593,6 +609,12 @@ public class inventory extends javax.swing.JFrame {
         
     }//GEN-LAST:event_stock_count_btnActionPerformed
 
+    private void add_loyalty_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_loyalty_product_btnActionPerformed
+       
+        loyalty_products.setVisible(true);
+        
+    }//GEN-LAST:event_add_loyalty_product_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -629,6 +651,7 @@ public class inventory extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_loyalty_product_btn;
     private javax.swing.JButton add_new_pro_clear_btn;
     private javax.swing.JButton add_product_btn;
     private javax.swing.JToggleButton assembled_product_type_tb;

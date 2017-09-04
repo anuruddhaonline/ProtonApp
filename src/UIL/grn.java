@@ -40,7 +40,6 @@ public class grn extends javax.swing.JFrame {
         search_grn_btn = new javax.swing.JButton();
         search_purchase_order_btn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        supplier_name_cmb = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         product_list_table = new javax.swing.JTable();
@@ -54,6 +53,7 @@ public class grn extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        supplier_name_txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -110,10 +110,6 @@ public class grn extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Supplier Name :");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
-
-        supplier_name_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        supplier_name_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(supplier_name_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, 30));
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel12.setText("Purchase Order ID :");
@@ -188,6 +184,9 @@ public class grn extends javax.swing.JFrame {
         jLabel15.setText("Discount :");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, -1, -1));
 
+        supplier_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(supplier_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1215, 650));
 
         pack();
@@ -203,7 +202,7 @@ public class grn extends javax.swing.JFrame {
 
         String purchaseId= grn_id_txt.getText();
         String productID= product_id_txt.getText();
-        String supplierName = supplier_name_cmb.getSelectedItem().toString();
+        String supplierName = supplier_name_txt.getText();
         int quantity= Integer.parseInt(total_qty_lbl.getText());
 
         double total= Double.parseDouble(total_amountl_lbl.getText());
@@ -269,7 +268,7 @@ public class grn extends javax.swing.JFrame {
     private javax.swing.JTextField purchase_order_txt;
     private javax.swing.JButton search_grn_btn;
     private javax.swing.JButton search_purchase_order_btn;
-    private javax.swing.JComboBox supplier_name_cmb;
+    private javax.swing.JTextField supplier_name_txt;
     private javax.swing.JLabel total_amountl_lbl;
     private javax.swing.JLabel total_qty_lbl;
     // End of variables declaration//GEN-END:variables

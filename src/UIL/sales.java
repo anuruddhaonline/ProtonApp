@@ -74,6 +74,7 @@ public class sales extends javax.swing.JFrame {
         unit_price_txt = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         mobile_txt = new javax.swing.JTextField();
+        loyalty_discount_icon_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
@@ -288,6 +289,9 @@ public class sales extends javax.swing.JFrame {
         mobile_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 230, 30));
 
+        loyalty_discount_icon_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_discount_icon.png"))); // NOI18N
+        jPanel1.add(loyalty_discount_icon_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 391, 40, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
@@ -423,6 +427,7 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField loyalty_card_txt;
+    private javax.swing.JLabel loyalty_discount_icon_lbl;
     private javax.swing.JTextField mobile_txt;
     private javax.swing.JLabel net_amount_lbl;
     private javax.swing.JTextField product_code_txt;
