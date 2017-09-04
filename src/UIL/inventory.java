@@ -27,6 +27,8 @@ public class inventory extends javax.swing.JFrame {
     public inventory() {
         initComponents();
         createPro();
+        jScrollPane2.setVisible(false);
+        jList1.setVisible(false);
         readymade_product_type_tb.setSelected(true);
         product_name_txt.grabFocus();
     }
@@ -80,6 +82,8 @@ public class inventory extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         supplier_code_txt = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         supplier_name_txt = new javax.swing.JTextField();
@@ -175,7 +179,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(assembled_product_type_tb);
         assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         assembled_product_type_tb.setContentAreaFilled(false);
-        assembled_product_type_tb.setRolloverEnabled(false);
         assembled_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         assembled_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +190,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(readymade_product_type_tb);
         readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         readymade_product_type_tb.setContentAreaFilled(false);
-        readymade_product_type_tb.setRolloverEnabled(false);
         readymade_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         readymade_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,7 +213,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(component_product_type_tb);
         component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         component_product_type_tb.setContentAreaFilled(false);
-        component_product_type_tb.setRolloverEnabled(false);
         component_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         component_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,7 +319,26 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
         supplier_code_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        supplier_code_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                supplier_code_txtKeyReleased(evt);
+            }
+        });
         inventory_panel.add(supplier_code_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, 230, 30));
+
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        inventory_panel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 230, 80));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel19.setText("Product Details");
@@ -615,6 +635,41 @@ public class inventory extends javax.swing.JFrame {
         
     }//GEN-LAST:event_add_loyalty_product_btnActionPerformed
 
+    private void supplier_code_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_supplier_code_txtKeyReleased
+        try {
+                
+              int i=supplier_code_txt.getText().length();
+              if(i==0){
+                  System.out.println("4444");
+                  jScrollPane2.setVisible(false);
+                jList1.setVisible(false);
+        
+              
+              }else{
+            ResultSet rs = ConnDB.search("select * from suppliers where supplier_code like '" + supplier_code_txt.getText() + "%' and status='active' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+jScrollPane2.setVisible(true);
+        jList1.setVisible(true);
+                v.add(rs.getString("supplier_code"));
+                jScrollPane2.setVisible(true);
+                jList1.setVisible(true);
+
+            }
+            jList1.setListData(v);
+              }   
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    }//GEN-LAST:event_supplier_code_txtKeyReleased
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+         String name1=jList1.getSelectedValue().toString();
+        supplier_code_txt.setText(jList1.getSelectedValue().toString());
+        jList1.setVisible(false);
+        jScrollPane2.setVisible(false);
+    }//GEN-LAST:event_jList1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -682,7 +737,9 @@ public class inventory extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
