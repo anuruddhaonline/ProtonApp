@@ -37,8 +37,8 @@ public class option_pane extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 200));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         option_pane_wrapper_panel.setBackground(new java.awt.Color(255, 255, 255));
@@ -67,7 +67,6 @@ public class option_pane extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/option_pane_back.png"))); // NOI18N
         option_pane_wrapper_panel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 200));
-        jLabel1.getAccessibleContext().setAccessibleName("");
 
         getContentPane().add(option_pane_wrapper_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 200));
 

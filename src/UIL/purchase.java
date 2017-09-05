@@ -66,6 +66,7 @@ public class purchase extends javax.swing.JFrame {
         add_new_purchase_clear_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1230, 720));

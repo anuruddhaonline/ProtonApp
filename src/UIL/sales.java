@@ -77,6 +77,7 @@ public class sales extends javax.swing.JFrame {
         loyalty_discount_icon_lbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

@@ -33,6 +33,7 @@ public class dashboard extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(102, 255, 153));
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);

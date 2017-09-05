@@ -67,9 +67,9 @@ public class company_details extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setMinimumSize(new java.awt.Dimension(600, 400));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(850, 495));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

@@ -33,6 +33,7 @@ public class notifications extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1230, 720));

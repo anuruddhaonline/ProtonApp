@@ -49,8 +49,8 @@ public class loyalty_products extends javax.swing.JFrame {
         discount_amount_txt = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(570, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -233,15 +233,11 @@ public class loyalty_products extends javax.swing.JFrame {
     private javax.swing.JButton delete_discount_btn;
     private javax.swing.JTextField discount_amount_txt;
     private javax.swing.JTable discount_list_table;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loyalty_products_close_btn;
@@ -250,7 +246,5 @@ public class loyalty_products extends javax.swing.JFrame {
     private javax.swing.JButton search_produc_btn;
     private javax.swing.JButton set_discount_btn;
     private javax.swing.JButton update_discount_btn;
-    private javax.swing.JButton warehouse_tra_close_btn;
-    private javax.swing.JButton warehouse_tra_close_btn1;
     // End of variables declaration//GEN-END:variables
 }

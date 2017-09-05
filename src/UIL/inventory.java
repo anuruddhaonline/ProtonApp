@@ -102,6 +102,7 @@ public class inventory extends javax.swing.JFrame {
         add_loyalty_product_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
         setBounds(new java.awt.Rectangle(140, 50, 0, 0));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
