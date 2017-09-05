@@ -532,7 +532,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPasswordField password_txt;
     private javax.swing.JToggleButton production_tb;
     private javax.swing.JToggleButton purchase_tb;
-    private javax.swing.JToggleButton quick_links_tb;
+    public static javax.swing.JToggleButton quick_links_tb;
     private javax.swing.JToggleButton settings_tb;
     private javax.swing.JLabel side_username_lbl;
     private javax.swing.JLabel side_usertype_lbl;

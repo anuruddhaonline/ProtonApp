@@ -316,6 +316,7 @@
               <Image iconType="3" name="/Images/toggle_off.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/toggle_on.png"/>
             </Property>
@@ -338,6 +339,7 @@
               <Image iconType="3" name="/Images/toggle_off.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/toggle_on.png"/>
             </Property>
@@ -399,6 +401,7 @@
               <Image iconType="3" name="/Images/toggle_off.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="rolloverEnabled" type="boolean" value="false"/>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/toggle_on.png"/>
             </Property>

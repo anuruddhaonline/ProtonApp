@@ -180,6 +180,7 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(assembled_product_type_tb);
         assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         assembled_product_type_tb.setContentAreaFilled(false);
+        assembled_product_type_tb.setRolloverEnabled(false);
         assembled_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         assembled_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,6 +192,7 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(readymade_product_type_tb);
         readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         readymade_product_type_tb.setContentAreaFilled(false);
+        readymade_product_type_tb.setRolloverEnabled(false);
         readymade_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         readymade_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +216,7 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(component_product_type_tb);
         component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         component_product_type_tb.setContentAreaFilled(false);
+        component_product_type_tb.setRolloverEnabled(false);
         component_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         component_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -6,6 +6,7 @@
 
 package UIL;
 
+
 /**
  *
  * @author ASUS
@@ -18,6 +19,10 @@ public class quick_menu extends javax.swing.JFrame {
     view_purchase view_purchase = new view_purchase();
     view_invoice view_invoice = new view_invoice();
     grn grn = new grn();
+    
+    
+    
+    
     
     public quick_menu() {
         initComponents();
@@ -130,36 +135,48 @@ public class quick_menu extends javax.swing.JFrame {
     private void stock_adjustment_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_adjustment_quick_btnActionPerformed
         
             stock_adjustment.setVisible(true);
+            this.setVisible(false);
+            main.quick_links_tb.setSelected(false);
         
     }//GEN-LAST:event_stock_adjustment_quick_btnActionPerformed
 
     private void stock_count_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_count_quick_btnActionPerformed
         
         warehouse_transfers.setVisible(true);
+        this.setVisible(false);
+        main.quick_links_tb.setSelected(false);
         
     }//GEN-LAST:event_stock_count_quick_btnActionPerformed
 
     private void supplier_return_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_return_quick_btnActionPerformed
         
         supplier_returns.setVisible(true);
+        this.setVisible(false);
+        main.quick_links_tb.setSelected(false);
         
     }//GEN-LAST:event_supplier_return_quick_btnActionPerformed
 
     private void view_purchase_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_purchase_quick_btnActionPerformed
         
         view_purchase.setVisible(true);
+        this.setVisible(false);
+        main.quick_links_tb.setSelected(false);
         
     }//GEN-LAST:event_view_purchase_quick_btnActionPerformed
 
     private void view_invoice_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_invoice_quick_btnActionPerformed
         
         view_invoice.setVisible(true);
+        this.setVisible(false);
+        main.quick_links_tb.setSelected(false);
         
     }//GEN-LAST:event_view_invoice_quick_btnActionPerformed
 
     private void grn_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grn_quick_btnActionPerformed
         
         grn.setVisible(true);
+        this.setVisible(false);
+        main.quick_links_tb.setSelected(false);
         
     }//GEN-LAST:event_grn_quick_btnActionPerformed
 
