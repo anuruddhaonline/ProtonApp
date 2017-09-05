@@ -769,7 +769,7 @@ jScrollPane2.setVisible(true);
 
 
 
-  private void createPro() {
+  public void createPro() {
  try {
             
             ResultSet rs=ConnDB.search("select count(product_code) as x from product");

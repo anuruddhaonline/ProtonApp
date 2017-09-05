@@ -392,6 +392,7 @@ public class main extends javax.swing.JFrame {
     private void inventory_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventory_tbActionPerformed
         
         inventory.setVisible(true);
+       inventory.createPro();
         
     }//GEN-LAST:event_inventory_tbActionPerformed
 
