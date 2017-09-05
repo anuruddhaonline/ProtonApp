@@ -105,6 +105,11 @@ public class settings extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         add_new_unit_btn = new javax.swing.JButton();
         add_new_categories_btn = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
+        adjustment_reason_txt = new javax.swing.JTextField();
+        add_adjustment_reason_btn = new javax.swing.JButton();
+        jLabel39 = new javax.swing.JLabel();
+        app_access_tb = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -200,8 +205,8 @@ public class settings extends javax.swing.JFrame {
         jPanel1.add(dash_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 40, -1));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setText("Quick Launch Access :");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+        jLabel15.setText("Android App Access :");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel16.setText("Notifications :");
@@ -287,7 +292,7 @@ public class settings extends javax.swing.JFrame {
         quick_launch_access_tb.setContentAreaFilled(false);
         quick_launch_access_tb.setRolloverEnabled(false);
         quick_launch_access_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
-        jPanel1.add(quick_launch_access_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 40, -1));
+        jPanel1.add(quick_launch_access_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, 40, -1));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel25.setText("Username :");
@@ -459,18 +464,18 @@ public class settings extends javax.swing.JFrame {
         jPanel1.add(company_details_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 20, -1, -1));
 
         add_new_unit_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(add_new_unit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 140, 230, 30));
+        jPanel1.add(add_new_unit_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 120, 230, 30));
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel36.setText("Add Unit of Measure");
         jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, -1, -1));
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel37.setText("Add Product Categories");
-        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 260, -1, -1));
+        jLabel37.setText("Adjustment Reason");
+        jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 350, -1, -1));
 
         add_new_categories_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(add_new_categories_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 310, 230, 30));
+        jPanel1.add(add_new_categories_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 250, 230, 30));
 
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 80, 10, 380));
@@ -484,7 +489,7 @@ public class settings extends javax.swing.JFrame {
                 add_new_unit_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(add_new_unit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1155, 180, -1, -1));
+        jPanel1.add(add_new_unit_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 160, -1, -1));
 
         add_new_categories_btn.setBackground(new java.awt.Color(34, 155, 60));
         add_new_categories_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -495,7 +500,46 @@ public class settings extends javax.swing.JFrame {
                 add_new_categories_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(add_new_categories_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1155, 350, -1, -1));
+        jPanel1.add(add_new_categories_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 290, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel38.setText("Add Product Categories");
+        jPanel1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 220, -1, -1));
+
+        adjustment_reason_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        adjustment_reason_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        adjustment_reason_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adjustment_reason_txtActionPerformed(evt);
+            }
+        });
+        jPanel1.add(adjustment_reason_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 380, 230, 30));
+
+        add_adjustment_reason_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_adjustment_reason_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_adjustment_reason_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_adjustment_reason_btn.setText("New");
+        add_adjustment_reason_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_adjustment_reason_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_adjustment_reason_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 420, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel39.setText("Quick Launch Access :");
+        jPanel1.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
+
+        app_access_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
+        app_access_tb.setContentAreaFilled(false);
+        app_access_tb.setRolloverEnabled(false);
+        app_access_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
+        app_access_tb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                app_access_tbActionPerformed(evt);
+            }
+        });
+        jPanel1.add(app_access_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, 40, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -536,6 +580,18 @@ public class settings extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_add_new_categories_btnActionPerformed
 
+    private void adjustment_reason_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adjustment_reason_txtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adjustment_reason_txtActionPerformed
+
+    private void add_adjustment_reason_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_adjustment_reason_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_adjustment_reason_btnActionPerformed
+
+    private void app_access_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_app_access_tbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_app_access_tbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -572,10 +628,13 @@ public class settings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_adjustment_reason_btn;
     private javax.swing.JButton add_new_categories_btn;
     private javax.swing.JTextField add_new_categories_txt;
     private javax.swing.JButton add_new_unit_btn;
     private javax.swing.JTextField add_new_unit_txt;
+    private javax.swing.JTextField adjustment_reason_txt;
+    private javax.swing.JToggleButton app_access_tb;
     private javax.swing.JButton company_details_btn;
     private javax.swing.JPasswordField confirm_password_txt;
     private javax.swing.JButton create_role_btn;
@@ -615,6 +674,8 @@ public class settings extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

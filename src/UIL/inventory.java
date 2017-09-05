@@ -424,6 +424,11 @@ public class inventory extends javax.swing.JFrame {
         add_new_pro_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_pro_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_pro_clear_btn.setText("New");
+        add_new_pro_clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btnActionPerformed(evt);
+            }
+        });
         inventory_panel.add(add_new_pro_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         add_loyalty_product_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -673,6 +678,10 @@ jScrollPane2.setVisible(true);
         jList1.setVisible(false);
         jScrollPane2.setVisible(false);
     }//GEN-LAST:event_jList1MouseClicked
+
+    private void add_new_pro_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btnActionPerformed
 
     /**
      * @param args the command line arguments

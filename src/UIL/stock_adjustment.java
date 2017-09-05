@@ -41,7 +41,6 @@ public class stock_adjustment extends javax.swing.JFrame {
         adj_id_txt = new javax.swing.JTextField();
         product_name_txt = new javax.swing.JTextField();
         date_txt = new javax.swing.JTextField();
-        reason_txt = new javax.swing.JTextField();
         qty_txt = new javax.swing.JTextField();
         value_qty_txt = new javax.swing.JTextField();
         bt_complete_stock = new javax.swing.JButton();
@@ -49,6 +48,8 @@ public class stock_adjustment extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         stock_adj_close_btn = new javax.swing.JButton();
         search_stock_count_btn = new javax.swing.JButton();
+        search_adj_id_btn = new javax.swing.JButton();
+        adj_reason_cmb = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -109,15 +110,6 @@ public class stock_adjustment extends javax.swing.JFrame {
         date_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(date_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 230, 30));
 
-        reason_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        reason_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        reason_txt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reason_txtActionPerformed(evt);
-            }
-        });
-        jPanel1.add(reason_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 230, 30));
-
         qty_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         qty_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         qty_txt.addActionListener(new java.awt.event.ActionListener() {
@@ -167,6 +159,15 @@ public class stock_adjustment extends javax.swing.JFrame {
         search_stock_count_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
         jPanel1.add(search_stock_count_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 30, 30));
 
+        search_adj_id_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_adj_id_btn.setContentAreaFilled(false);
+        search_adj_id_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_adj_id_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 30, 30));
+
+        adj_reason_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        adj_reason_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(adj_reason_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 230, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 430));
 
         pack();
@@ -175,10 +176,6 @@ public class stock_adjustment extends javax.swing.JFrame {
     private void product_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_name_txtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_product_name_txtActionPerformed
-
-    private void reason_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reason_txtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reason_txtActionPerformed
 
     private void qty_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qty_txtActionPerformed
         // TODO add your handling code here:
@@ -191,7 +188,7 @@ public class stock_adjustment extends javax.swing.JFrame {
         String adjustmentID = adj_id_txt.getText();
         String productName = product_name_txt.getText();
         String date = date_txt.getText();
-        String reason = reason_txt.getText();
+        String reason = adj_reason_cmb.getSelectedItem().toString();
         int quantity= Integer.parseInt(qty_txt.getText());
         int valueOfQuantity = Integer.parseInt(value_qty_txt.getText());
         
@@ -247,6 +244,7 @@ public class stock_adjustment extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField adj_id_txt;
+    private javax.swing.JComboBox adj_reason_cmb;
     private javax.swing.JButton bt_complete_stock;
     private javax.swing.JTextField date_txt;
     private javax.swing.JLabel jLabel2;
@@ -261,7 +259,7 @@ public class stock_adjustment extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField product_name_txt;
     private javax.swing.JTextField qty_txt;
-    private javax.swing.JTextField reason_txt;
+    private javax.swing.JButton search_adj_id_btn;
     private javax.swing.JButton search_stock_count_btn;
     private javax.swing.JButton stock_adj_close_btn;
     private javax.swing.JTextField stock_count_id_txt;
