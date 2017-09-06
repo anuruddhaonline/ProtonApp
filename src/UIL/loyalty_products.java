@@ -44,13 +44,16 @@ public class loyalty_products extends javax.swing.JFrame {
         loyalty_products_close_btn = new javax.swing.JButton();
         product_name_txt = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
+        max_products_txt = new javax.swing.JTextField();
         search_produc_btn = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         discount_amount_txt = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(570, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -78,13 +81,13 @@ public class loyalty_products extends javax.swing.JFrame {
                 set_discount_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(set_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 355, 130, -1));
+        jPanel1.add(set_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 130, -1));
 
         add_discount_btn.setBackground(new java.awt.Color(34, 155, 60));
         add_discount_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_discount_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_discount_btn.setText("Add Discount");
-        jPanel1.add(add_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 160, -1, -1));
+        jPanel1.add(add_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
 
         discount_list_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,7 +102,7 @@ public class loyalty_products extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(discount_list_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 490, 120));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 490, 120));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel30.setText("Product ID :");
@@ -147,14 +150,17 @@ public class loyalty_products extends javax.swing.JFrame {
         jLabel31.setText("Product Name :");
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        max_products_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(max_products_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 230, 30));
+
         search_produc_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_produc_btn.setContentAreaFilled(false);
         search_produc_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
         jPanel1.add(search_produc_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 30, 30));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel32.setText("Loyalty Discount :");
-        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+        jLabel32.setText("Max. Products :");
+        jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         discount_amount_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         discount_amount_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
@@ -165,7 +171,11 @@ public class loyalty_products extends javax.swing.JFrame {
         });
         jPanel1.add(discount_amount_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 230, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 400));
+        jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel33.setText("Loyalty Discount :");
+        jPanel1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,10 +247,12 @@ public class loyalty_products extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton loyalty_products_close_btn;
+    private javax.swing.JTextField max_products_txt;
     private javax.swing.JTextField product_id_txt;
     private javax.swing.JTextField product_name_txt;
     private javax.swing.JButton search_produc_btn;

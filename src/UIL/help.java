@@ -6,10 +6,11 @@
 
 package UIL;
 
-import java.awt.Dimension;
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import javax.swing.JEditorPane;
-import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
 /**
@@ -18,11 +19,12 @@ import javax.swing.JScrollPane;
  */
 public class help extends javax.swing.JFrame {
 
-    /**
-     * Creates new form help
-     */
+   
+    
     public help() {
         initComponents();
+       
+        
     }
 
     /**
@@ -37,6 +39,23 @@ public class help extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
+        jLabel19 = new javax.swing.JLabel();
+        help_search_key_help = new javax.swing.JTextField();
+        search_help_btn = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        add_new_pro_clear_btn = new javax.swing.JButton();
+        add_new_pro_clear_btn1 = new javax.swing.JButton();
+        add_new_pro_clear_btn2 = new javax.swing.JButton();
+        add_new_pro_clear_btn3 = new javax.swing.JButton();
+        add_new_pro_clear_btn4 = new javax.swing.JButton();
+        add_new_pro_clear_btn5 = new javax.swing.JButton();
+        add_new_pro_clear_btn6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -53,10 +72,191 @@ public class help extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        jLabel19.setText("Frequently Asked Questions");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        help_search_key_help.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        help_search_key_help.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        help_search_key_help.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                help_search_key_helpKeyTyped(evt);
+            }
+        });
+        jPanel1.add(help_search_key_help, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 290, 30));
+
+        search_help_btn.setBackground(new java.awt.Color(34, 155, 60));
+        search_help_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        search_help_btn.setForeground(new java.awt.Color(255, 255, 255));
+        search_help_btn.setText("Search");
+        search_help_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_help_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(search_help_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 80, 30));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setText("07. How to Create a New User with Proton?");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel21.setText("01. How to Create an Inovice with Proton?");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel22.setText("02. How to Create a Purchase Order with Proton?");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel23.setText("03. How to Issue a GRN with Proton?");
+        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel24.setText("04. How to Create a Stock Count with Proton?");
+        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel25.setText("05. How to Add Loyalty Products with Proton?");
+        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel26.setText("06. How to Add New Product Categories with Proton?");
+        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 490, -1, -1));
+
+        add_new_pro_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn.setText("View in Help");
+        add_new_pro_clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 310, -1, -1));
+
+        add_new_pro_clear_btn1.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn1.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn1.setText("View in Help");
+        add_new_pro_clear_btn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btn1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, -1, -1));
+
+        add_new_pro_clear_btn2.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn2.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn2.setText("View in Help");
+        add_new_pro_clear_btn2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btn2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, -1, -1));
+
+        add_new_pro_clear_btn3.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn3.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn3.setText("View in Help");
+        add_new_pro_clear_btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btn3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, -1, -1));
+
+        add_new_pro_clear_btn4.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn4.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn4.setText("View in Help");
+        add_new_pro_clear_btn4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btn4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 430, -1, -1));
+
+        add_new_pro_clear_btn5.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn5.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn5.setText("View in Help");
+        add_new_pro_clear_btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btn5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 550, -1, -1));
+
+        add_new_pro_clear_btn6.setBackground(new java.awt.Color(34, 155, 60));
+        add_new_pro_clear_btn6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        add_new_pro_clear_btn6.setForeground(new java.awt.Color(255, 255, 255));
+        add_new_pro_clear_btn6.setText("View in Help");
+        add_new_pro_clear_btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_pro_clear_btn6ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(add_new_pro_clear_btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 490, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void help_search_key_helpKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_help_search_key_helpKeyTyped
+
+        String text=help_search_key_help.getText();
+
+    }//GEN-LAST:event_help_search_key_helpKeyTyped
+
+    private void search_help_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_help_btnActionPerformed
+       
+        String search_key = help_search_key_help.getText();
+        
+        this.setAlwaysOnTop(false);
+          
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\CSS\\web site\\contact\\"+search_key+".html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_search_help_btnActionPerformed
+
+    private void add_new_pro_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btnActionPerformed
+
+    private void add_new_pro_clear_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btn1ActionPerformed
+
+    private void add_new_pro_clear_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btn2ActionPerformed
+
+    private void add_new_pro_clear_btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btn3ActionPerformed
+
+    private void add_new_pro_clear_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btn4ActionPerformed
+
+    private void add_new_pro_clear_btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btn5ActionPerformed
+
+    private void add_new_pro_clear_btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_pro_clear_btn6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,8 +294,29 @@ public class help extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton add_new_pro_clear_btn;
+    private javax.swing.JButton add_new_pro_clear_btn1;
+    private javax.swing.JButton add_new_pro_clear_btn2;
+    private javax.swing.JButton add_new_pro_clear_btn3;
+    private javax.swing.JButton add_new_pro_clear_btn4;
+    private javax.swing.JButton add_new_pro_clear_btn5;
+    private javax.swing.JButton add_new_pro_clear_btn6;
+    private javax.swing.JTextField help_search_key_help;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JButton search_help_btn;
     // End of variables declaration//GEN-END:variables
+
+  
 }
+
+

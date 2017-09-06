@@ -6,6 +6,20 @@
 
 package UIL;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.block.BlockBorder;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.BarRenderer;
+import org.jfree.chart.title.LegendTitle;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+
 /**
  *
  * @author ASUS
@@ -17,6 +31,10 @@ public class dashboard extends javax.swing.JFrame {
      */
     public dashboard() {
         initComponents();
+        
+        loadBarChart();
+        loadSalesPieChart();
+        loadExpenditurePieChart();
     }
 
     /**
@@ -29,8 +47,18 @@ public class dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        expenditure_pie_panel = new javax.swing.JPanel();
+        refresh_dash_btn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
+        bar_panel = new javax.swing.JPanel();
+        top_sell_pie_panel = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        sotck_levels_table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -43,15 +71,74 @@ public class dashboard extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        expenditure_pie_panel.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(expenditure_pie_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 340, 220));
+
+        refresh_dash_btn.setBackground(new java.awt.Color(34, 155, 60));
+        refresh_dash_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        refresh_dash_btn.setForeground(new java.awt.Color(255, 255, 255));
+        refresh_dash_btn.setText("Refresh");
+        refresh_dash_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refresh_dash_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(refresh_dash_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 17, -1, -1));
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         jLabel1.setText("Dashboard");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
+        bar_panel.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(bar_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 760, 270));
+
+        top_sell_pie_panel.setLayout(new java.awt.BorderLayout());
+        jPanel1.add(top_sell_pie_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 340, 220));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setText("Stock Levels");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel20.setText("Top Selling Products");
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel21.setText("Daily Sales");
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel22.setText("Expenditure on Products");
+        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
+
+        sotck_levels_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Product Code", "Product Name", "Stock Level", "Reorder Level", "Product Type"
+            }
+        ));
+        jScrollPane1.setViewportView(sotck_levels_table);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, 730, 210));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void refresh_dash_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refresh_dash_btnActionPerformed
+      
+        loadBarChart();
+        loadSalesPieChart();
+        loadExpenditurePieChart();
+        
+    }//GEN-LAST:event_refresh_dash_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,8 +176,91 @@ public class dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel bar_panel;
+    private javax.swing.JPanel expenditure_pie_panel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JButton refresh_dash_btn;
+    private javax.swing.JTable sotck_levels_table;
+    private javax.swing.JPanel top_sell_pie_panel;
     // End of variables declaration//GEN-END:variables
+
+    private void loadBarChart() {
+        
+        DefaultCategoryDataset barChartData = new DefaultCategoryDataset();
+        barChartData.setValue(20000, "con amount", "Sunday");
+        barChartData.setValue(15000, "con amount", "Monday");
+        barChartData.setValue(32000, "con amount", "Tuesday");
+        barChartData.setValue(20000, "con amount", "Wednsday");
+        barChartData.setValue(25000, "con amount", "Thursday");
+        barChartData.setValue(40000, "con amount", "Friday");
+        barChartData.setValue(40000, "con amount", "Saturday");
+        
+        JFreeChart barChart = ChartFactory.createBarChart("", "Day", "Amount (LKR)", barChartData, PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot catPlot = barChart.getCategoryPlot();
+        //catPlot.setRangeGridlinePaint(Color.BLUE);
+        catPlot.setBackgroundPaint(Color.WHITE);
+        
+        BarRenderer barRenderer = (BarRenderer)catPlot.getRenderer();
+        barRenderer.setSeriesPaint(0, Color.decode("#00b540"));
+        
+        
+        ChartPanel barPanel = new ChartPanel(barChart);
+        bar_panel.removeAll();
+        bar_panel.add(barPanel, BorderLayout.CENTER);
+        bar_panel.validate();
+
+    }
+
+    private void loadSalesPieChart() {
+        
+        DefaultPieDataset pieDataset = new DefaultPieDataset();
+        pieDataset.setValue("Ready-made", new Integer(10));
+        pieDataset.setValue("Component", new Integer(20));
+        pieDataset.setValue("Assembled", new Integer(30));
+        JFreeChart pieChart = ChartFactory.createPieChart("", pieDataset, true, true, true);
+        
+        PiePlot piePlot = (PiePlot)pieChart.getPlot();
+        piePlot.setBackgroundPaint(Color.WHITE);
+        
+        LegendTitle legend = pieChart.getLegend();
+        legend.setFrame(new BlockBorder(Color.WHITE));
+       
+        piePlot.setOutlineVisible(false);
+        
+        ChartPanel pieChartPanel = new ChartPanel(pieChart);
+        top_sell_pie_panel.removeAll();
+        top_sell_pie_panel.add(pieChartPanel, BorderLayout.CENTER);
+        top_sell_pie_panel.validate();
+        
+    }
+
+    private void loadExpenditurePieChart() {
+        
+        DefaultPieDataset pieDataset = new DefaultPieDataset();
+        pieDataset.setValue("Ready-made", new Integer(40));
+        pieDataset.setValue("Component", new Integer(20));
+        pieDataset.setValue("Assembled", new Integer(10));
+        JFreeChart pieChart = ChartFactory.createPieChart("", pieDataset, true, true, true);
+        
+        PiePlot piePlot = (PiePlot)pieChart.getPlot();
+        piePlot.setBackgroundPaint(Color.WHITE);
+        
+        LegendTitle legend = pieChart.getLegend();
+        legend.setFrame(new BlockBorder(Color.WHITE));
+       
+        piePlot.setOutlineVisible(false);
+        
+        ChartPanel pieChartPanel = new ChartPanel(pieChart);
+        expenditure_pie_panel.removeAll();
+        expenditure_pie_panel.add(pieChartPanel, BorderLayout.CENTER);
+        expenditure_pie_panel.validate();
+        
+    }
 }

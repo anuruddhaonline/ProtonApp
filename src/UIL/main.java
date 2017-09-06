@@ -8,7 +8,6 @@ package UIL;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,6 +31,7 @@ public class main extends javax.swing.JFrame {
     quick_menu quick_menu = new quick_menu();
     option_pane option_pane = new option_pane();
     change_password change_password = new change_password();
+    notification_popup notification_popup = new notification_popup();
     
     public main() {
         initComponents();
@@ -62,7 +62,6 @@ public class main extends javax.swing.JFrame {
         close_btn = new javax.swing.JButton();
         menu_button = new javax.swing.JToggleButton();
         quick_links_tb = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
         menu_panel = new javax.swing.JPanel();
         help_tb = new javax.swing.JToggleButton();
         notification_tb = new javax.swing.JToggleButton();
@@ -143,14 +142,6 @@ public class main extends javax.swing.JFrame {
             }
         });
         header_panel.add(quick_links_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(662, 5, 45, 40));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        header_panel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
 
         getContentPane().add(header_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 50));
 
@@ -422,6 +413,7 @@ public class main extends javax.swing.JFrame {
     private void help_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_help_tbActionPerformed
         
         help.setVisible(true);
+        help.setAlwaysOnTop(true);
         
     }//GEN-LAST:event_help_tbActionPerformed
 
@@ -458,12 +450,6 @@ public class main extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_quick_links_tbActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        option_pane.setVisible(true);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void user_icon_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_user_icon_btnActionPerformed
         
@@ -515,7 +501,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JToggleButton help_tb;
     private javax.swing.JToggleButton inventory_tb;
     private javax.swing.JToggleButton invoice_tb;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel login_border;
     private javax.swing.JButton login_btn;
     private javax.swing.JLabel login_logo;
