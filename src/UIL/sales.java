@@ -6,6 +6,11 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Vector;
+
 /**
  *
  * @author ASUS
@@ -13,11 +18,14 @@ package UIL;
 public class sales extends javax.swing.JFrame {
 
     view_invoice view_invoice = new view_invoice();
-    
+    double qty=0.0;
+    String count;
+    boolean loyalty=false;
     public sales() {
         initComponents();
-        
-        product_code_txt.grabFocus();
+       
+        auto();
+       
     }
 
     /**
@@ -34,6 +42,8 @@ public class sales extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         invoice_id_txt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
         loyalty_card_txt = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         customer_name_txt = new javax.swing.JTextField();
@@ -101,6 +111,25 @@ public class sales extends javax.swing.JFrame {
         jLabel4.setText("Loyalty Card No :");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(461, 240, -1, -1));
 
+        jList1.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
+        jList1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jList1KeyPressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jList1);
+
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 80));
+
         loyalty_card_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         loyalty_card_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(loyalty_card_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 240, 230, 30));
@@ -127,6 +156,11 @@ public class sales extends javax.swing.JFrame {
 
         product_code_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_code_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        product_code_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                product_code_txtActionPerformed(evt);
+            }
+        });
         jPanel1.add(product_code_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 230, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -155,7 +189,7 @@ public class sales extends javax.swing.JFrame {
         product_list_table.setRowHeight(20);
         jScrollPane1.setViewportView(product_list_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 1120, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 1120, 170));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Availability :");
@@ -191,6 +225,16 @@ public class sales extends javax.swing.JFrame {
 
         quantity_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         quantity_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        quantity_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantity_txtActionPerformed(evt);
+            }
+        });
+        quantity_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantity_txtKeyReleased(evt);
+            }
+        });
         jPanel1.add(quantity_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 230, 30));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -208,6 +252,11 @@ public class sales extends javax.swing.JFrame {
         search_customer_mobile_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_customer_mobile_btn.setContentAreaFilled(false);
         search_customer_mobile_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_customer_mobile_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_customer_mobile_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_customer_mobile_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 140, 30, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -216,6 +265,16 @@ public class sales extends javax.swing.JFrame {
 
         product_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        product_name_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                product_name_txtActionPerformed(evt);
+            }
+        });
+        product_name_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                product_name_txtKeyReleased(evt);
+            }
+        });
         jPanel1.add(product_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 230, 30));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -255,6 +314,11 @@ public class sales extends javax.swing.JFrame {
         search_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_product_btn.setContentAreaFilled(false);
         search_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_product_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 30, 30));
 
         view_invoice_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -273,6 +337,11 @@ public class sales extends javax.swing.JFrame {
         add_new_invoice_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_invoice_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_invoice_clear_btn.setText("New");
+        add_new_invoice_clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_invoice_clear_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_new_invoice_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -288,6 +357,11 @@ public class sales extends javax.swing.JFrame {
 
         mobile_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mobile_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        mobile_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mobile_txtActionPerformed(evt);
+            }
+        });
         jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 230, 30));
 
         loyalty_discount_icon_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_discount_icon.png"))); // NOI18N
@@ -359,6 +433,299 @@ public class sales extends javax.swing.JFrame {
         
     }//GEN-LAST:event_view_invoice_btnActionPerformed
 
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        String name1=jList1.getSelectedValue().toString();
+        product_name_txt.setText(jList1.getSelectedValue().toString());
+        jList1.setVisible(false);
+        jScrollPane2.setVisible(false);
+        
+        
+        try {
+                  
+            ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                product_code_txt.setText(rs.getString("product_code"));
+                unit_price_txt.setText(rs.getString("selling_price"));
+         
+               
+            
+            jList1.setListData(v);
+              
+             
+            
+            
+            
+            } 
+            
+             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+            v = new Vector();
+            if (rs.next()) {
+                discount_txt.setText(rs.getString("discount"));
+                       count=rs.getString("max_count");
+                loyalty_discount_icon_lbl.setVisible(true);
+                loyalty=true;
+            }else{
+            
+               loyalty_discount_icon_lbl.setVisible(false);
+            
+            
+            }
+                        quantity_txt.grabFocus();
+
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    }//GEN-LAST:event_jList1MouseClicked
+
+    private void product_name_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_product_name_txtKeyReleased
+        try {
+                
+              int i=product_name_txt.getText().length();
+              if(i==0){
+                  System.out.println("4444");
+                  jScrollPane2.setVisible(false);
+                jList1.setVisible(false);
+        
+              
+              }else{
+            ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                 jScrollPane2.setVisible(true);
+                jList1.setVisible(true);
+                v.add(rs.getString("product_name"));
+                jScrollPane2.setVisible(true);
+                jList1.setVisible(true);
+
+            }
+            jList1.setListData(v);
+              }   
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    }//GEN-LAST:event_product_name_txtKeyReleased
+
+    private void product_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_name_txtActionPerformed
+        try {
+                  jScrollPane2.setVisible(false);
+                jList1.setVisible(false);
+            ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                product_code_txt.setText(rs.getString("product_code"));
+
+            
+            jList1.setListData(v);
+            
+            
+            
+            
+            
+              }   
+            
+            
+            
+             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+            v = new Vector();
+            if (rs.next()) {
+                discount_txt.setText(rs.getString("discount"));
+                  count=rs.getString("max_count");
+                loyalty_discount_icon_lbl.setVisible(true);
+                 loyalty=true;
+            }else{
+            
+               loyalty_discount_icon_lbl.setVisible(false);
+            
+            
+            }
+            
+            
+            discount_txt.grabFocus();
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+        
+        quantity_txt.grabFocus();
+    }//GEN-LAST:event_product_name_txtActionPerformed
+
+    private void quantity_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantity_txtKeyReleased
+        
+        if(quantity_txt.getText().length()==0){
+        
+         available_txt.setText((""));
+               
+        
+        }else{
+        
+        
+        double available=Double.parseDouble(quantity_txt.getText());
+        
+        try {
+                  
+            ResultSet rs = ConnDB.search("select * from inventory where product_code='" + product_code_txt.getText()+"' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                available_txt.setText(rs.getString("qty"));
+               double qty=Double.parseDouble(rs.getString("qty"));
+               qty-=available;
+                available_txt.setText((qty+""));
+               
+              }   
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+        }
+    }//GEN-LAST:event_quantity_txtKeyReleased
+
+    private void jList1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jList1KeyPressed
+     
+    }//GEN-LAST:event_jList1KeyPressed
+
+    private void search_customer_mobile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_customer_mobile_btnActionPerformed
+        try {
+                  
+            ResultSet rs = ConnDB.search("select * from loyality where 	mobile_number='" + mobile_txt.getText()+"' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                loyalty_card_txt.setText(rs.getString("loyality_card_number"));
+                customer_name_txt.setText(rs.getString("customer_name"));
+               
+               
+              }   
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    }//GEN-LAST:event_search_customer_mobile_btnActionPerformed
+
+    private void mobile_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobile_txtActionPerformed
+       
+        if(mobile_txt.getText().length()==0){
+         customer_name_txt.setText("cash");
+          product_code_txt.setEnabled(true);
+          product_name_txt.setEnabled(true);
+          discount_txt.setEnabled(true);
+          quantity_txt.setEnabled(true);
+          unit_price_txt.setEnabled(true);
+          available_txt.setEnabled(false);
+          product_code_txt.setEnabled(true);
+          product_code_txt.grabFocus();
+        }else{
+        
+        product_code_txt.setEnabled(true);
+         product_name_txt.setEnabled(true);
+         discount_txt.setEnabled(true);
+          quantity_txt.setEnabled(true);
+          unit_price_txt.setEnabled(true);
+          available_txt.setEnabled(false);
+          product_code_txt.setEnabled(true);
+          product_code_txt.grabFocus();
+        
+        
+          try {
+                  
+            ResultSet rs = ConnDB.search("select * from loyality where 	mobile_number='" + mobile_txt.getText()+"' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                loyalty_card_txt.setText(rs.getString("loyality_card_number"));
+                customer_name_txt.setText(rs.getString("customer_name"));
+               
+               
+              }   
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+        
+        }
+    }//GEN-LAST:event_mobile_txtActionPerformed
+
+    private void search_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_product_btnActionPerformed
+         try {
+                
+            ResultSet rs = ConnDB.search("select * from product where product_code like '" + product_code_txt.getText() + "%' and status='active' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                product_name_txt.setText(rs.getString("product_name"));
+                unit_price_txt.setText(rs.getString("selling_price"));
+                
+     
+            
+              }   
+            
+            
+            
+             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+            v = new Vector();
+             if (rs.next()) {
+                discount_txt.setText(rs.getString("discount"));
+                loyalty_discount_icon_lbl.setVisible(true);
+                 count=rs.getString("max_count");
+                 loyalty=true;
+            }else{
+            
+               loyalty_discount_icon_lbl.setVisible(false);
+            
+            
+            }
+                        quantity_txt.grabFocus();
+
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    }//GEN-LAST:event_search_product_btnActionPerformed
+
+    private void add_new_invoice_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_invoice_clear_btnActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_add_new_invoice_clear_btnActionPerformed
+
+    private void quantity_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantity_txtActionPerformed
+        
+        if(loyalty){
+        int max=Integer.parseInt(count);
+        int buy=Integer.parseInt(quantity_txt.getText());
+        if(max<buy){
+            System.out.println("kkkkkk");
+        } 
+        
+        
+        }
+    }//GEN-LAST:event_quantity_txtActionPerformed
+
+    private void product_code_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_code_txtActionPerformed
+       try {
+                
+            ResultSet rs = ConnDB.search("select * from product where product_code like '" + product_code_txt.getText() + "%' and status='active' ");
+            Vector v = new Vector();
+            while (rs.next()) {
+                product_name_txt.setText(rs.getString("product_name"));
+                unit_price_txt.setText(rs.getString("selling_price"));
+                
+     
+            
+              }   
+            
+            
+            
+             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+            v = new Vector();
+             if (rs.next()) {
+                discount_txt.setText(rs.getString("discount"));
+                loyalty_discount_icon_lbl.setVisible(true);
+                 count=rs.getString("max_count");
+                 loyalty=true;
+            }else{
+            
+               loyalty_discount_icon_lbl.setVisible(false);
+            
+            
+            }
+                        quantity_txt.grabFocus();
+
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    }//GEN-LAST:event_product_code_txtActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -424,8 +791,10 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField loyalty_card_txt;
     private javax.swing.JLabel loyalty_discount_icon_lbl;
@@ -442,4 +811,67 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JTextField unit_price_txt;
     private javax.swing.JButton view_invoice_btn;
     // End of variables declaration//GEN-END:variables
+
+    private void auto() {
+        
+        	
+
+
+String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+invoice_date_txt.setText(timeStamp);
+        
+        
+          product_code_txt.setEnabled(false);
+          product_name_txt.setEnabled(false);
+          discount_txt.setEnabled(false);
+          quantity_txt.setEnabled(false);
+          unit_price_txt.setEnabled(false);
+          available_txt.setEnabled(false);
+          product_code_txt.setEnabled(false);
+          product_code_txt.grabFocus();
+          jScrollPane2.setVisible(false);
+          jList1.setVisible(false);
+          loyalty_discount_icon_lbl.setVisible(false);
+        
+        
+        
+         try {
+               
+            
+            
+            
+             ResultSet rs = ConnDB.search("select invoice from prifixes where prifix_id='1' ");
+          
+            if (rs.next()) {
+               String name=(rs.getString("invoice"));
+                
+                
+                   rs=ConnDB.search("select count(invoice_id) as x from invoice");
+                  if(rs.next()){
+                   int i=Integer.parseInt(rs.getString("x"));
+                  i++;
+                  
+                  if(i<10){
+                    invoice_id_txt.setText(name+"000"+i);
+                  }else if(i<100){
+                  
+                  invoice_id_txt.setText(name+"00"+i);
+                  }else if(i<1000){
+                    invoice_id_txt.setText(name+"0"+i);
+                  }
+               
+                     product_name_txt.grabFocus();
+        }
+                
+                
+            }
+             mobile_txt.grabFocus();
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+    
+    
+    
+    
+    }
 }
