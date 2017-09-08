@@ -73,7 +73,6 @@ public class purchase extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         unit_price_txt = new javax.swing.JTextField();
-        grn_btn = new javax.swing.JButton();
         add_new_purchase_clear_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -243,17 +242,6 @@ public class purchase extends javax.swing.JFrame {
         });
         jPanel1.add(unit_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 230, 30));
 
-        grn_btn.setBackground(new java.awt.Color(34, 155, 60));
-        grn_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        grn_btn.setForeground(new java.awt.Color(255, 255, 255));
-        grn_btn.setText("GRN");
-        grn_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                grn_btnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(grn_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(885, 20, -1, -1));
-
         add_new_purchase_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
         add_new_purchase_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_purchase_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -320,12 +308,6 @@ public class purchase extends javax.swing.JFrame {
         view_purchase.setVisible(true);
         
     }//GEN-LAST:event_view_purchase_btnActionPerformed
-
-    private void grn_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grn_btnActionPerformed
-       
-        grn.setVisible(true);
-        
-    }//GEN-LAST:event_grn_btnActionPerformed
 
     private void unit_price_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unit_price_txtActionPerformed
          qty_txt.setEditable(true);
@@ -514,7 +496,6 @@ public class purchase extends javax.swing.JFrame {
     private javax.swing.JButton add_new_purchase_clear_btn;
     private javax.swing.JButton complete_invoice_btn;
     private javax.swing.JButton complete_print_invoice_btn;
-    private javax.swing.JButton grn_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -18,7 +18,7 @@ public class quick_menu extends javax.swing.JFrame {
     supplier_returns supplier_returns = new supplier_returns();
     view_purchase view_purchase = new view_purchase();
     view_invoice view_invoice = new view_invoice();
-    grn grn = new grn();
+    production production = new production();
     
     
     
@@ -68,9 +68,9 @@ public class quick_menu extends javax.swing.JFrame {
         });
         jPanel2.add(view_invoice_quick_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 185, 50));
 
-        grn_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_suppliers_icon.png"))); // NOI18N
+        grn_quick_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grn_icon.png"))); // NOI18N
         grn_quick_btn.setContentAreaFilled(false);
-        grn_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_suppliers_icon_hover.png"))); // NOI18N
+        grn_quick_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grn_icon_hover.png"))); // NOI18N
         grn_quick_btn.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/view_suppliers_icon_hover.png"))); // NOI18N
         grn_quick_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +174,7 @@ public class quick_menu extends javax.swing.JFrame {
 
     private void grn_quick_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grn_quick_btnActionPerformed
         
-        grn.setVisible(true);
+        production.setVisible(true);
         this.setVisible(false);
         main.quick_links_tb.setSelected(false);
         

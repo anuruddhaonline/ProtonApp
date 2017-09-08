@@ -204,9 +204,9 @@ public class main extends javax.swing.JFrame {
         menu_panel.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 140, 35));
 
         menu_button_group.add(production_tb);
-        production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon.png"))); // NOI18N
-        production_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon_hover.png"))); // NOI18N
-        production_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/producton_icon_hover.png"))); // NOI18N
+        production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grn_main_icon.png"))); // NOI18N
+        production_tb.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grn_main_icon_hover.png"))); // NOI18N
+        production_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/grn_main_icon_hover.png"))); // NOI18N
         production_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 production_tbActionPerformed(evt);

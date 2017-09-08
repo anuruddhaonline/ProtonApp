@@ -32,8 +32,21 @@ public class production extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         add_new_production_clear_btn = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
-        username_txt = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        purchase_order_txt = new javax.swing.JTextField();
+        search_purchase_order_btn = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        grn_id_txt = new javax.swing.JTextField();
+        search_grn_btn = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        supplier_name_txt = new javax.swing.JTextField();
+        product_id_txt = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        product_list_table = new javax.swing.JTable();
+        complete_print_grn_btn = new javax.swing.JButton();
+        complete_grn_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -46,7 +59,7 @@ public class production extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
-        jLabel1.setText("Production");
+        jLabel1.setText("Good Receiving Note");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
@@ -54,19 +67,97 @@ public class production extends javax.swing.JFrame {
         add_new_production_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_production_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_production_clear_btn.setText("New");
-        jPanel1.add(add_new_production_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, -1, -1));
+        jPanel1.add(add_new_production_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel25.setText("Username :");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 140, -1, -1));
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel19.setText("Add New GRN");
+        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
-        username_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
-        jPanel1.add(username_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 230, 30));
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel12.setText("Purchase Order ID :");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        purchase_order_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        purchase_order_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(purchase_order_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 230, 30));
+
+        search_purchase_order_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_purchase_order_btn.setContentAreaFilled(false);
+        search_purchase_order_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_purchase_order_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 30, 30));
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("GRN ID :");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+
+        grn_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(grn_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
+
+        search_grn_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
+        search_grn_btn.setContentAreaFilled(false);
+        search_grn_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        jPanel1.add(search_grn_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 30, 30));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("GRN Date :");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Supplier Name :");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+
+        supplier_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(supplier_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, 30));
+
+        product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        jPanel1.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 230, 30));
+
+        product_list_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        product_list_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Product Code", "Product Name", "Unit Price", "Ordered Qty", "Received Qty", "Sub Total"
+            }
+        ));
+        product_list_table.setRowHeight(20);
+        jScrollPane1.setViewportView(product_list_table);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 1130, 200));
+
+        complete_print_grn_btn.setBackground(new java.awt.Color(34, 155, 60));
+        complete_print_grn_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        complete_print_grn_btn.setForeground(new java.awt.Color(255, 255, 255));
+        complete_print_grn_btn.setText("Complete & Print");
+        jPanel1.add(complete_print_grn_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 590, -1, -1));
+
+        complete_grn_btn.setBackground(new java.awt.Color(34, 155, 60));
+        complete_grn_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        complete_grn_btn.setForeground(new java.awt.Color(255, 255, 255));
+        complete_grn_btn.setText("Complete");
+        complete_grn_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                complete_grn_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(complete_grn_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 590, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void complete_grn_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complete_grn_btnActionPerformed
+
+        
+    }//GEN-LAST:event_complete_grn_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -105,10 +196,23 @@ public class production extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton add_new_production_clear_btn;
+    private javax.swing.JButton complete_grn_btn;
+    private javax.swing.JButton complete_print_grn_btn;
+    private javax.swing.JTextField grn_id_txt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField username_txt;
+    private javax.swing.JTextField product_id_txt;
+    private javax.swing.JTable product_list_table;
+    private javax.swing.JTextField purchase_order_txt;
+    private javax.swing.JButton search_grn_btn;
+    private javax.swing.JButton search_purchase_order_btn;
+    private javax.swing.JTextField supplier_name_txt;
     // End of variables declaration//GEN-END:variables
 }

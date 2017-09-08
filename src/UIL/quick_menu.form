@@ -78,11 +78,11 @@
         <Component class="javax.swing.JButton" name="grn_quick_btn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/view_suppliers_icon.png"/>
+              <Image iconType="3" name="/Images/grn_icon.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/view_suppliers_icon_hover.png"/>
+              <Image iconType="3" name="/Images/grn_icon_hover.png"/>
             </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Images/view_suppliers_icon_hover.png"/>
