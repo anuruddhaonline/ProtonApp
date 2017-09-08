@@ -15,10 +15,12 @@ public class option_pane extends javax.swing.JFrame {
     /**
      * Creates new form option_pane
      */
-    public option_pane() {
+    public option_pane(String heading,String message ) {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        jLabel2.setText(heading);
+        jLabel3.setText(message);
     }
 
     /**
@@ -60,7 +62,7 @@ public class option_pane extends javax.swing.JFrame {
         jLabel3.setText("Fields should not be empty");
         option_pane_wrapper_panel.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 28)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
         jLabel2.setText("Information!");
         option_pane_wrapper_panel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 18, -1, -1));
 
@@ -110,7 +112,7 @@ public class option_pane extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new option_pane().setVisible(true);
+                new option_pane("ffff","gggg").setVisible(true);
             }
         });
     }

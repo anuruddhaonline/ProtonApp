@@ -200,7 +200,6 @@ public class settings extends javax.swing.JFrame {
 
         dash_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         dash_tb.setContentAreaFilled(false);
-        dash_tb.setRolloverEnabled(false);
         dash_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(dash_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 230, 40, -1));
 
@@ -242,55 +241,46 @@ public class settings extends javax.swing.JFrame {
 
         noti_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         noti_tb.setContentAreaFilled(false);
-        noti_tb.setRolloverEnabled(false);
         noti_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(noti_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 40, -1));
 
         inventory_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         inventory_tb.setContentAreaFilled(false);
-        inventory_tb.setRolloverEnabled(false);
         inventory_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(inventory_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 270, 40, -1));
 
         purchase_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         purchase_tb.setContentAreaFilled(false);
-        purchase_tb.setRolloverEnabled(false);
         purchase_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(purchase_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 310, 40, -1));
 
         production_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         production_tb.setContentAreaFilled(false);
-        production_tb.setRolloverEnabled(false);
         production_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(production_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 350, 40, -1));
 
         suppliers_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         suppliers_tb.setContentAreaFilled(false);
-        suppliers_tb.setRolloverEnabled(false);
         suppliers_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(suppliers_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 270, 40, -1));
 
         loyalty_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         loyalty_tb.setContentAreaFilled(false);
-        loyalty_tb.setRolloverEnabled(false);
         loyalty_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(loyalty_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 230, 40, -1));
 
         sales_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         sales_tb.setContentAreaFilled(false);
-        sales_tb.setRolloverEnabled(false);
         sales_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(sales_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 190, 40, -1));
 
         settings_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         settings_tb.setContentAreaFilled(false);
-        settings_tb.setRolloverEnabled(false);
         settings_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 310, 40, -1));
 
         quick_launch_access_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         quick_launch_access_tb.setContentAreaFilled(false);
-        quick_launch_access_tb.setRolloverEnabled(false);
         quick_launch_access_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(quick_launch_access_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 390, 40, -1));
 
@@ -336,7 +326,6 @@ public class settings extends javax.swing.JFrame {
 
         help_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         help_tb.setContentAreaFilled(false);
-        help_tb.setRolloverEnabled(false);
         help_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         jPanel1.add(help_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 350, 40, -1));
 
@@ -532,7 +521,6 @@ public class settings extends javax.swing.JFrame {
 
         app_access_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         app_access_tb.setContentAreaFilled(false);
-        app_access_tb.setRolloverEnabled(false);
         app_access_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         app_access_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

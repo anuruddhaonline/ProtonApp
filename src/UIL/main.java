@@ -29,7 +29,6 @@ public class main extends javax.swing.JFrame {
     //other interfaces
     
     quick_menu quick_menu = new quick_menu();
-    option_pane option_pane = new option_pane();
     change_password change_password = new change_password();
     notification_popup notification_popup = new notification_popup();
     

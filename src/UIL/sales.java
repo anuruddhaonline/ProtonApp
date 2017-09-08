@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package UIL;
 
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Vector;
+import javax.naming.spi.DirStateFactory;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,14 +21,34 @@ import java.util.Vector;
 public class sales extends javax.swing.JFrame {
 
     view_invoice view_invoice = new view_invoice();
-    double qty=0.0;
+    double qty = 0.0;
     String count;
-    boolean loyalty=false;
+    boolean loyalty = false;
+    double discount;
+    option_pane p;
+    double discount1;
+    
+    
+
     public sales() {
         initComponents();
-       
+        
+        discount_txt.setText("0");
+        jScrollPane2.setVisible(false);
+        jList1.setVisible(false);
+          product_code_txt.setEnabled(false);
+            product_name_txt.setEnabled(false);
+            discount_txt.setEnabled(false);
+            quantity_txt.setEnabled(false);
+            unit_price_txt.setEnabled(false);
+            available_txt.setEnabled(false);
+            product_code_txt.setEnabled(false);
+            complete_invoice_btn.setVisible(false);
+            save_and_print_btn.setVisible(false);
+            String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+            invoice_date_txt.setText(timeStamp);
         auto();
-       
+
     }
 
     /**
@@ -85,6 +108,7 @@ public class sales extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         mobile_txt = new javax.swing.JTextField();
         loyalty_discount_icon_lbl = new javax.swing.JLabel();
+        delete_product_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -128,7 +152,7 @@ public class sales extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jList1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 80));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, 230, 60));
 
         loyalty_card_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         loyalty_card_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
@@ -161,6 +185,11 @@ public class sales extends javax.swing.JFrame {
                 product_code_txtActionPerformed(evt);
             }
         });
+        product_code_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                product_code_txtKeyReleased(evt);
+            }
+        });
         jPanel1.add(product_code_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 230, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -174,13 +203,7 @@ public class sales extends javax.swing.JFrame {
         product_list_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         product_list_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Product Code", "Product Name", "Unit Price", "Quantity", "Discount", "Sub Total"
@@ -189,7 +212,7 @@ public class sales extends javax.swing.JFrame {
         product_list_table.setRowHeight(20);
         jScrollPane1.setViewportView(product_list_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 1120, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 1120, 170));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Availability :");
@@ -213,6 +236,16 @@ public class sales extends javax.swing.JFrame {
 
         cash_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         cash_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        cash_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cash_txtActionPerformed(evt);
+            }
+        });
+        cash_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cash_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(cash_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 390, 230, 30));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -289,7 +322,7 @@ public class sales extends javax.swing.JFrame {
         save_and_print_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         save_and_print_btn.setForeground(new java.awt.Color(255, 255, 255));
         save_and_print_btn.setText("Save & Print");
-        jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(972, 670, -1, -1));
+        jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, -1, -1));
 
         complete_invoice_btn.setBackground(new java.awt.Color(34, 155, 60));
         complete_invoice_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -300,11 +333,16 @@ public class sales extends javax.swing.JFrame {
                 complete_invoice_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1092, 670, -1, -1));
+        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 670, -1, -1));
 
         search_invoice_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_invoice_btn.setContentAreaFilled(false);
         search_invoice_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_invoice_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_invoice_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 30, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -367,364 +405,532 @@ public class sales extends javax.swing.JFrame {
         loyalty_discount_icon_lbl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/loyalty_discount_icon.png"))); // NOI18N
         jPanel1.add(loyalty_discount_icon_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 391, 40, 30));
 
+        delete_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
+        delete_product_btn.setToolTipText("Delete Product");
+        delete_product_btn.setContentAreaFilled(false);
+        delete_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_product_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 30, 30));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void complete_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complete_invoice_btnActionPerformed
-        
-        
-//         int loyaltyCardNo=0;
-//         int packSize=0;
-//         int quantity=0;
-//         double discount=0.0;
-//         double cash=0.0;
-//         double grossAmount=0.0;
-//         double netAmount=0.0;
-//         double balance=0.0;
-//         int itemCount=0;
-        
-        
-        String invoiceId= invoice_id_txt.getText();
-        String customerName= customer_name_txt.getText();
-        int loyaltyCardNo= Integer.parseInt(loyalty_card_txt.getText());
+
+
+        String invoiceId = invoice_id_txt.getText();
+        String customerName = customer_name_txt.getText();
+        int loyaltyCardNo = Integer.parseInt(loyalty_card_txt.getText());
         String date = invoice_date_txt.getText();
-        String productCode= product_code_txt.getText();
-        int packSize= Integer.parseInt(product_name_txt.getText());
-        int quantity = Integer.parseInt(quantity_txt.getText());
-        double discount = Double.parseDouble(discount_txt.getText());
-        double cash= Double.parseDouble(cash_txt.getText());
-        String availablity = available_txt.getText();
+        String productCode = product_code_txt.getText();
+       
         
-        double grossAmount= Double.parseDouble(gross_amount_lbl.getText());
-        double netAmount= Double.parseDouble(net_amount_lbl.getText());
-        double balance= Double.parseDouble(balance_lbl.getText());
-        
-        int itemCount= Integer.parseInt(item_count_lbl.getText());
-        
-        
-        
-        
-        if (invoiceId.isEmpty()|| customerName.isEmpty() || loyalty_card_txt.getText().isEmpty() || date.isEmpty() || productCode.isEmpty() || product_name_txt.getText().isEmpty() || quantity_txt.getText().isEmpty() || discount_txt.getText().isEmpty() || cash_txt.getText().isEmpty() || availablity.isEmpty() || gross_amount_lbl.getText().isEmpty() || net_amount_lbl.getText().isEmpty() || balance_lbl.getText().isEmpty()|| item_count_lbl.getText().isEmpty()  ){}
+        double cash = Double.parseDouble(cash_txt.getText());
+       
+
+        double grossAmount = Double.parseDouble(gross_amount_lbl.getText());
+        double netAmount = Double.parseDouble(net_amount_lbl.getText());
+        double balance = Double.parseDouble(balance_lbl.getText());
+
+        double itemCount = Double.parseDouble(item_count_lbl.getText());
+      
+        String user="op";
+        if (invoiceId.isEmpty() || customerName.isEmpty() || loyalty_card_txt.getText().isEmpty() || date.isEmpty() ||  gross_amount_lbl.getText().isEmpty() || net_amount_lbl.getText().isEmpty() || balance_lbl.getText().isEmpty() || item_count_lbl.getText().isEmpty()) {
+       
         
         
         
+        }else{
+            try {
+                  ConnDB.iud("insert into invoice values('"+invoiceId+"','"+loyaltyCardNo+"','"+customerName+"','"+date+"','"+grossAmount+"','"+discount1+"','"+netAmount+"','"+cash+"','"+balance+"','"+user+"')");
+            
+              DefaultTableModel dtm=(DefaultTableModel)product_list_table.getModel();
+        double tot=0;
+        for(int i= 0;i<dtm.getRowCount();i++){
+               String name=dtm.getValueAt(i, 0).toString();
+            try {
+                String pid=dtm.getValueAt(i, 0).toString();
+                 String pname=dtm.getValueAt(i, 1).toString();
+                  String punit=dtm.getValueAt(i, 2).toString();
+                   String pqty=dtm.getValueAt(i, 3).toString();
+                    String psub=dtm.getValueAt(i, 5).toString();
+                     String pdis=dtm.getValueAt(i, 4).toString();
+                     
+                try {
+                     ConnDB.iud("insert into invoice_items (invoice_id,product_code,product_name,unit_price,qty,subtotal,discount) values('"+invoice_id_txt.getText()+"',"
+                        + "'"+pid+"','"+pname+"','"+punit+"','"+pqty+"','"+psub+"','"+pdis+"') ");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+               
+             
+                 ResultSet rs=ConnDB.search("select * from inventory where product_code='"+name+"'");
+                
+                 
+                 while(rs.next()){
+                 double qty2=Double.parseDouble(rs.getString("qty"));
+                 
+               double invqty=(double) dtm.getValueAt(i,3);
+               
+                 
+                 double invo=qty2-invqty;
+                 System.out.println(invo+"");
+                 }
+                  
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+          
+             
+             
+        }
+            
+            
+            
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+      
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
+
+
     }//GEN-LAST:event_complete_invoice_btnActionPerformed
 
     private void view_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_invoice_btnActionPerformed
-       
+
         view_invoice.setVisible(true);
-        
+
     }//GEN-LAST:event_view_invoice_btnActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
-        String name1=jList1.getSelectedValue().toString();
+        String name1 = jList1.getSelectedValue().toString();
         product_name_txt.setText(jList1.getSelectedValue().toString());
         jList1.setVisible(false);
         jScrollPane2.setVisible(false);
-        
-        
+
         try {
-                  
+
             ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
             Vector v = new Vector();
             while (rs.next()) {
                 product_code_txt.setText(rs.getString("product_code"));
                 unit_price_txt.setText(rs.getString("selling_price"));
-         
-               
-            
-            jList1.setListData(v);
-              
-             
-            
-            
-            
-            } 
-            
-             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+
+                jList1.setListData(v);
+
+            }
+
+            rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
             v = new Vector();
             if (rs.next()) {
                 discount_txt.setText(rs.getString("discount"));
-                       count=rs.getString("max_count");
+                count = rs.getString("max_count");
                 loyalty_discount_icon_lbl.setVisible(true);
-                loyalty=true;
-            }else{
-            
-               loyalty_discount_icon_lbl.setVisible(false);
-            
-            
+                loyalty = true;
+            } else {
+
+                loyalty_discount_icon_lbl.setVisible(false);
+
             }
-                        quantity_txt.grabFocus();
+            quantity_txt.grabFocus();
 
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void product_name_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_product_name_txtKeyReleased
         try {
-                
-              int i=product_name_txt.getText().length();
-              if(i==0){
-                  System.out.println("4444");
-                  jScrollPane2.setVisible(false);
-                jList1.setVisible(false);
-        
-              
-              }else{
-            ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
-            Vector v = new Vector();
-            while (rs.next()) {
-                 jScrollPane2.setVisible(true);
-                jList1.setVisible(true);
-                v.add(rs.getString("product_name"));
-                jScrollPane2.setVisible(true);
-                jList1.setVisible(true);
 
+            int i = product_name_txt.getText().length();
+            if (i == 0) {
+                System.out.println("4444");
+                jScrollPane2.setVisible(false);
+                jList1.setVisible(false);
+
+            } else {
+                ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
+                Vector v = new Vector();
+                while (rs.next()) {
+                    jScrollPane2.setVisible(true);
+                    jList1.setVisible(true);
+                    v.add(rs.getString("product_name"));
+                    jScrollPane2.setVisible(true);
+                    jList1.setVisible(true);
+
+                }
+                jList1.setListData(v);
             }
-            jList1.setListData(v);
-              }   
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_product_name_txtKeyReleased
 
     private void product_name_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_name_txtActionPerformed
         try {
-                  jScrollPane2.setVisible(false);
-                jList1.setVisible(false);
+            jScrollPane2.setVisible(false);
+            jList1.setVisible(false);
             ResultSet rs = ConnDB.search("select * from product where product_name like '" + product_name_txt.getText() + "%' and status='active' ");
             Vector v = new Vector();
             while (rs.next()) {
                 product_code_txt.setText(rs.getString("product_code"));
 
-            
-            jList1.setListData(v);
-            
-            
-            
-            
-            
-              }   
-            
-            
-            
-             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+                jList1.setListData(v);
+
+            }
+
+            rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
             v = new Vector();
             if (rs.next()) {
                 discount_txt.setText(rs.getString("discount"));
-                  count=rs.getString("max_count");
+                count = rs.getString("max_count");
                 loyalty_discount_icon_lbl.setVisible(true);
-                 loyalty=true;
-            }else{
-            
-               loyalty_discount_icon_lbl.setVisible(false);
-            
-            
+                loyalty = true;
+            } else {
+
+                loyalty_discount_icon_lbl.setVisible(false);
+
             }
-            
-            
+
             discount_txt.grabFocus();
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
-        
+            ex.printStackTrace();
+        }
+
         quantity_txt.grabFocus();
     }//GEN-LAST:event_product_name_txtActionPerformed
 
     private void quantity_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantity_txtKeyReleased
-        
-        if(quantity_txt.getText().length()==0){
-        
-         available_txt.setText((""));
-               
-        
-        }else{
-        
-        
-        double available=Double.parseDouble(quantity_txt.getText());
-        
-        try {
-                  
-            ResultSet rs = ConnDB.search("select * from inventory where product_code='" + product_code_txt.getText()+"' ");
-            Vector v = new Vector();
-            while (rs.next()) {
-                available_txt.setText(rs.getString("qty"));
-               double qty=Double.parseDouble(rs.getString("qty"));
-               qty-=available;
-                available_txt.setText((qty+""));
-               
-              }   
-        } catch (Exception ex) {
+
+        if (quantity_txt.getText().length() == 0) {
+
+            available_txt.setText((""));
+
+        } else {
+
+            double available = Double.parseDouble(quantity_txt.getText());
+
+            try {
+
+                ResultSet rs = ConnDB.search("select * from inventory where product_code='" + product_code_txt.getText() + "' ");
+                Vector v = new Vector();
+                while (rs.next()) {
+                    available_txt.setText(rs.getString("qty"));
+                    double qty = Double.parseDouble(rs.getString("qty"));
+                    qty -= available;
+                    available_txt.setText((qty + ""));
+
+                }
+            } catch (Exception ex) {
                 ex.printStackTrace();
-        } 
+            }
         }
     }//GEN-LAST:event_quantity_txtKeyReleased
 
     private void jList1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jList1KeyPressed
-     
+
     }//GEN-LAST:event_jList1KeyPressed
 
     private void search_customer_mobile_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_customer_mobile_btnActionPerformed
         try {
-                  
-            ResultSet rs = ConnDB.search("select * from loyality where 	mobile_number='" + mobile_txt.getText()+"' ");
+
+            ResultSet rs = ConnDB.search("select * from loyality where 	mobile_number='" + mobile_txt.getText() + "' ");
             Vector v = new Vector();
             while (rs.next()) {
                 loyalty_card_txt.setText(rs.getString("loyality_card_number"));
                 customer_name_txt.setText(rs.getString("customer_name"));
-               
-               
-              }   
+
+            }
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_search_customer_mobile_btnActionPerformed
 
     private void mobile_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mobile_txtActionPerformed
-       
-        if(mobile_txt.getText().length()==0){
-         customer_name_txt.setText("cash");
-          product_code_txt.setEnabled(true);
-          product_name_txt.setEnabled(true);
-          discount_txt.setEnabled(true);
-          quantity_txt.setEnabled(true);
-          unit_price_txt.setEnabled(true);
-          available_txt.setEnabled(false);
-          product_code_txt.setEnabled(true);
-          product_code_txt.grabFocus();
-        }else{
-        
-        product_code_txt.setEnabled(true);
-         product_name_txt.setEnabled(true);
-         discount_txt.setEnabled(true);
-          quantity_txt.setEnabled(true);
-          unit_price_txt.setEnabled(true);
-          available_txt.setEnabled(false);
-          product_code_txt.setEnabled(true);
-          product_code_txt.grabFocus();
-        
-        
-          try {
-                  
-            ResultSet rs = ConnDB.search("select * from loyality where 	mobile_number='" + mobile_txt.getText()+"' ");
-            Vector v = new Vector();
-            while (rs.next()) {
-                loyalty_card_txt.setText(rs.getString("loyality_card_number"));
-                customer_name_txt.setText(rs.getString("customer_name"));
-               
-               
-              }   
-        } catch (Exception ex) {
+
+        if (mobile_txt.getText().length() == 0) {
+            customer_name_txt.setText("cash");
+            product_code_txt.setEnabled(true);
+            product_name_txt.setEnabled(true);
+            discount_txt.setEnabled(true);
+            quantity_txt.setEnabled(true);
+            unit_price_txt.setEnabled(true);
+            available_txt.setEnabled(false);
+            product_code_txt.setEnabled(true);
+            product_code_txt.grabFocus();
+        } else {
+
+            product_code_txt.setEnabled(true);
+            product_name_txt.setEnabled(true);
+            discount_txt.setEnabled(true);
+            quantity_txt.setEnabled(true);
+            unit_price_txt.setEnabled(true);
+            available_txt.setEnabled(false);
+            product_code_txt.setEnabled(true);
+            product_code_txt.grabFocus();
+
+            try {
+
+                ResultSet rs = ConnDB.search("select * from loyality where mobile_number='" + mobile_txt.getText() + "' ");
+                Vector v = new Vector();
+                while (rs.next()) {
+                    loyalty_card_txt.setText(rs.getString("loyality_card_number"));
+                    customer_name_txt.setText(rs.getString("customer_name"));
+
+                }
+            } catch (Exception ex) {
                 ex.printStackTrace();
-        } 
-        
+            }
+
         }
     }//GEN-LAST:event_mobile_txtActionPerformed
 
     private void search_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_product_btnActionPerformed
-         try {
-                
+        try {
+
             ResultSet rs = ConnDB.search("select * from product where product_code like '" + product_code_txt.getText() + "%' and status='active' ");
             Vector v = new Vector();
             while (rs.next()) {
                 product_name_txt.setText(rs.getString("product_name"));
                 unit_price_txt.setText(rs.getString("selling_price"));
-                
-     
-            
-              }   
-            
-            
-            
-             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+
+            }
+
+            rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
             v = new Vector();
-             if (rs.next()) {
+            if (rs.next()) {
                 discount_txt.setText(rs.getString("discount"));
                 loyalty_discount_icon_lbl.setVisible(true);
-                 count=rs.getString("max_count");
-                 loyalty=true;
-            }else{
-            
-               loyalty_discount_icon_lbl.setVisible(false);
-            
-            
+                count = rs.getString("max_count");
+                loyalty = true;
+            } else {
+
+                loyalty_discount_icon_lbl.setVisible(false);
+
             }
-                        quantity_txt.grabFocus();
+            quantity_txt.grabFocus();
 
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_search_product_btnActionPerformed
 
     private void add_new_invoice_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_invoice_clear_btnActionPerformed
-       System.exit(0);
+        System.exit(0);
     }//GEN-LAST:event_add_new_invoice_clear_btnActionPerformed
 
     private void quantity_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantity_txtActionPerformed
         
-        if(loyalty){
-        int max=Integer.parseInt(count);
-        int buy=Integer.parseInt(quantity_txt.getText());
-        if(max<buy){
-            System.out.println("kkkkkk");
-        } 
+        if(quantity_txt.getText().length()==0){
         
         
+        
+        }else{
+        double discount1 = 0.0;
+        if (loyalty) {
+            loyalty=false;
+            int max = Integer.parseInt(count);
+            int buy = Integer.parseInt(quantity_txt.getText());
+            if (max < buy) {
+                p = new option_pane("Discount Limit Exceeded", "Discount valid for only " + max + " products ");
+                p.setVisible(true);
+                double dis = Double.parseDouble(discount_txt.getText());
+                discount1 = 0.0;
+                discount1 = max * dis;
+                discount_txt.setText(discount1+"");
+            } else {
+                discount1 = 0.0;
+                double dis = Double.parseDouble(discount_txt.getText());
+                double count = Double.parseDouble(quantity_txt.getText());
+
+                discount1 = count * dis;
+                discount_txt.setText(discount1+"");
+
+            }
+
+        }else{
+        
+        discount_txt.setText("0.0");
+                
+        
+        }
+
+        String exsist = "No";
+        Vector v = new Vector();
+        DefaultTableModel dtm = (DefaultTableModel) product_list_table.getModel();
+
+        for (int i = 0; i < dtm.getRowCount(); ++i) {
+            System.out.println("ok");
+            if (dtm.getValueAt(i, 1).equals(product_name_txt.getText())) {
+                exsist = "yes";
+                double m, m2, tot;
+                 double dis;
+                m = (double) dtm.getValueAt(i, 3);
+
+                m2 = Double.parseDouble(quantity_txt.getText());
+                tot = m + m2;
+
+           dis= (double) dtm.getValueAt(i,4);
+         
+          
+          double dis3=Double.parseDouble(discount_txt.getText());
+          double dis2=Double.parseDouble(discount_txt.getText());
+          dis2+=dis;
+                System.out.println(dtm.getValueAt(i,4));
+                dtm.setValueAt(tot, i, 3);
+
+                double tot4, tot5, tot6;
+                tot4 = (double) dtm.getValueAt(i, 5);
+                tot5 = Double.parseDouble(quantity_txt.getText()) * Double.parseDouble(unit_price_txt.getText());
+                tot6 = (tot4 + tot5);
+               tot6-=dis3;
+                dtm.setValueAt(tot6, i, 5);
+
+               dtm.setValueAt(dis2, i, 4);
+
+            }
+
+        }
+        
+        
+        
+        if (exsist != "yes" || dtm.getRowCount() == 0) {
+             double dis=Double.parseDouble(discount_txt.getText());
+            v.add(product_code_txt.getText());
+            v.add(product_name_txt.getText());
+            v.add(unit_price_txt.getText());
+
+           double r = Double.parseDouble(quantity_txt.getText());
+            v.add(r);
+            
+            double qt=Double.parseDouble(discount_txt.getText());
+            v.add(qt);
+            
+            Double d = Double.parseDouble(quantity_txt.getText()) * Double.parseDouble(unit_price_txt.getText());
+           d-=dis;
+            
+            v.add(d);
+            dtm.addRow(v);
+
+        }
+        calTot();
+        discount_txt.setText(null);
+        product_code_txt.setText(null);
+        product_name_txt.setText(null);
+        discount_txt.setText(null);
+        unit_price_txt.setText(null);
+        quantity_txt.setText(null);
+        discount_txt.setText(null);
+        available_txt.setText(null);
+        loyalty_discount_icon_lbl.setVisible(false);
+        
+        product_code_txt.grabFocus();
         }
     }//GEN-LAST:event_quantity_txtActionPerformed
 
     private void product_code_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_product_code_txtActionPerformed
-       try {
-                
+        try {
+
             ResultSet rs = ConnDB.search("select * from product where product_code like '" + product_code_txt.getText() + "%' and status='active' ");
             Vector v = new Vector();
             while (rs.next()) {
                 product_name_txt.setText(rs.getString("product_name"));
                 unit_price_txt.setText(rs.getString("selling_price"));
-                
-     
-            
-              }   
-            
-            
-            
-             rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
+
+            }
+
+            rs = ConnDB.search("select * from loyality_products where product_code ='" + product_code_txt.getText() + "' ");
             v = new Vector();
-             if (rs.next()) {
+            if (rs.next()) {
                 discount_txt.setText(rs.getString("discount"));
                 loyalty_discount_icon_lbl.setVisible(true);
-                 count=rs.getString("max_count");
-                 loyalty=true;
-            }else{
-            
-               loyalty_discount_icon_lbl.setVisible(false);
-            
-            
+                count = rs.getString("max_count");
+                loyalty = true;
+            } else {
+
+                loyalty_discount_icon_lbl.setVisible(false);
+
             }
-                        quantity_txt.grabFocus();
+            quantity_txt.grabFocus();
 
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_product_code_txtActionPerformed
+
+    private void delete_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_product_btnActionPerformed
+        DefaultTableModel df = (DefaultTableModel) product_list_table.getModel();
+        try {
+            int selectedIndex = product_list_table.getSelectedRow();
+            df.removeRow(selectedIndex);
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_delete_product_btnActionPerformed
+
+    private void product_code_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_product_code_txtKeyReleased
+       if (evt.getKeyCode()==35) {
+            cash_txt.grabFocus();
+        }
+    }//GEN-LAST:event_product_code_txtKeyReleased
+
+    private void cash_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cash_txtActionPerformed
+      
+        if(cash_txt.getText().length()>0){
+         double cash=Double.parseDouble(cash_txt.getText());
+       double net=Double.parseDouble(net_amount_lbl.getText());
+       if(cash>net){
+       
+       
+       double bal=cash-net;
+       
+       
+       
+       balance_lbl.setText(bal+"");
+        complete_invoice_btn.setVisible(true);
+            save_and_print_btn.setVisible(true);
+       }else{
+           System.out.println("net amount greater than chash");
+       
+       }
+        }
+        
+       
+    }//GEN-LAST:event_cash_txtActionPerformed
+
+    private void cash_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cash_txtKeyTyped
+        char t = evt.getKeyChar();
+        if (!Character.isDigit(t)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_cash_txtKeyTyped
+
+    private void search_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_invoice_btnActionPerformed
+        try {
+          ResultSet rs=ConnDB.search("select * from invoice where invoice_id='"+invoice_id_txt.getText()+"'");
+          
+          
+          if(rs.next()){
+          
+          invoice_date_txt.setText(rs.getString("invoice_date"));
+          loyalty_card_txt.setText(rs.getString("loyality_card_number"));
+          customer_name_txt.setText(rs.getString("customer_name"));
+          
+          
+          
+          }
+        } catch (Exception e) {
+        }
+        
+    }//GEN-LAST:event_search_invoice_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -768,6 +974,7 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JTextField cash_txt;
     private javax.swing.JButton complete_invoice_btn;
     private javax.swing.JTextField customer_name_txt;
+    private javax.swing.JButton delete_product_btn;
     private javax.swing.JTextField discount_txt;
     private javax.swing.JLabel gross_amount_lbl;
     private javax.swing.JTextField invoice_date_txt;
@@ -813,65 +1020,68 @@ public class sales extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void auto() {
-        
-        	
 
+        try {
 
-String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
-invoice_date_txt.setText(timeStamp);
-        
-        
-          product_code_txt.setEnabled(false);
-          product_name_txt.setEnabled(false);
-          discount_txt.setEnabled(false);
-          quantity_txt.setEnabled(false);
-          unit_price_txt.setEnabled(false);
-          available_txt.setEnabled(false);
-          product_code_txt.setEnabled(false);
-          product_code_txt.grabFocus();
-          jScrollPane2.setVisible(false);
-          jList1.setVisible(false);
-          loyalty_discount_icon_lbl.setVisible(false);
-        
-        
-        
-         try {
-               
-            
-            
-            
-             ResultSet rs = ConnDB.search("select invoice from prifixes where prifix_id='1' ");
-          
+            ResultSet rs = ConnDB.search("select  invoice from prifixes where prifix_id='1' ");
+
             if (rs.next()) {
-               String name=(rs.getString("invoice"));
-                
-                
-                   rs=ConnDB.search("select count(invoice_id) as x from invoice");
-                  if(rs.next()){
-                   int i=Integer.parseInt(rs.getString("x"));
-                  i++;
-                  
-                  if(i<10){
-                    invoice_id_txt.setText(name+"000"+i);
-                  }else if(i<100){
-                  
-                  invoice_id_txt.setText(name+"00"+i);
-                  }else if(i<1000){
-                    invoice_id_txt.setText(name+"0"+i);
-                  }
-               
-                     product_name_txt.grabFocus();
-        }
-                
-                
+                String name = (rs.getString("invoice"));
+
+                rs = ConnDB.search("select count(invoice_id) as x from invoice");
+                if (rs.next()) {
+                    int i = Integer.parseInt(rs.getString("x"));
+                    i++;
+
+                    if (i < 10) {
+                        invoice_id_txt.setText(name + "000" + i);
+                    } else if (i < 100) {
+
+                        invoice_id_txt.setText(name + "00" + i);
+                    } else if (i < 1000) {
+                        invoice_id_txt.setText(name + "0" + i);
+                    }
+
+                    product_name_txt.grabFocus();
+                }
+
             }
-             mobile_txt.grabFocus();
+            mobile_txt.grabFocus();
         } catch (Exception ex) {
-                ex.printStackTrace();
-        } 
+            ex.printStackTrace();
+        }
+
+        
+    }
     
     
-    
+    public void calTot(){
+        
+         double qty1=0;
+             double dis1=0;
+             double net1=0;
+             double gross=0;
+             
+     DefaultTableModel dtm=(DefaultTableModel)product_list_table.getModel();
+        double tot=0;
+        for(int i= 0;i<dtm.getRowCount();i++){
+            String qty=dtm.getValueAt(i, 3).toString();
+            String dis=dtm.getValueAt(i, 4).toString();
+             String net=dtm.getValueAt(i, 5).toString();
+           
+             
+              qty1+=Double.parseDouble(qty);
+              discount1+=Double.parseDouble(dis);
+              net1+=Double.parseDouble(net);
+             gross=discount1+net1;
+             
+             
+        }
+        gross_amount_lbl.setText(gross+"");
+        net_amount_lbl.setText(net1+"");
+        item_count_lbl.setText(qty1+"");
+        
     
     }
+
 }

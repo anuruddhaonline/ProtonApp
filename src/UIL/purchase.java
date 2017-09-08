@@ -6,6 +6,10 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -17,10 +21,17 @@ public class purchase extends javax.swing.JFrame {
     view_purchase view_purchase = new view_purchase();
     grn grn = new grn();
 
-
+ double totalAmount;
+    double totalQty;
+    
+    String supCode;
+     String supplierName ;
     
     public purchase() {
         initComponents();
+        createPurchaseCode();
+        product_id_txt.grabFocus();
+        qty_txt.setEnabled(false);
         
         product_id_txt.grabFocus();
     }
@@ -162,6 +173,11 @@ public class purchase extends javax.swing.JFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 340, -1, -1));
 
         qty_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        qty_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qty_txtActionPerformed(evt);
+            }
+        });
         jPanel1.add(qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 230, 30));
 
         search_purchase_order_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
@@ -172,6 +188,11 @@ public class purchase extends javax.swing.JFrame {
         search_supplier_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_supplier_btn.setContentAreaFilled(false);
         search_supplier_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_supplier_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_supplier_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_supplier_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 30, 30));
 
         supplier_return_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -199,6 +220,11 @@ public class purchase extends javax.swing.JFrame {
 
         supplier_name_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         supplier_name_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        supplier_name_cmb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplier_name_cmbActionPerformed(evt);
+            }
+        });
         jPanel1.add(supplier_name_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 230, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -210,6 +236,11 @@ public class purchase extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
 
         unit_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        unit_price_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unit_price_txtActionPerformed(evt);
+            }
+        });
         jPanel1.add(unit_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 230, 30));
 
         grn_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -235,23 +266,45 @@ public class purchase extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void complete_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_complete_invoice_btnActionPerformed
+               
+      String purchaseId= pu_order_Id.getText();
+
+       String supplier_code=supCode;
 
        
-
-        String purchaseId= pu_order_Id.getText();
-        String productID= product_id_txt.getText();
-        String supplierName = supplier_name_cmb.getSelectedItem().toString();
-        String productName= pro_name_txt.getText();
-        int qty01=Integer.parseInt(qty_txt.getText());
-        double unitPrice = Double.parseDouble(unit_price_txt.getText());
         
-        int quantity= Integer.parseInt(total_qty_lbl.getText());
+        
+        try {
+         
+            ConnDB.iud("insert into purchase_order values('"+purchaseId+"','"+supplier_code+"','"+ supplierName+"')");
+           
+           DefaultTableModel dtm = (DefaultTableModel) product_list_table.getModel();
+            Vector v = new Vector();
+
+            for (int i = 0; i < dtm.getRowCount(); ++i) {
+
+                String pro_code = dtm.getValueAt(i, 0).toString();
+                String pro_name = dtm.getValueAt(i, 1).toString();
+                
+                String unit_price = dtm.getValueAt(i, 2).toString();
+                String qty001 = dtm.getValueAt(i,3).toString();
+                String sub_total = dtm.getValueAt(i, 4).toString();
+                
+                double unit2=Double.parseDouble(unit_price);
+                double qty02=Double.parseDouble(qty001);
+                double sub2=Double.parseDouble(sub_total);
+                
+                ConnDB.iud("insert into purchase_items (purchase_order_id,product_code,product_name,unit_price, qty,subtotal) values('"+purchaseId+"','"+pro_code+"','"+pro_name+"','"+unit2+"','"+ qty02+"','"+sub2+"')");
+             
+                
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            
+        }
+
        
-        double total= Double.parseDouble(total_amountl_lbl.getText());
-
-        
-
-        if (purchaseId.isEmpty()|| purchaseId.isEmpty() || productID.isEmpty() || supplierName.isEmpty() || productName.isEmpty() || unit_price_txt.getText().isEmpty() || qty_txt.getText().isEmpty() || total_qty_lbl.getText().isEmpty() || total_amountl_lbl.getText().isEmpty()   ){}
 
     }//GEN-LAST:event_complete_invoice_btnActionPerformed
 
@@ -273,6 +326,154 @@ public class purchase extends javax.swing.JFrame {
         grn.setVisible(true);
         
     }//GEN-LAST:event_grn_btnActionPerformed
+
+    private void unit_price_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unit_price_txtActionPerformed
+         qty_txt.setEditable(true);
+    }//GEN-LAST:event_unit_price_txtActionPerformed
+
+    private void supplier_name_cmbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_name_cmbActionPerformed
+       String selectedPrice=null;
+        try{
+       
+        if(supplier_name_cmb.getSelectedItem().equals(null)){
+        
+        
+        }else
+        {
+        
+        selectedPrice=supplier_name_cmb.getSelectedItem().toString();
+         
+        }
+        }catch(Exception e){
+            
+          
+        
+        }
+       
+        
+        ResultSet rs;
+        
+        try {
+            
+           rs=ConnDB.search("select * from product_purchase where product_code='"+product_id_txt.getText()+"' AND supplier_name='"+selectedPrice+"'");
+            while(rs.next()){
+            
+                
+                unit_price_txt.setText(rs.getString("purchase_price"));
+                qty_txt.setEnabled(true);
+                
+                
+              }  
+            
+        } 
+        catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_supplier_name_cmbActionPerformed
+
+    private void qty_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qty_txtActionPerformed
+         supplierName=supplier_name_cmb.getSelectedItem().toString();
+        
+        double qty=Double.parseDouble(qty_txt.getText());
+        double unit=Double.parseDouble(unit_price_txt.getText());
+        
+        double subTot= (qty*unit);
+        
+       int rounds=0;
+        boolean count=true;
+        
+       
+        ResultSet rs;
+        
+        
+                
+            while(count){
+                
+                
+               // if(rounds>0){
+                
+                DefaultTableModel dtm = (DefaultTableModel) product_list_table.getModel();
+                // dtm.setRowCount(0);
+            
+                Vector v = new Vector();
+
+                
+                v.add(product_id_txt.getText());
+                v.add(pro_name_txt.getText());
+                v.add(unit_price_txt.getText());
+                v.add(qty_txt.getText());
+                v.add(subTot);
+                
+                
+                dtm.addRow(v);
+                 
+
+                totalAmount = totalAmount + subTot;
+                totalQty=totalQty+qty;
+                
+                total_amountl_lbl.setText(totalAmount+"");
+                total_qty_lbl.setText(totalQty+"");
+                
+                
+                product_id_txt.setText(null);
+               // supplier_name_cmb.setSelectedIndex(0);
+                qty_txt.setText(null);
+                unit_price_txt.setText(null);
+                pro_name_txt.setText(null);
+                product_id_txt.grabFocus();
+                supplier_name_cmb.removeAllItems();
+        supplier_name_cmb.addItem("select name");
+                qty_txt.setEnabled(false);
+                 
+                count=false;
+              
+                //}rounds++;
+                 }
+                  //
+    }//GEN-LAST:event_qty_txtActionPerformed
+
+    private void search_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_supplier_btnActionPerformed
+         String pro_id=product_id_txt.getText();
+        
+        ResultSet rs;
+        
+        try {
+            
+            rs=ConnDB.search("select * from product where product_code='"+pro_id+"'");
+            while(rs.next()){
+            
+                pro_name_txt.setText(rs.getString("product_name"));
+                
+            
+            }
+            
+              
+                rs=ConnDB.search("select * from product_purchase where product_code='"+pro_id+"'");
+                // WHERE product_code='"+product_id_txt.getText()+"'
+                while(rs.next()){
+                supplier_name_cmb.addItem(rs.getString("supplier_name"));
+                supCode=rs.getString("supplier_code");
+                
+                
+                }
+                
+                
+                
+            
+           
+            
+            
+            
+            
+        } 
+        catch (Exception e) {
+        e.printStackTrace();
+        
+        }
+    }//GEN-LAST:event_search_supplier_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,4 +542,42 @@ public class purchase extends javax.swing.JFrame {
     private javax.swing.JTextField unit_price_txt;
     private javax.swing.JButton view_purchase_btn;
     // End of variables declaration//GEN-END:variables
+
+    private void createPurchaseCode() {
+        ResultSet rs;
+            
+        try{
+        
+             rs = ConnDB.search("select purchase_order from prifixes where prifix_id='1' ");
+          
+            if (rs.next()) {
+               String name=(rs.getString("purchase_order"));
+                
+                
+                   rs=ConnDB.search("select count(purchase_order_id) as x from purchase_order");
+                  if(rs.next()){
+                   int i=Integer.parseInt(rs.getString("x"));
+                  i++;
+                  
+                  if(i<10){
+                    pu_order_Id.setText(name+"000"+i);
+                  }else if(i<100){
+                  
+                  pu_order_Id.setText(name+"00"+i);
+                  }else if(i<1000){
+                    pu_order_Id.setText(name+"0"+i);
+                  }
+               
+                     pro_name_txt.grabFocus();
+        }
+                
+                
+            }
+            
+             
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        } 
+
+    }
 }

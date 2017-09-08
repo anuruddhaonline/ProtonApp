@@ -6,6 +6,10 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -17,6 +21,7 @@ public class suppliers extends javax.swing.JFrame {
      */
     public suppliers() {
         initComponents();
+          createSupCode();
     }
 
     /**
@@ -148,9 +153,19 @@ public class suppliers extends javax.swing.JFrame {
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 90, -1, -1));
 
         mobile_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        mobile_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mobile_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(985, 140, 230, 30));
 
         office_no_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        office_no_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                office_no_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(office_no_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(985, 190, 230, 30));
 
         email_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
@@ -182,6 +197,11 @@ public class suppliers extends javax.swing.JFrame {
         search_supplier_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_supplier_btn.setContentAreaFilled(false);
         search_supplier_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_supplier_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_supplier_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_supplier_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, 30, 30));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
@@ -241,18 +261,33 @@ public class suppliers extends javax.swing.JFrame {
         view_suppliers_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         view_suppliers_btn.setForeground(new java.awt.Color(255, 255, 255));
         view_suppliers_btn.setText("View Suppliers");
+        view_suppliers_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view_suppliers_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(view_suppliers_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1085, 420, -1, -1));
 
         update_supplier_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon.png"))); // NOI18N
         update_supplier_btn.setToolTipText("Update Loyalty");
         update_supplier_btn.setContentAreaFilled(false);
         update_supplier_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        update_supplier_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_supplier_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(update_supplier_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 30, 30));
 
         delete_supplier_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
         delete_supplier_btn.setToolTipText("Delete Loyalty");
         delete_supplier_btn.setContentAreaFilled(false);
         delete_supplier_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_supplier_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_supplier_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(delete_supplier_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 20, 30, 30));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 1208, 10));
 
@@ -270,12 +305,22 @@ public class suppliers extends javax.swing.JFrame {
 
         suupler_account_num_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         suupler_account_num_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        suupler_account_num_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                suupler_account_num_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(suupler_account_num_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 230, 30));
 
         add_new_supplier_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
         add_new_supplier_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_supplier_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_supplier_clear_btn.setText("New");
+        add_new_supplier_clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_supplier_clear_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_new_supplier_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
@@ -284,8 +329,228 @@ public class suppliers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void add_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_supplier_btnActionPerformed
-        // TODO add your handling code here:
+       
+        String supCode = sup_code_txt.getText();
+        String honro = jComboBox1.getSelectedItem().toString();
+        String supName = supplier_name_txt.getText();
+        String bankName = supplier_bank_name_txt.getText();
+        String accNo = suupler_account_num_txt.getText();
+
+        String address = address_name_txt.getText();
+        String add01 = address_1_txt.getText();
+        String add02 = address_2_txt.getText();
+        String city = city_txt.getText();
+        String postal = postal_code_txt.getText();
+
+        String mobile = mobile_txt.getText();
+        String officeNo = office_no_txt.getText();
+        String email = email_txt.getText();
+        String website = supplier_website_txt.getText();
+        String status="active";
+
+        if (supCode.isEmpty() || honro.isEmpty() || supName.isEmpty() || address.isEmpty() || add01.isEmpty() || add02.isEmpty() || city.isEmpty() || postal.isEmpty() || mobile_txt.getText().isEmpty() || office_no_txt.getText().isEmpty() || email.isEmpty() || bankName.isEmpty() || suupler_account_num_txt.getText().isEmpty() || website.isEmpty()) {
+        }else {
+        
+        if (suupler_account_num_txt.getText().length()!=16){
+        
+        System.out.println("account number is not valid");
+        }else{
+        
+            
+        if( mobile_txt.getText().length()!=10){
+           
+            System.out.println("mbile numver is not valid");
+            
+        }else{
+            
+        if(office_no_txt.getText().length()!=10){
+        
+         System.out.println("office no is not valid");
+        
+        
+        }else{
+
+        //chceking email
+            String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        String email1 = email_txt.getText();
+        Boolean b = email1.matches(EMAIL_REGEX);
+        
+            if(!b){
+            
+                System.out.println("email is not valid");
+                
+            }else{
+            
+           
+        try {
+
+            ConnDB.iud("insert into suppliers values('" + supCode + "','" + honro + "','" + supName + "','" + address + "','" + add01 + "','" + add02 + "','" + city + "','" + postal + "', '" + mobile + "','" + officeNo + "','" + email + "','" + bankName + "','" + accNo + "','" + website + "','"+status+"')");
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+         }//email
+        }//accNoLength
+
+        }//ofNoLength
+        }//mobilelength
+        }//isempty
+        
+        clear_text();
     }//GEN-LAST:event_add_supplier_btnActionPerformed
+
+    private void add_new_supplier_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_supplier_clear_btnActionPerformed
+              clear_text();
+    }//GEN-LAST:event_add_new_supplier_clear_btnActionPerformed
+
+    private void suupler_account_num_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suupler_account_num_txtKeyTyped
+        char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_suupler_account_num_txtKeyTyped
+
+    private void mobile_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobile_txtKeyTyped
+        char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_mobile_txtKeyTyped
+
+    private void office_no_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_office_no_txtKeyTyped
+        char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_office_no_txtKeyTyped
+
+    private void update_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_supplier_btnActionPerformed
+       String supCode = sup_code_txt.getText();
+        String honro = jComboBox1.getSelectedItem().toString();
+        String supName = supplier_name_txt.getText();
+        String bankName = supplier_bank_name_txt.getText();
+        int accNo = Integer.parseInt(suupler_account_num_txt.getText());
+
+        String address = address_name_txt.getText();
+        String add01 = address_1_txt.getText();
+        String add02 = address_2_txt.getText();
+        String city = city_txt.getText();
+        String postal = postal_code_txt.getText();
+
+        int mobile = Integer.parseInt(mobile_txt.getText());
+        int officeNo = Integer.parseInt(office_no_txt.getText());
+        String email = email_txt.getText();
+        String website = supplier_website_txt.getText();
+
+        ResultSet rs;
+
+        try {
+
+            //rs = ConnDB.iud("update suppliers SET honorofics ='" + honro + "' , supplier_name='" + supName + "', address_name='" + address + "', address_line1='" + add01 + "', address_line2='" + add02 + "', city='" + city + "', postal_code= '" + postal + "', mobile_number='" + mobile + "' , office_phone='" + officeNo + "', emial='" + email + "', bank_name='" + bankName + "', bank_account_number='" + accNo + "', website='" + website + "' WHERE supplier_code='" + supCode + "'  ");
+            ConnDB.iud("update suppliers SET honorifics ='" + honro + "' , supplier_name='" + supName + "', address_name='" + address + "', address_line1='" + add01 + "', address_line2='" + add02 + "', city='" + city + "', postal_code= '" + postal + "', mobile_number='" + mobile + "' , office_phone='" + officeNo + "', email='" + email + "', bank_name='" + bankName + "', bank_account_number='" + accNo + "', website='" + website + "' WHERE supplier_code='" + supCode + "'  ");
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();       
+        }
+        
+        clear_text();
+    }//GEN-LAST:event_update_supplier_btnActionPerformed
+
+    private void delete_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_supplier_btnActionPerformed
+       ResultSet rs;
+
+        try {
+
+            //rs = ConnDB.search("delete from suppliers where supplier_code='" + sup_code_txt.getText() + "' ");
+            ConnDB.iud("UPDATE suppliers set status='innactive' WHERE supplier_code='"+sup_code_txt.getText()+"' " );
+            
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+
+        }
+
+        clear_text();
+    }//GEN-LAST:event_delete_supplier_btnActionPerformed
+
+    private void search_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_supplier_btnActionPerformed
+        
+        ResultSet rs;
+
+        try {
+
+            rs = ConnDB.search("select * from suppliers where supplier_code='" + sup_code_txt.getText() + "' ");
+            if (rs.next()) {
+
+                jComboBox1.setSelectedItem(rs.getString("honorifics"));
+                supplier_name_txt.setText(rs.getString("supplier_name"));
+                supplier_bank_name_txt.setText(rs.getString("bank_name"));
+                suupler_account_num_txt.setText(rs.getString("bank_account_number"));
+                address_name_txt.setText(rs.getString("address_name"));
+                address_1_txt.setText(rs.getString("address_line1"));
+                address_2_txt.setText(rs.getString("address_line2"));
+                city_txt.setText(rs.getString("city"));
+                postal_code_txt.setText(rs.getString("postal_code"));
+                mobile_txt.setText(rs.getString("mobile_number"));
+                office_no_txt.setText(rs.getString("office_phone"));
+                email_txt.setText(rs.getString("email"));
+                supplier_website_txt.setText(rs.getString("website"));
+
+            }
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_search_supplier_btnActionPerformed
+
+    private void view_suppliers_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_suppliers_btnActionPerformed
+        
+        ResultSet rs;
+
+        try {
+
+            DefaultTableModel dtm = (DefaultTableModel) view_suppliers_jt.getModel();
+            dtm.setRowCount(0);
+
+            
+            rs = ConnDB.search("select * from suppliers");
+           
+            while (rs.next()) {
+                
+                
+                Vector v = new Vector();
+
+                v.add(rs.getString("supplier_code"));
+                v.add(rs.getString("supplier_name"));
+                v.add(rs.getString("address_name"));
+                v.add(rs.getString("address_line1"));
+                v.add(rs.getString("address_line2"));
+                v.add(rs.getString("city"));
+                v.add(rs.getString("postal_code"));
+                v.add(rs.getString("mobile_number"));
+                v.add(rs.getString("office_phone"));
+                v.add(rs.getString("email"));
+                v.add(rs.getString("website"));
+                v.add(rs.getString("status"));
+
+                dtm.addRow(v);
+                
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }//GEN-LAST:event_view_suppliers_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,4 +635,66 @@ public class suppliers extends javax.swing.JFrame {
     private javax.swing.JButton view_suppliers_btn;
     private javax.swing.JTable view_suppliers_jt;
     // End of variables declaration//GEN-END:variables
+
+    private void createSupCode() {
+          
+        try{
+        
+               ResultSet rs = ConnDB.search("select suppliers from prifixes where prifix_id='1' ");
+          
+            if (rs.next()) {
+               String name=(rs.getString("suppliers"));
+                
+                
+                   rs=ConnDB.search("select count(supplier_code) as x from suppliers");
+                  if(rs.next()){
+                   int i=Integer.parseInt(rs.getString("x"));
+                  i++;
+                  
+                  if(i<10){
+                    sup_code_txt.setText(name+"000"+i);
+                  }else if(i<100){
+                  
+                  sup_code_txt.setText(name+"00"+i);
+                  }else if(i<1000){
+                    sup_code_txt.setText(name+"0"+i);
+                  }
+               
+                     supplier_name_txt.grabFocus();
+        }
+                
+                
+            }
+            
+             
+        } catch (Exception ex) {
+                ex.printStackTrace();
+        }
+    }
+    
+    
+     public void clear_text(){
+    
+        sup_code_txt.setText(null);
+        jComboBox1.setSelectedIndex(0);
+        supplier_name_txt.setText(null);
+        supplier_bank_name_txt.setText(null);
+        suupler_account_num_txt.setText(null);
+        address_name_txt.setText(null);
+        address_1_txt.setText(null);
+        address_2_txt.setText(null);
+        city_txt.setText(null);
+        postal_code_txt.setText(null);
+        mobile_txt.setText(null);
+        office_no_txt.setText(null);
+        email_txt.setText(null);
+        supplier_website_txt.setText(null);
+        
+        DefaultTableModel dtm = (DefaultTableModel) view_suppliers_jt.getModel();
+        dtm.setRowCount(0);
+        
+    
+    
+    }
+    
 }

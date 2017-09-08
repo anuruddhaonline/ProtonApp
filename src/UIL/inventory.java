@@ -180,7 +180,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(assembled_product_type_tb);
         assembled_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         assembled_product_type_tb.setContentAreaFilled(false);
-        assembled_product_type_tb.setRolloverEnabled(false);
         assembled_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         assembled_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +191,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(readymade_product_type_tb);
         readymade_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         readymade_product_type_tb.setContentAreaFilled(false);
-        readymade_product_type_tb.setRolloverEnabled(false);
         readymade_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         readymade_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +214,6 @@ public class inventory extends javax.swing.JFrame {
         product_type_group.add(component_product_type_tb);
         component_product_type_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
         component_product_type_tb.setContentAreaFilled(false);
-        component_product_type_tb.setRolloverEnabled(false);
         component_product_type_tb.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_on.png"))); // NOI18N
         component_product_type_tb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,6 +371,11 @@ public class inventory extends javax.swing.JFrame {
         supplier_code_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         supplier_code_btn.setContentAreaFilled(false);
         supplier_code_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        supplier_code_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplier_code_btnActionPerformed(evt);
+            }
+        });
         inventory_panel.add(supplier_code_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, 30, 30));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
@@ -412,12 +414,22 @@ public class inventory extends javax.swing.JFrame {
         delete_product_btn.setToolTipText("Delete Product");
         delete_product_btn.setContentAreaFilled(false);
         delete_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_product_btnActionPerformed(evt);
+            }
+        });
         inventory_panel.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 80, 30, 30));
 
         update_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon.png"))); // NOI18N
         update_product_btn.setToolTipText("Update Product");
         update_product_btn.setContentAreaFilled(false);
         update_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        update_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_product_btnActionPerformed(evt);
+            }
+        });
         inventory_panel.add(update_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, 30, 30));
 
         add_new_pro_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -682,6 +694,98 @@ jScrollPane2.setVisible(true);
     private void add_new_pro_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_add_new_pro_clear_btnActionPerformed
+
+    private void supplier_code_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_code_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplier_code_btnActionPerformed
+
+    private void update_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_product_btnActionPerformed
+       double packSize =0.0;
+        double sellingPrice=0.0;
+        
+        String productID =(product_id_txt.getText());
+
+        String productName = product_name_txt.getText();
+        packSize = Double.parseDouble(pack_size_txt.getText());
+        sellingPrice = Double.parseDouble(selling_price_txt.getText());
+        String unitOfMes = product_category_cmb.getSelectedItem().toString();
+        String category = product_category_cmb.getSelectedItem().toString();
+        String bin=bin_location_txt.getText();
+        double min=Double.parseDouble(min_stock_txt.getText());
+        double max=Double.parseDouble(max_stock_txt.getText());
+        double value=Double.parseDouble(stock_value_txt.getText());
+        String qty=total_qty_txt.getText();
+        
+        
+        String productType=null;
+        if(readymade_product_type_tb.isSelected()){
+        
+            productType="readyMade";
+        
+        }
+        
+        else if(component_product_type_tb.isSelected()){
+        
+            productType ="componentProduct";
+        
+        }
+        
+        else if(assembled_product_type_tb.isSelected()){
+        
+            productType ="assembledProduct";
+        
+        }
+        
+        
+        ResultSet rs;
+        
+        try {
+            
+           
+             ConnDB.iud("update product SET product_name='"+productName+"', unit='"+unitOfMes+"', product_category='"+category+"', pack_size='"+packSize+"', product_type='"+productType+"', selling_price='"+sellingPrice+"' WHERE product_code='"+productID+"' ");   
+        
+            
+            ConnDB.iud("update inventory SET bin_location='"+bin+"', min_stock_level='"+min+"', max_stock_level='"+max+"', qty='"+qty+"', stock_value='"+value+"' WHERE inventory_id='"+productID+"' ");   
+        
+            
+              DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+            Vector v = new Vector();
+
+            for (int i = 0; i < dtm.getRowCount(); ++i) {
+
+                String supCode = dtm.getValueAt(i, 0).toString();
+                String supName = dtm.getValueAt(i, 1).toString();
+                String price =dtm.getValueAt(i, 2).toString();
+                double price1=Double.parseDouble(price);
+                
+                ConnDB.iud("update product_purchase SET  supplier_name='"+supName+"', supplier_code='"+supCode+"', purchase_price='"+price+"' WHERE product_code='"+productID+"' ");   
+        
+                
+                
+            }
+              
+              
+            
+        } catch (Exception e) {
+        e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_update_product_btnActionPerformed
+
+    private void delete_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_product_btnActionPerformed
+        try {
+            
+             ConnDB.iud("delete from inventory where product_code='"+product_id_txt.getText()+"' ");
+             ConnDB.iud("delete from product_purchase where product_code='"+product_id_txt.getText()+"' ");
+             
+             ConnDB.iud("update product SET status='inactive' where product_code='"+product_id_txt.getText()+"' ");
+             
+            
+        } catch (Exception e) {
+        e.printStackTrace();
+        
+        }
+    }//GEN-LAST:event_delete_product_btnActionPerformed
 
     /**
      * @param args the command line arguments

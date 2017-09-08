@@ -6,6 +6,10 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -17,6 +21,7 @@ public class customers extends javax.swing.JFrame {
      */
     public customers() {
         initComponents();
+        auto_loyal_no();
     }
 
     /**
@@ -108,6 +113,11 @@ public class customers extends javax.swing.JFrame {
 
         mobile_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mobile_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        mobile_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                mobile_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(mobile_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 140, 230, 30));
 
         email_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -172,6 +182,11 @@ public class customers extends javax.swing.JFrame {
         search_loyalty_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_loyalty_btn.setContentAreaFilled(false);
         search_loyalty_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_loyalty_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_loyalty_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_loyalty_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 30, 30));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 1208, 10));
 
@@ -183,12 +198,22 @@ public class customers extends javax.swing.JFrame {
         update_loyalty_btn.setToolTipText("Update Loyalty");
         update_loyalty_btn.setContentAreaFilled(false);
         update_loyalty_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        update_loyalty_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_loyalty_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(update_loyalty_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 30, 30));
 
         delete_loyalty_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
         delete_loyalty_btn.setToolTipText("Delete Loyalty");
         delete_loyalty_btn.setContentAreaFilled(false);
         delete_loyalty_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_loyalty_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_loyalty_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(delete_loyalty_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 20, 30, 30));
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
@@ -223,6 +248,11 @@ public class customers extends javax.swing.JFrame {
         view_loyalty_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         view_loyalty_btn.setForeground(new java.awt.Color(255, 255, 255));
         view_loyalty_btn.setText("View Loyalty");
+        view_loyalty_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                view_loyalty_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(view_loyalty_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1095, 410, -1, -1));
 
         jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -232,6 +262,11 @@ public class customers extends javax.swing.JFrame {
         add_new_loyalty_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_loyalty_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_loyalty_clear_btn.setText("New");
+        add_new_loyalty_clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_loyalty_clear_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_new_loyalty_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
@@ -240,8 +275,186 @@ public class customers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void issue_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issue_loyalty_btnActionPerformed
-        // TODO add your handling code here:
+        String loyal_card=loyalty_card_txt.getText();
+        String honro = hon_combo.getSelectedItem().toString();
+        String cus_name=customer_name_txt.getText();
+        String add101=address_1_txt.getText();
+        String add102=address_2_txt.getText();
+        String mobile=mobile_txt.getText();
+        String email=email_txt.getText();
+        String issue=issue_date_txt.getText();
+        String expire=expire_date_txt.getText();
+        String status= "active";
+        
+        
+        if(loyal_card.isEmpty() || honro.isEmpty() || cus_name.isEmpty() || add101.isEmpty() || add102.isEmpty() || mobile_txt.getText().isEmpty() ||email.isEmpty() || issue.isEmpty() || expire.isEmpty()){
+        
+            System.out.println("empty fields need to be filled");
+            
+        }else{
+            
+            if( mobile_txt.getText().length()!=10){
+           
+            System.out.println("mbile numver is not valid");
+            
+        }else{
+            
+       
+        //chceking email
+            String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        String email1 = email_txt.getText();
+        Boolean b = email1.matches(EMAIL_REGEX);
+        
+            if(!b){
+            
+                System.out.println("email is not valid");
+                
+            }else{
+            
+        
+        
+        
+        try {
+            
+           ConnDB.iud("insert into loyality(loyality_card_number,honorifics, customer_name, address_line1, address_line2, mobile_number, email, issue_date, expire_date,status) values('"+loyal_card+"','"+honro+"','"+cus_name+"','"+add101+"','"+add102+"','"+ mobile+"','"+email+"','"+ issue+"', '"+ expire+"','active')");
+             
+           
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+            }//email
+            }//mobile
+        }//emptyField
+        
+        
     }//GEN-LAST:event_issue_loyalty_btnActionPerformed
+
+    private void mobile_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobile_txtKeyTyped
+         
+        char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_mobile_txtKeyTyped
+
+    private void update_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_loyalty_btnActionPerformed
+       String loyal_card=loyalty_card_txt.getText();
+        String honro = hon_combo.getSelectedItem().toString();
+        String cus_name=customer_name_txt.getText();
+        String add01=address_1_txt.getText();
+        String add02=address_2_txt.getText();
+        int mobile=Integer.parseInt(mobile_txt.getText());
+        String email=email_txt.getText();
+        String issue=issue_date_txt.getText();
+        String expire=expire_date_txt.getText();
+        
+        ResultSet rs;
+        
+        try {
+            
+        ConnDB.iud("update loyality SET honorifics='"+honro+"', customer_name='"+cus_name+"', address_line1='"+add01+"', address_line2='"+add02+"', mobile_number='"+mobile_txt.getText()+"', email='"+email+"', issue_date='"+issue+"', expire_date='"+expire+"' WHERE loyality_card_number='"+loyal_card+"' ");   
+        
+        
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_update_loyalty_btnActionPerformed
+
+    private void delete_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_loyalty_btnActionPerformed
+         ResultSet rs;
+        
+        try {
+            
+          ConnDB.iud("UPDATE loyality set status='innactive' WHERE loyality_card_number='"+loyalty_card_txt.getText()+"' ");
+            
+        } catch (Exception e) {
+        
+        
+        }
+    }//GEN-LAST:event_delete_loyalty_btnActionPerformed
+
+    private void search_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_loyalty_btnActionPerformed
+        ResultSet rs;
+        
+        try {
+        
+            DefaultTableModel dtm=(DefaultTableModel)view_loyalty_jt.getModel();
+            dtm.setRowCount(0);
+            
+            Vector v=new Vector();
+            rs = ConnDB.search("select * from loyality where loyality_card_number='"+loyalty_card_txt.getText()+"' ");
+            while(rs.next()){
+                 
+           hon_combo.setSelectedItem(rs.getString("honorifics"));
+           customer_name_txt.setText(rs.getString("customer_name"));
+           address_1_txt.setText(rs.getString("address_line1"));
+           address_2_txt.setText(rs.getString("address_line2"));
+           mobile_txt.setText(rs.getString("mobile_number"));
+           email_txt.setText(rs.getString("email"));
+           issue_date_txt.setText(rs.getString("issue_date"));
+           expire_date_txt.setText(rs.getString("expire_date"));
+           
+           
+           
+             }
+            
+            
+        } catch (Exception e) {
+        e.printStackTrace();
+        
+        }
+        
+        
+        
+    }//GEN-LAST:event_search_loyalty_btnActionPerformed
+
+    private void view_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_loyalty_btnActionPerformed
+       
+         ResultSet rs;
+        
+        try {
+        
+            DefaultTableModel dtm=(DefaultTableModel)view_loyalty_jt.getModel();
+            dtm.setRowCount(0);
+            
+            
+            rs = ConnDB.search("select * from loyality");
+            while(rs.next()){
+                Vector v=new Vector();
+            
+           v.add(rs.getString("loyality_card_number"));
+           v.add(rs.getString("customer_name"));
+           v.add(rs.getString("address_line1"));
+           v.add(rs.getString("address_line2"));
+           v.add(rs.getString("mobile_number"));
+           v.add(rs.getString("email"));
+           v.add(rs.getString("issue_date"));
+           v.add(rs.getString("expire_date"));
+           v.add(rs.getString("status"));
+           
+           dtm.addRow(v);
+           
+           
+           
+             }
+            
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+    }//GEN-LAST:event_view_loyalty_btnActionPerformed
+
+    private void add_new_loyalty_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_loyalty_clear_btnActionPerformed
+       clear_text();
+    }//GEN-LAST:event_add_new_loyalty_clear_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,4 +528,74 @@ public class customers extends javax.swing.JFrame {
     private javax.swing.JButton view_loyalty_btn;
     private javax.swing.JTable view_loyalty_jt;
     // End of variables declaration//GEN-END:variables
+
+    private void auto_loyal_no() {
+             boolean isleft=true;
+        
+        
+        while(isleft){
+        
+        long firt14= (long) (Math.random() * 10000000000000L);
+        long number = 5200000000000000L + firt14;
+        
+        String convtSt= number+"";
+            
+            ResultSet rs;
+        
+        try {
+            
+            rs=ConnDB.search("select * from loyality");
+            
+            while(rs.next()){
+            
+                String loyal_card = rs.getString("loyality_card_number");
+                
+                if(convtSt.equals(loyal_card)){
+                
+                    //joptionpane
+                break;
+                }
+                else{
+                
+                loyalty_card_txt.setText(convtSt);
+                
+                isleft=false;
+                }
+                
+                
+            
+            }
+            
+            
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+        }
+    }
+    
+     public void clear_text(){
+    
+        loyalty_card_txt.setText(null);
+        hon_combo.setSelectedIndex(0);
+        customer_name_txt.setText(null);
+        address_1_txt.setText(null);
+        address_2_txt.setText(null);
+        mobile_txt.setText(null);
+        email_txt.setText(null);
+        issue_date_txt.setText(null);
+        expire_date_txt.setText(null);
+        
+        
+        DefaultTableModel dtm=(DefaultTableModel)view_loyalty_jt.getModel();
+        dtm.setRowCount(0);
+        
+    
+    
+    }
+    
+    
 }
