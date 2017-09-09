@@ -355,56 +355,76 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_close_btnActionPerformed
 
     private void minimize_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimize_btnActionPerformed
+        
         this.setState(ICONIFIED);
-        //dashboard.setState(ICONIFIED);
-        //notifications.setState(ICONIFIED);
+        dashboard.setState(ICONIFIED);
+        notifications.setState(ICONIFIED);
+        inventory.setState(ICONIFIED);
+        purchase.setState(ICONIFIED);
+        production.setState(ICONIFIED);
+        sales.setState(ICONIFIED);
+        customers.setState(ICONIFIED);
+        suppliers.setState(ICONIFIED);
+        settings.setState(ICONIFIED);
+        help.setState(ICONIFIED);
     }//GEN-LAST:event_minimize_btnActionPerformed
 
     private void dashboard_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboard_tbActionPerformed
-       dashboard.setVisible(true);
+       
+        dashboard.setState (Frame.NORMAL);
+        dashboard.setVisible(true);
     }//GEN-LAST:event_dashboard_tbActionPerformed
 
     private void notification_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notification_tbActionPerformed
+       
+        notifications.setState (Frame.NORMAL);
         notifications.setVisible(true);
     }//GEN-LAST:event_notification_tbActionPerformed
 
     private void customer_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_tbActionPerformed
         
+        customers.setState (Frame.NORMAL);
         customers.setVisible(true);
         
     }//GEN-LAST:event_customer_tbActionPerformed
 
     private void supplier_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_tbActionPerformed
         
+        suppliers.setState (Frame.NORMAL);
         suppliers.setVisible(true);
         
     }//GEN-LAST:event_supplier_tbActionPerformed
 
     private void inventory_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventory_tbActionPerformed
-        
-        inventory.setVisible(true);
+       
+       inventory.setState (Frame.NORMAL);
+       inventory.setVisible(true);
        inventory.createPro();
         
     }//GEN-LAST:event_inventory_tbActionPerformed
 
     private void purchase_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase_tbActionPerformed
        
+        purchase.setState (Frame.NORMAL);
         purchase.setVisible(true);
         
     }//GEN-LAST:event_purchase_tbActionPerformed
 
     private void production_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_production_tbActionPerformed
         
+        production.setState (Frame.NORMAL);
         production.setVisible(true);
     }//GEN-LAST:event_production_tbActionPerformed
 
     private void invoice_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoice_tbActionPerformed
         
+        sales.setState (Frame.NORMAL);
         sales.setVisible(true);
         
     }//GEN-LAST:event_invoice_tbActionPerformed
 
     private void settings_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_tbActionPerformed
+        
         settings.setState (Frame.NORMAL);
         settings.setVisible(true);
         
@@ -412,6 +432,7 @@ public class main extends javax.swing.JFrame {
 
     private void help_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_help_tbActionPerformed
         
+        help.setState (Frame.NORMAL);
         help.setVisible(true);
         help.setAlwaysOnTop(true);
         
