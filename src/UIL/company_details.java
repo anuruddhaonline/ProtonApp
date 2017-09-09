@@ -87,6 +87,11 @@ public class company_details extends javax.swing.JFrame {
         set_details_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         set_details_btn.setForeground(new java.awt.Color(255, 255, 255));
         set_details_btn.setText("Save Details");
+        set_details_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                set_details_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(set_details_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, 120, -1));
 
         company_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
@@ -220,6 +225,80 @@ public class company_details extends javax.swing.JFrame {
         System.gc();
 
     }//GEN-LAST:event_company_details_close_btnActionPerformed
+
+    private void set_details_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_set_details_btnActionPerformed
+       
+        String comName = company_name_txt.getText();
+        String comCat = category_txt.getText();
+        String ownerName = owner_name_txt.getText();
+        String add01 = address_01_txt.getText();
+        String add02 = address_02_txt.getText();
+        String city = city_txt.getText();
+        int postalCode = Integer.parseInt(postal_code_txt.getText());
+        int tel01 = Integer.parseInt(telephone_01_txt.getText());
+        int tel02 = Integer.parseInt(telephone_02_txt.getText());
+        int mobile = Integer.parseInt(mobile_no_txt.getText());
+        int fax = Integer.parseInt(fax_txt.getText());
+        String email = email_txt.getText();
+        String web = website_txt.getText();
+        
+        if (comName.isEmpty() || comCat.isEmpty() || ownerName.isEmpty() || add01.isEmpty() || add02.isEmpty() || city.isEmpty() || postal_code_txt.getText().isEmpty() || telephone_01_txt.getText().isEmpty() || telephone_02_txt.getText().isEmpty() || mobile_no_txt.getText().isEmpty() || fax_txt.getText().isEmpty() || email.isEmpty() || web.isEmpty()) {
+        
+        
+        }
+        else {
+        
+        if (postal_code_txt.getText().length()!=6){
+        
+        System.out.println("account number is not valid");
+        }else{
+        
+            
+        if( telephone_01_txt.getText().length()!=10){
+           
+            System.out.println("mbile numver is not valid");
+            
+        }else{
+            
+        if(telephone_02_txt.getText().length()!=10){
+        
+         System.out.println("office no is not valid");
+        
+        
+        }else{
+
+        //chceking email
+            String EMAIL_REGEX = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        String email1 = email_txt.getText();
+        Boolean b = email1.matches(EMAIL_REGEX);
+        
+            if(!b){
+            
+                System.out.println("email is not valid");
+                
+            }else{
+            
+           
+        try {
+
+            ConnDB.iud("insert into company_details (com_name,com_cat,owner_name,add_01,add_02,city,postal_code,tel_01,tel_02,mob,fax,email,web) values('" + comName + "','" + comCat + "','" + ownerName + "','" + add01 + "','" + add02 + "','" + city + "','" + postalCode + "', '" + tel01 + "','" + tel02 + "','" + mobile + "','" + fax + "','" + email + "','" + web + "')");
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+         }//email
+        }//accNoLength
+
+        }//ofNoLength
+        }//mobilelength
+        }//isempty
+        
+        
+        
+    }//GEN-LAST:event_set_details_btnActionPerformed
 
     /**
      * @param args the command line arguments

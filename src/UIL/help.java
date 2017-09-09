@@ -220,7 +220,7 @@ public class help extends javax.swing.JFrame {
           
         try {
             
-               Desktop.getDesktop().open(new File("D:\\CSS\\web site\\contact\\"+search_key+".html"));
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\"+search_key+".html"));
                
         } catch (Exception e) {
             
@@ -235,27 +235,93 @@ public class help extends javax.swing.JFrame {
     }//GEN-LAST:event_add_new_pro_clear_btnActionPerformed
 
     private void add_new_pro_clear_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn1ActionPerformed
-        // TODO add your handling code here:
+       
+        this.setAlwaysOnTop(false);
+        
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\sales.html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_new_pro_clear_btn1ActionPerformed
 
     private void add_new_pro_clear_btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn2ActionPerformed
-        // TODO add your handling code here:
+        
+        this.setAlwaysOnTop(false);
+        
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\purchase.html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_new_pro_clear_btn2ActionPerformed
 
     private void add_new_pro_clear_btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn3ActionPerformed
-        // TODO add your handling code here:
+        
+        this.setAlwaysOnTop(false);
+        
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\inventory.html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_new_pro_clear_btn3ActionPerformed
 
     private void add_new_pro_clear_btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn4ActionPerformed
-        // TODO add your handling code here:
+      
+        this.setAlwaysOnTop(false);
+        
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\inventory.html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_new_pro_clear_btn4ActionPerformed
 
     private void add_new_pro_clear_btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn5ActionPerformed
-        // TODO add your handling code here:
+       
+        this.setAlwaysOnTop(false);
+        
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\settings.html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_new_pro_clear_btn5ActionPerformed
 
     private void add_new_pro_clear_btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn6ActionPerformed
-        // TODO add your handling code here:
+       
+        this.setAlwaysOnTop(false);
+        
+        try {
+            
+               Desktop.getDesktop().open(new File("D:\\proton\\help\\settings.html"));
+               
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_new_pro_clear_btn6ActionPerformed
 
     /**

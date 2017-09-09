@@ -21,6 +21,8 @@ import javax.swing.table.DefaultTableModel;
 public class sales extends javax.swing.JFrame {
 
     view_invoice view_invoice = new view_invoice();
+    notification_popup notification_popup = new notification_popup();
+    
     double qty = 0.0;
     String count;
     boolean loyalty = false;
@@ -883,6 +885,30 @@ public class sales extends javax.swing.JFrame {
     private void product_code_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_product_code_txtKeyReleased
        if (evt.getKeyCode()==35) {
             cash_txt.grabFocus();
+            //start noti
+//            try {
+//               
+//                ResultSet rs = ConnDB.search("select * from inventory where product_code = '" + product_code_txt.getText() + "'");
+//                
+//                while (rs.next()) {
+//                
+//                    int available_qty = Integer.parseInt(rs.getString("qty"));
+//                    int min_stock = Integer.parseInt(rs.getString("min_stock_level"));
+//                    
+//                    if(available_qty<=min_stock){
+//                    
+//                        notification_popup.setVisible(true);
+//                        
+//                    }
+//                    
+//
+//            }
+//                
+//           } catch (Exception e) {
+//               
+//               e.printStackTrace();
+//           }
+            //end noti
         }
     }//GEN-LAST:event_product_code_txtKeyReleased
 

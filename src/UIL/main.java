@@ -7,6 +7,7 @@
 package UIL;
 
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Toolkit;
 
 /**
@@ -404,7 +405,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_invoice_tbActionPerformed
 
     private void settings_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_tbActionPerformed
-        
+        settings.setState (Frame.NORMAL);
         settings.setVisible(true);
         
     }//GEN-LAST:event_settings_tbActionPerformed

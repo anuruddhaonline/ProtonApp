@@ -349,7 +349,11 @@ public class suppliers extends javax.swing.JFrame {
         String status="active";
 
         if (supCode.isEmpty() || honro.isEmpty() || supName.isEmpty() || address.isEmpty() || add01.isEmpty() || add02.isEmpty() || city.isEmpty() || postal.isEmpty() || mobile_txt.getText().isEmpty() || office_no_txt.getText().isEmpty() || email.isEmpty() || bankName.isEmpty() || suupler_account_num_txt.getText().isEmpty() || website.isEmpty()) {
-        }else {
+        
+        
+        }
+        
+        else {
         
         if (suupler_account_num_txt.getText().length()!=16){
         
