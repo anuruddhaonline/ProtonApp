@@ -7,6 +7,9 @@
 package UIL;
 
 import com.sun.org.apache.xalan.internal.xsltc.runtime.BasisLibrary;
+import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  *
@@ -21,6 +24,7 @@ public class Stock_count extends javax.swing.JFrame {
         initComponents();
         
         this.setLocationRelativeTo(null);
+        autoStockCount();
     }
 
     /**
@@ -155,6 +159,11 @@ public class Stock_count extends javax.swing.JFrame {
         search_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_product_btn.setContentAreaFilled(false);
         search_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_product_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 30, 30));
 
         stock_dif_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -163,6 +172,11 @@ public class Stock_count extends javax.swing.JFrame {
 
         actual_count_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         actual_count_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        actual_count_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                actual_count_txtKeyReleased(evt);
+            }
+        });
         jPanel1.add(actual_count_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 230, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 450));
@@ -178,10 +192,15 @@ public class Stock_count extends javax.swing.JFrame {
         String date=date_txt.getText();
         int systemCount= Integer.parseInt(system_count_txt.getText());
         int actualCount = Integer.parseInt(actual_count_txt.getText());
-        String comments= system_count_txt.getText();
+        int dif=Integer.parseInt(stock_dif_txt.getText());
         
-        if(productID.isEmpty() || transferID.isEmpty() || date.isEmpty() || actual_count_txt.getText().isEmpty() || comments.isEmpty()){}
-        
+        try {
+              ConnDB.iud("insert into stock_count values('"+stock_count_id_txt.getText()+"','"+productID+"','"+product_name_txt.getText()+"','"+date+"','"+systemCount+"','"+actualCount+"','"+dif+"')");
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+      
         
         
         
@@ -197,6 +216,42 @@ public class Stock_count extends javax.swing.JFrame {
         System.gc();
         
     }//GEN-LAST:event_warehouse_tra_close_btnActionPerformed
+
+    private void search_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_product_btnActionPerformed
+      try {
+            ResultSet rs=ConnDB.search("select * from product where product_code='"+pro_id_txt.getText()+"'");
+            while(rs.next()){
+            product_name_txt.setText(rs.getString("product_name"));
+            
+            
+            }
+             rs=ConnDB.search("select * from inventory where product_code='"+pro_id_txt.getText()+"'");
+            while(rs.next()){
+            system_count_txt.setText(rs.getString("qty"));
+            
+            
+            }
+            
+            
+              String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+             date_txt.setText(timeStamp);
+             actual_count_txt.grabFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_search_product_btnActionPerformed
+
+    private void actual_count_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_actual_count_txtKeyReleased
+if(system_count_txt.getText().length()>0 &&actual_count_txt.getText().length()>0){
+       int sys=Integer.parseInt(system_count_txt.getText());
+       int act=Integer.parseInt(actual_count_txt.getText());
+       
+       int dif=sys-act;
+       
+      stock_dif_txt.setText(dif+"");
+      
+}
+    }//GEN-LAST:event_actual_count_txtKeyReleased
 
     /**
      * @param args the command line arguments
@@ -256,4 +311,41 @@ public class Stock_count extends javax.swing.JFrame {
     private javax.swing.JTextField system_count_txt;
     private javax.swing.JButton warehouse_tra_close_btn;
     // End of variables declaration//GEN-END:variables
+
+    private void autoStockCount() {
+      try{
+        
+               ResultSet rs = ConnDB.search("select stock_count from prifixes where prifix_id='1' ");
+          
+            if (rs.next()) {
+               String name=(rs.getString("stock_count"));
+                
+                
+                   rs=ConnDB.search("select count(stock_count_id) as x from stock_count");
+                  if(rs.next()){
+                   int i=Integer.parseInt(rs.getString("x"));
+                  i++;
+                  
+                  if(i<10){
+                    stock_count_id_txt.setText(name+"000"+i);
+                  }else if(i<100){
+                  
+                  stock_count_id_txt.setText(name+"00"+i);
+                  }else if(i<1000){
+                    stock_count_id_txt.setText(name+"0"+i);
+                  }
+               
+                     pro_id_txt.grabFocus();
+        }
+                
+                
+            }
+            
+             
+        } catch (Exception ex) {
+                ex.printStackTrace();
+    
+    
+    }
+    }
 }

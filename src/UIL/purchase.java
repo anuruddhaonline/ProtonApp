@@ -25,7 +25,7 @@ public class purchase extends javax.swing.JFrame {
     double totalQty;
     
     String supCode;
-     String supplierName ;
+     String supplierName="ok" ;
     
     public purchase() {
         initComponents();
@@ -74,6 +74,7 @@ public class purchase extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         unit_price_txt = new javax.swing.JTextField();
         add_new_purchase_clear_btn = new javax.swing.JButton();
+        delete_product_btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -119,13 +120,7 @@ public class purchase extends javax.swing.JFrame {
         product_list_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         product_list_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Product Code", "Product Name", "Unit Price", "Quantity", "Sub Total"
@@ -177,6 +172,11 @@ public class purchase extends javax.swing.JFrame {
                 qty_txtActionPerformed(evt);
             }
         });
+        qty_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                qty_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 230, 30));
 
         search_purchase_order_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
@@ -218,7 +218,7 @@ public class purchase extends javax.swing.JFrame {
         jPanel1.add(view_purchase_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
         supplier_name_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        supplier_name_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        supplier_name_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Name" }));
         supplier_name_cmb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplier_name_cmbActionPerformed(evt);
@@ -240,13 +240,37 @@ public class purchase extends javax.swing.JFrame {
                 unit_price_txtActionPerformed(evt);
             }
         });
+        unit_price_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                unit_price_txtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                unit_price_txtKeyTyped(evt);
+            }
+        });
         jPanel1.add(unit_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 230, 30));
 
         add_new_purchase_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
         add_new_purchase_clear_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_new_purchase_clear_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_new_purchase_clear_btn.setText("New");
+        add_new_purchase_clear_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_new_purchase_clear_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_new_purchase_clear_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
+
+        delete_product_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
+        delete_product_btn.setToolTipText("Delete Product");
+        delete_product_btn.setContentAreaFilled(false);
+        delete_product_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_product_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_product_btnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -357,7 +381,15 @@ public class purchase extends javax.swing.JFrame {
     }//GEN-LAST:event_supplier_name_cmbActionPerformed
 
     private void qty_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qty_txtActionPerformed
-         supplierName=supplier_name_cmb.getSelectedItem().toString();
+
+        if(supplierName=="ok"){
+        
+      supplierName=supplier_name_cmb.getSelectedItem().toString();
+        
+        }else{
+        if(supplierName.equals(supplier_name_cmb.getSelectedItem().toString())){
+        
+            supplierName=supplier_name_cmb.getSelectedItem().toString();
         
         double qty=Double.parseDouble(qty_txt.getText());
         double unit=Double.parseDouble(unit_price_txt.getText());
@@ -370,15 +402,8 @@ public class purchase extends javax.swing.JFrame {
        
         ResultSet rs;
         
-        
-                
-            while(count){
-                
-                
-               // if(rounds>0){
-                
-                DefaultTableModel dtm = (DefaultTableModel) product_list_table.getModel();
-                // dtm.setRowCount(0);
+          DefaultTableModel dtm = (DefaultTableModel) product_list_table.getModel();
+              
             
                 Vector v = new Vector();
 
@@ -401,25 +426,43 @@ public class purchase extends javax.swing.JFrame {
                 
                 
                 product_id_txt.setText(null);
-               // supplier_name_cmb.setSelectedIndex(0);
                 qty_txt.setText(null);
                 unit_price_txt.setText(null);
                 pro_name_txt.setText(null);
                 product_id_txt.grabFocus();
                 supplier_name_cmb.removeAllItems();
-        supplier_name_cmb.addItem("select name");
+                 supplier_name_cmb.addItem("select name");
                 qty_txt.setEnabled(false);
-                 
-                count=false;
+                
               
-                //}rounds++;
-                 }
-                  //
+               
+        
+        
+        
+        }else{
+        
+        
+            System.out.println("please choose same user ");
+        
+        
+        }
+        
+        }
+        
+        
+        
+        
+                  
     }//GEN-LAST:event_qty_txtActionPerformed
 
     private void search_supplier_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_supplier_btnActionPerformed
-         String pro_id=product_id_txt.getText();
-        
+       
+      
+        String pro_id=product_id_txt.getText();
+
+            supplier_name_cmb.removeAllItems();
+        supplier_name_cmb.addItem("select name");
+         
         ResultSet rs;
         
         try {
@@ -432,7 +475,6 @@ public class purchase extends javax.swing.JFrame {
             
             }
             
-              
                 rs=ConnDB.search("select * from product_purchase where product_code='"+pro_id+"'");
                 // WHERE product_code='"+product_id_txt.getText()+"'
                 while(rs.next()){
@@ -441,21 +483,49 @@ public class purchase extends javax.swing.JFrame {
                 
                 
                 }
-                
-                
-                
-            
-           
-            
-            
-            
-            
+    
         } 
         catch (Exception e) {
         e.printStackTrace();
         
         }
     }//GEN-LAST:event_search_supplier_btnActionPerformed
+
+    private void delete_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_product_btnActionPerformed
+        DefaultTableModel df = (DefaultTableModel) product_list_table.getModel();
+        try {
+            int selectedIndex = product_list_table.getSelectedRow();
+            df.removeRow(selectedIndex);
+            supplierName="ok";
+            totalAmount=0;
+            totalQty=0;
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_delete_product_btnActionPerformed
+
+    private void add_new_purchase_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_purchase_clear_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_add_new_purchase_clear_btnActionPerformed
+
+    private void qty_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_qty_txtKeyTyped
+          char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_qty_txtKeyTyped
+
+    private void unit_price_txtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unit_price_txtKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unit_price_txtKeyReleased
+
+    private void unit_price_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unit_price_txtKeyTyped
+           char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+           
+                evt.consume();
+            }
+    }//GEN-LAST:event_unit_price_txtKeyTyped
 
     /**
      * @param args the command line arguments
@@ -496,6 +566,7 @@ public class purchase extends javax.swing.JFrame {
     private javax.swing.JButton add_new_purchase_clear_btn;
     private javax.swing.JButton complete_invoice_btn;
     private javax.swing.JButton complete_print_invoice_btn;
+    private javax.swing.JButton delete_product_btn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

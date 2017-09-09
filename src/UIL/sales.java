@@ -481,6 +481,8 @@ public class sales extends javax.swing.JFrame {
                  
                  double invo=qty2-invqty;
                  System.out.println(invo+"");
+                 
+                 ConnDB.iud("update inventory set qty='"+invo+"' where product_code='"+name+"'");
                  }
                   
             } catch (Exception e) {
@@ -666,6 +668,7 @@ public class sales extends javax.swing.JFrame {
             available_txt.setEnabled(false);
             product_code_txt.setEnabled(true);
             product_code_txt.grabFocus();
+            loyalty_card_txt.setText("0");
         } else {
 
             product_code_txt.setEnabled(true);
@@ -870,6 +873,7 @@ public class sales extends javax.swing.JFrame {
         DefaultTableModel df = (DefaultTableModel) product_list_table.getModel();
         try {
             int selectedIndex = product_list_table.getSelectedRow();
+            
             df.removeRow(selectedIndex);
         } catch (Exception e) {
         }

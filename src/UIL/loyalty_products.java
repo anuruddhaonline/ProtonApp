@@ -6,6 +6,12 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
+
+
 /**
  *
  * @author ASUS
@@ -53,7 +59,6 @@ public class loyalty_products extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(570, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -81,23 +86,25 @@ public class loyalty_products extends javax.swing.JFrame {
                 set_discount_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(set_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 390, 130, -1));
+        jPanel1.add(set_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, 130, -1));
 
         add_discount_btn.setBackground(new java.awt.Color(34, 155, 60));
         add_discount_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         add_discount_btn.setForeground(new java.awt.Color(255, 255, 255));
         add_discount_btn.setText("Add Discount");
+        add_discount_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                add_discount_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(add_discount_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
 
         discount_list_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Product ID", "Product Name", "Discount"
+                "Product ID", "Product Name", "Discount", "Max Products"
             }
         ));
         jScrollPane1.setViewportView(discount_list_table);
@@ -156,6 +163,11 @@ public class loyalty_products extends javax.swing.JFrame {
         search_produc_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_produc_btn.setContentAreaFilled(false);
         search_produc_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_produc_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_produc_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_produc_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, 30, 30));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -200,8 +212,41 @@ public class loyalty_products extends javax.swing.JFrame {
     }//GEN-LAST:event_discount_amount_txtActionPerformed
 
     private void set_discount_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_set_discount_btnActionPerformed
-        // TODO add your handling code here:
+        try {
+            DefaultTableModel dtm=(DefaultTableModel) discount_list_table.getModel();
+            for(int i=0;i<dtm.getRowCount();i++){
+            
+             ConnDB.iud("insert into loyality_products( product_code, product_name, discount, max_count) values('"+dtm.getValueAt(i, 0)+"','"+dtm.getValueAt(i, 1)+"','"+dtm.getValueAt(i, 2)+"','"+dtm.getValueAt(i, 3)+"')");
+       
+            
+            }
+            } catch (Exception e) {
+        }
     }//GEN-LAST:event_set_discount_btnActionPerformed
+
+    private void search_produc_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_produc_btnActionPerformed
+        try {
+            ResultSet rs=ConnDB.search("select * from product where product_code='"+product_id_txt.getText()+"'");
+            while(rs.next()){
+            product_name_txt.setText(rs.getString("product_name"));
+            
+            
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_search_produc_btnActionPerformed
+
+    private void add_discount_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_discount_btnActionPerformed
+        DefaultTableModel dtm=(DefaultTableModel) discount_list_table.getModel();
+        
+      Vector v = new Vector();
+        v.add(product_id_txt.getText().toString());
+        v.add(product_name_txt.getText().toString());
+        v.add(discount_amount_txt.getText().toString());
+        v.add(max_products_txt.getText().toString());
+        dtm.addRow(v);
+    }//GEN-LAST:event_add_discount_btnActionPerformed
 
     /**
      * @param args the command line arguments
