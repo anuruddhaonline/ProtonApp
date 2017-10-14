@@ -222,7 +222,7 @@ public class sales extends javax.swing.JFrame {
         product_list_table.setRowHeight(20);
         jScrollPane1.setViewportView(product_list_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 1120, 170));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 1120, 170));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel9.setText("Availability :");
@@ -337,7 +337,7 @@ public class sales extends javax.swing.JFrame {
                 complete_invoice_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 670, -1, -1));
+        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 670, -1, -1));
 
         search_invoice_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_invoice_btn.setContentAreaFilled(false);
@@ -407,7 +407,7 @@ public class sales extends javax.swing.JFrame {
                 delete_product_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, 30, 30));
+        jPanel1.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 460, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 

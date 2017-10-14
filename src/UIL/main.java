@@ -267,10 +267,10 @@ public class main extends javax.swing.JFrame {
         });
         menu_panel.add(settings_tb, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 140, 35));
 
-        user_icon_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female.png"))); // NOI18N
+        user_icon_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_male.png"))); // NOI18N
         user_icon_btn.setContentAreaFilled(false);
         user_icon_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        user_icon_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_female_hover.png"))); // NOI18N
+        user_icon_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/user_icon_male_hover.png"))); // NOI18N
         user_icon_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 user_icon_btnActionPerformed(evt);
@@ -577,7 +577,7 @@ public class main extends javax.swing.JFrame {
             }else{
             
                 op.setVisible(true);
-          op.message("Login Failed");
+          op.message("Invalid Login Credentials");
             }
         } catch (Exception e) {
             
