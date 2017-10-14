@@ -6,6 +6,8 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author ASUS
@@ -18,6 +20,7 @@ public class stock_adjustment extends javax.swing.JFrame {
     public stock_adjustment() {
         initComponents();
         this.setLocationRelativeTo(null);
+      
     }
 
     /**
@@ -157,11 +160,21 @@ public class stock_adjustment extends javax.swing.JFrame {
         search_stock_count_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_stock_count_btn.setContentAreaFilled(false);
         search_stock_count_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_stock_count_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_stock_count_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_stock_count_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 130, 30, 30));
 
         search_adj_id_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_adj_id_btn.setContentAreaFilled(false);
         search_adj_id_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_adj_id_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_adj_id_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_adj_id_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 30, 30));
 
         adj_reason_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -184,16 +197,39 @@ public class stock_adjustment extends javax.swing.JFrame {
     private void bt_complete_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_complete_stockActionPerformed
         
 
-        String stockCountID= stock_count_id_txt.getText();
+         String stockCountID= stock_count_id_txt.getText();
         String adjustmentID = adj_id_txt.getText();
         String productName = product_name_txt.getText();
         String date = date_txt.getText();
         String reason = adj_reason_cmb.getSelectedItem().toString();
         int quantity= Integer.parseInt(qty_txt.getText());
-        int valueOfQuantity = Integer.parseInt(value_qty_txt.getText());
+        int value = Integer.parseInt(value_qty_txt.getText());
         
         if (stockCountID.isEmpty() || adjustmentID.isEmpty() || date.isEmpty() || date.isEmpty() || reason.isEmpty() || qty_txt.getText().isEmpty() || value_qty_txt.getText().isEmpty()){}
         
+        
+        try {
+            
+          
+            ConnDB.iud("insert into stock_adjustment_001 (adjustment_id,stock_count_id,product_name,date,reason,quantity,value)VALUES('"+adjustmentID+"','"+stockCountID+"','"+productName+"','"+date+"','"+reason+"','"+quantity+"','"+value+"')");
+          
+          
+          
+            
+        } catch (Exception e) {
+        
+            e.printStackTrace();
+        }
+        
+        
+
+        adj_id_txt.setText(null);
+        stock_count_id_txt.setText(null);
+        product_name_txt.setText(null);
+        date_txt.setText(null);
+        adj_reason_cmb.setSelectedIndex(0);
+        qty_txt.setText(null);
+        value_qty_txt.setText(null);
 
 
 
@@ -206,6 +242,35 @@ public class stock_adjustment extends javax.swing.JFrame {
         System.gc();
         
     }//GEN-LAST:event_stock_adj_close_btnActionPerformed
+
+    private void search_adj_id_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_adj_id_btnActionPerformed
+       
+        String adj=adj_id_txt.getText();
+        
+        try {
+            
+            ResultSet rs;
+            rs=ConnDB.search("select * from stock_adjustment_001 where adjustment_id='"+adj+"'");
+            
+            stock_count_id_txt.setText(rs.getString("stock_count_id"));
+            product_name_txt.setText(rs.getString("product_name	"));
+            date_txt.setText(rs.getString("date"));
+            adj_reason_cmb.setSelectedItem(rs.getSQLXML("reason"));
+            qty_txt.setText(rs.getString("quantity"));
+            value_qty_txt.setText(rs.getString("value"));
+            
+            
+            
+        } catch (Exception e) {
+            e.printStackTrace();;
+        }
+        
+        
+    }//GEN-LAST:event_search_adj_id_btnActionPerformed
+
+    private void search_stock_count_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_stock_count_btnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_search_stock_count_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,4 +330,8 @@ public class stock_adjustment extends javax.swing.JFrame {
     private javax.swing.JTextField stock_count_id_txt;
     private javax.swing.JTextField value_qty_txt;
     // End of variables declaration//GEN-END:variables
+
+
+  
+
 }

@@ -8,6 +8,9 @@ package UIL;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -35,6 +38,7 @@ public class dashboard extends javax.swing.JFrame {
         loadBarChart();
         loadSalesPieChart();
         loadExpenditurePieChart();
+        loadStockTable();
     }
 
     /**
@@ -105,7 +109,7 @@ public class dashboard extends javax.swing.JFrame {
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel21.setText("Daily Sales");
+        jLabel21.setText("Daily Net Sales");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 90, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -120,7 +124,7 @@ public class dashboard extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Product Code", "Product Name", "Stock Level", "Reorder Level", "Product Type"
+                "Product Code", "Product Name", "Remaining Stock Level", "Reorder Level", "Product Type"
             }
         ));
         jScrollPane1.setViewportView(sotck_levels_table);
@@ -194,15 +198,28 @@ public class dashboard extends javax.swing.JFrame {
     private void loadBarChart() {
         
         DefaultCategoryDataset barChartData = new DefaultCategoryDataset();
-        barChartData.setValue(20000, "con amount", "Sunday");
-        barChartData.setValue(15000, "con amount", "Monday");
-        barChartData.setValue(32000, "con amount", "Tuesday");
-        barChartData.setValue(20000, "con amount", "Wednsday");
-        barChartData.setValue(25000, "con amount", "Thursday");
-        barChartData.setValue(40000, "con amount", "Friday");
-        barChartData.setValue(40000, "con amount", "Saturday");
         
-        JFreeChart barChart = ChartFactory.createBarChart("", "Day", "Amount (LKR)", barChartData, PlotOrientation.VERTICAL, false, true, false);
+        
+        try {
+            
+            ResultSet rs=ConnDB.search("SELECT invoice_date, SUM(net_amount) AS net FROM invoice GROUP BY invoice_date ORDER BY invoice_date DESC LIMIT 7");
+            
+            
+            
+            while(rs.next()){
+            
+                String date = rs.getString("invoice_date");
+                double net_value = Double.parseDouble(rs.getString("net"));
+                barChartData.addValue(net_value,"Net Sales",date);
+            
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        JFreeChart barChart = ChartFactory.createBarChart("", "Date", "Net Sales Amount(LKR)", barChartData, PlotOrientation.VERTICAL, false, true, false);
         CategoryPlot catPlot = barChart.getCategoryPlot();
         //catPlot.setRangeGridlinePaint(Color.BLUE);
         catPlot.setBackgroundPaint(Color.WHITE);
@@ -221,9 +238,28 @@ public class dashboard extends javax.swing.JFrame {
     private void loadSalesPieChart() {
         
         DefaultPieDataset pieDataset = new DefaultPieDataset();
-        pieDataset.setValue("Ready-made", new Integer(10));
-        pieDataset.setValue("Component", new Integer(20));
-        pieDataset.setValue("Assembled", new Integer(30));
+        
+        try {
+            
+            ResultSet rs = ConnDB.search("SELECT invoice_items.subtotal, product.product_type FROM invoice_items INNER JOIN product ON invoice_items.product_code = product.product_code");
+            
+            while(rs.next()){
+            
+                pieDataset.setValue(rs.getString("product_type"), Double.parseDouble(rs.getString("subtotal")));
+            
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+//        pieDataset.setValue("Ready-made", new Integer(10));
+//        pieDataset.setValue("Component", new Integer(20));
+//        pieDataset.setValue("Assembled", new Integer(30));
+        
+        
         JFreeChart pieChart = ChartFactory.createPieChart("", pieDataset, true, true, true);
         
         PiePlot piePlot = (PiePlot)pieChart.getPlot();
@@ -244,9 +280,26 @@ public class dashboard extends javax.swing.JFrame {
     private void loadExpenditurePieChart() {
         
         DefaultPieDataset pieDataset = new DefaultPieDataset();
-        pieDataset.setValue("Ready-made", new Integer(40));
-        pieDataset.setValue("Component", new Integer(20));
-        pieDataset.setValue("Assembled", new Integer(10));
+        
+        try {
+            
+            ResultSet rs = ConnDB.search("SELECT purchase_items.subtotal, product.product_type FROM purchase_items INNER JOIN product ON purchase_items.product_code = product.product_code");
+            
+            while(rs.next()){
+            
+                pieDataset.setValue(rs.getString("product_type"), Double.parseDouble(rs.getString("subtotal")));
+            
+            }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+//        pieDataset.setValue("Ready-made", new Integer(40));
+//        pieDataset.setValue("Component", new Integer(20));
+//        pieDataset.setValue("Assembled", new Integer(10));
+        
         JFreeChart pieChart = ChartFactory.createPieChart("", pieDataset, true, true, true);
         
         PiePlot piePlot = (PiePlot)pieChart.getPlot();
@@ -261,6 +314,36 @@ public class dashboard extends javax.swing.JFrame {
         expenditure_pie_panel.removeAll();
         expenditure_pie_panel.add(pieChartPanel, BorderLayout.CENTER);
         expenditure_pie_panel.validate();
+        
+    }
+
+    private void loadStockTable() {
+        
+        DefaultTableModel dtm=(DefaultTableModel)sotck_levels_table.getModel();
+            dtm.setRowCount(0);
+            ResultSet rs;
+             
+              
+             
+             try {
+                 
+                 
+             rs = ConnDB.search("SELECT inventory.product_code, product.product_name, product.product_type, inventory.min_stock_level, inventory.qty FROM inventory INNER JOIN product ON inventory.product_code = product.product_code ORDER BY inventory.qty");
+             while(rs.next()){
+           Vector v=new Vector();      
+           v.add(rs.getString("product_code"));
+           v.add(rs.getString("product_name"));
+           v.add(rs.getString("qty"));
+           v.add(rs.getString("min_stock_level"));
+           v.add(rs.getString("product_type"));
+           dtm.addRow(v);
+           
+             }
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
         
     }
 }

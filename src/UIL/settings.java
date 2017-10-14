@@ -6,6 +6,8 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+
 /**
  *
  * @author ASUS
@@ -16,6 +18,9 @@ public class settings extends javax.swing.JFrame {
     
     public settings() {
         initComponents();
+        loadPref();
+        loadUserRoles();
+        
     }
 
     /**
@@ -316,12 +321,22 @@ public class settings extends javax.swing.JFrame {
         search_user_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_user_btn.setContentAreaFilled(false);
         search_user_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_user_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_user_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 140, 30, 30));
 
         create_role_btn.setBackground(new java.awt.Color(34, 155, 60));
         create_role_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         create_role_btn.setForeground(new java.awt.Color(255, 255, 255));
         create_role_btn.setText("Create Role");
+        create_role_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                create_role_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(create_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 430, -1, -1));
 
         help_tb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/toggle_off.png"))); // NOI18N
@@ -333,24 +348,44 @@ public class settings extends javax.swing.JFrame {
         update_user_btn.setToolTipText("Update User Details");
         update_user_btn.setContentAreaFilled(false);
         update_user_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        update_user_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_user_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(update_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 30, 30));
 
         delete_user_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
         delete_user_btn.setToolTipText("Delete User Details");
         delete_user_btn.setContentAreaFilled(false);
         delete_user_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_user_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_user_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(delete_user_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 30, 30));
 
         update_role_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon.png"))); // NOI18N
         update_role_btn.setToolTipText("Update Role Permissions");
         update_role_btn.setContentAreaFilled(false);
         update_role_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/update_icon_hover.png"))); // NOI18N
+        update_role_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                update_role_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(update_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 70, 30, 30));
 
         delete_role_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon.png"))); // NOI18N
         delete_role_btn.setToolTipText("Delete Role");
         delete_role_btn.setContentAreaFilled(false);
         delete_role_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete_icon_hover.png"))); // NOI18N
+        delete_role_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delete_role_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(delete_role_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 30, 30));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 1208, 10));
 
@@ -439,6 +474,11 @@ public class settings extends javax.swing.JFrame {
         set_prefixes_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         set_prefixes_btn.setForeground(new java.awt.Color(255, 255, 255));
         set_prefixes_btn.setText("Set Prefixes");
+        set_prefixes_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                set_prefixes_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(set_prefixes_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 680, 140, -1));
 
         company_details_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -543,11 +583,125 @@ public class settings extends javax.swing.JFrame {
     }//GEN-LAST:event_password_txtActionPerformed
 
     private void create_user_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_user_btnActionPerformed
-        // TODO add your handling code here:
+       
+        String uname=username_txt.getText();
+        int mobile=Integer.parseInt(mobile_num_txt.getText());
+        String type=user_type_cmb.getSelectedItem().toString();
+        String pass=new String(password_txt.getPassword()).toString();
+        String conPass=new String(confirm_password_txt.getPassword()).toString();
+        
+       
+        try {
+            
+            ConnDB.iud("insert into users (username,password,user_type,mobile_number,status) VALUES ('"+uname+"', '"+pass+"', '"+type+"', '"+mobile+"','active')  ");
+            
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+        
+        
+        username_txt.setText(null);
+        mobile_num_txt.setText(null);
+        user_type_cmb.setSelectedIndex(0);
+        password_txt.setText(null);
+        confirm_password_txt.setText(null);
+        
+        
+        
     }//GEN-LAST:event_create_user_btnActionPerformed
 
     private void search_user_role_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_user_role_btnActionPerformed
-        // TODO add your handling code here:
+        
+         String roleName=role_name_txt.getText();
+       
+        noti_tb.setSelected(false);
+        dash_tb.setSelected(false);
+        inventory_tb.setSelected(false);
+        purchase_tb.setSelected(false);
+        //purchase_tb.setSelected(false);
+        sales_tb.setSelected(false);
+        loyalty_tb.setSelected(false);
+        suppliers_tb.setSelected(false);
+        settings_tb.setSelected(false);
+        help_tb.setSelected(false);
+        quick_launch_access_tb.setSelected(false);
+        app_access_tb.setSelected(false);
+         
+        
+        ResultSet rs;
+        
+        try {
+            
+           rs=ConnDB.search("select * from user_permission WHERE user_type='"+roleName+"' ");
+           
+           while(rs.next()){
+           
+              String notific=rs.getString("notification");
+              String dash=rs.getString("dashboard");
+              String invent=rs.getString("inventory");
+              String purchase=rs.getString("purchase");
+              String grn=rs.getString("GRN");
+              String sales=rs.getString("sales");
+              String loyal=rs.getString("loyality");
+              String sup=rs.getString("supplier");
+              String settings=rs.getString("settings");
+              String help=rs.getString("help");
+              String quickLaunch=rs.getString("quick_access");
+              String app=rs.getString("app");
+              
+              
+              if(notific.equals("yes"))
+                  noti_tb.setSelected(true);
+              
+              if(dash.equals("yes"))
+                  dash_tb.setSelected(true);
+           
+              if(invent.equals("yes"))
+                  inventory_tb.setSelected(true);
+              
+              if(purchase.equals("yes"))
+                  purchase_tb.setSelected(true);
+              
+              if(grn.equals("yes"))
+                  purchase_tb.setSelected(true);
+              
+              if(sales.equals("yes"))
+                  sales_tb.setSelected(true);
+               
+              if(loyal.equals("yes"))
+                  loyalty_tb.setSelected(true);
+              
+              if(sup.equals("yes"))
+                  suppliers_tb.setSelected(true);
+              
+              if(settings.equals("yes"))
+                  settings_tb.setSelected(true);
+              
+              if(help.equals("yes"))
+                  help_tb.setSelected(true);
+              
+              if(quickLaunch.equals("yes"))
+                  quick_launch_access_tb.setSelected(true);
+              
+              if(app.equals("yes"))
+                  app_access_tb.setSelected(true);
+              
+              
+              
+           }
+            
+            
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+        
+        
     }//GEN-LAST:event_search_user_role_btnActionPerformed
 
     private void po_pre_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_po_pre_txtActionPerformed
@@ -561,11 +715,34 @@ public class settings extends javax.swing.JFrame {
     }//GEN-LAST:event_company_details_btnActionPerformed
 
     private void add_new_unit_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_unit_btnActionPerformed
-        // TODO add your handling code here:
+      
+         String unitMes=add_new_unit_txt.getText();
+        try {
+            
+            ConnDB.iud(" insert into unit_of_measure (unit_of_measure) values ('"+unitMes+"')  ");
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
     }//GEN-LAST:event_add_new_unit_btnActionPerformed
 
     private void add_new_categories_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_categories_btnActionPerformed
-        // TODO add your handling code here:
+       
+        
+        String proCat=add_new_categories_txt.getText();
+        try {
+            
+            ConnDB.iud(" insert into product_categories (product_category) values ('"+proCat+"')  ");
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
     }//GEN-LAST:event_add_new_categories_btnActionPerformed
 
     private void adjustment_reason_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adjustment_reason_txtActionPerformed
@@ -573,12 +750,366 @@ public class settings extends javax.swing.JFrame {
     }//GEN-LAST:event_adjustment_reason_txtActionPerformed
 
     private void add_adjustment_reason_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_adjustment_reason_btnActionPerformed
-        // TODO add your handling code here:
+        
+          String anjRes=adjustment_reason_txt.getText();
+        try {
+            
+            ConnDB.iud(" insert into adjustment_reasons (adjustment_reason) values ('"+anjRes+"')  ");
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
     }//GEN-LAST:event_add_adjustment_reason_btnActionPerformed
 
     private void app_access_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_app_access_tbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_app_access_tbActionPerformed
+
+    private void set_prefixes_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_set_prefixes_btnActionPerformed
+        
+        String product=product_pre_txt.getText();
+        String stock_count=stock_count_pre_txt.getText();
+        String stock_adjust=stock_adj_pre_txt.getText();
+        
+        String purchase_order=po_pre_txt.getText();
+        String grn=grn_pre_txt.getText();
+        String sup_return=supplier_return_pre_txt.getText();
+        
+        String supplier=supplier_txt.getText();
+        //String production=product_txt.getText();
+        String sales_invoice=sales_invoice_pre_txt.getText();
+        
+        
+        if(product.isEmpty() || stock_count.isEmpty() || stock_adjust.isEmpty() || purchase_order.isEmpty() || grn.isEmpty() || sup_return.isEmpty() || supplier.isEmpty() || sales_invoice.isEmpty()){
+        
+            System.out.println("empty fields need to be filled");
+        
+        }else {
+        
+        
+        
+        try {
+            
+            ConnDB.iud("update prifixes SET products='"+product+"', stock_count='"+stock_adjust+"', stock_adjusment='"+stock_adjust+"', purchase_order='"+purchase_order+"', grn='"+grn+"', suppir_return='"+sup_return+"', suppliers='"+supplier+"', invoice='"+sales_invoice+"' WHERE prifix_id='1'  ");
+            
+            
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+        
+        }//emptyFields
+        
+        
+        product_pre_txt.setText(null);
+        stock_count_pre_txt.setText(null);
+        stock_adj_pre_txt.setText(null);
+        
+        po_pre_txt.setText(null);
+        grn_pre_txt.setText(null);
+        supplier_return_pre_txt.setText(null);
+        
+        supplier_txt.setText(null);
+        product_pre_txt.setText(null);
+        sales_invoice_pre_txt.setText(null);
+        
+        
+    }//GEN-LAST:event_set_prefixes_btnActionPerformed
+
+    private void create_role_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_create_role_btnActionPerformed
+      
+        
+        String roleName=role_name_txt.getText();
+        
+        String notific="no";
+        String dash="no";
+        String invent="no";
+        String purchase="no";
+        String grn="no";
+        String sales="no";
+        String loyal="no";
+        String sup="no";
+        String settings="no";
+        String help="no";
+        String quickLaunch="no";
+        String app="no";
+        
+        if(noti_tb.isSelected()){
+        
+        notific="yes";
+        }
+        
+        if(dash_tb.isSelected()){
+        
+        dash="yes";
+        }
+        
+        if(inventory_tb.isSelected()){
+        
+        invent="yes";
+        }
+        
+        if(purchase_tb.isSelected()){
+        
+        purchase="yes";
+        }
+        
+        if(purchase_tb.isSelected()){
+        
+        grn="yes";
+        }
+        
+        if(sales_tb.isSelected()){
+        
+        sales="yes";
+        }
+        
+        
+        if(loyalty_tb.isSelected()){
+        
+        loyal="yes";
+        }
+        
+       
+        if(suppliers_tb.isSelected()){
+        
+        sup="yes";
+        }
+        
+        if(settings_tb.isSelected()){
+        
+        settings="yes";
+        }
+        
+        
+        if(help_tb.isSelected()){
+        
+        help="yes";
+        }
+        
+         if(quick_launch_access_tb.isSelected()){
+        
+        quickLaunch="yes";
+        }
+        
+         if(app_access_tb.isSelected()){
+        
+        app="yes";
+        }
+        
+         
+        
+        try 
+        {
+            
+            ConnDB.iud("insert into user_permission(user_type,notification,dashboard,inventory,purchase,GRN,sales,loyality,supplier,settings,help,quick_access,app) VALUES ('"+roleName+"','"+notific+"','"+dash+"','"+invent+"','"+purchase+"', '"+grn+"', '"+sales+"', '"+loyal+"','"+sup+"', '"+settings+"', '"+help+"', '"+quickLaunch+"' , '"+app+"' )  ");
+            loadUserRoles();
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        
+        role_name_txt.setText(null);
+        noti_tb.setSelected(false);
+        dash_tb.setSelected(false);
+        inventory_tb.setSelected(false);
+        purchase_tb.setSelected(false);
+        purchase_tb.setSelected(false);
+        sales_tb.setSelected(false);
+        loyalty_tb.setSelected(false);
+        suppliers_tb.setSelected(false);
+        settings_tb.setSelected(false);
+        help_tb.setSelected(false);
+        quick_launch_access_tb.setSelected(false);
+        app_access_tb.setSelected(false);
+        
+        
+        
+    }//GEN-LAST:event_create_role_btnActionPerformed
+
+    private void update_role_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_role_btnActionPerformed
+      
+        String roleName=role_name_txt.getText();
+        
+        String notific="no";
+        String dash="no";
+        String invent="no";
+        String purchase="no";
+        String grn="no";
+        String sales="no";
+        String loyal="no";
+        String sup="no";
+        String settings="no";
+        String help="no";
+        String quickLaunch="no";
+        String app="no";
+                
+        if(noti_tb.isSelected()){
+        
+        notific="yes";
+        }
+        
+        if(dash_tb.isSelected()){
+        
+        dash="yes";
+        }
+        
+        if(inventory_tb.isSelected()){
+        
+        invent="yes";
+        }
+        
+        if(purchase_tb.isSelected()){
+        
+        purchase="yes";
+        }
+        
+        if(purchase_tb.isSelected()){
+        
+        grn="yes";
+        }
+        
+        if(sales_tb.isSelected()){
+        
+        sales="yes";
+        }
+        
+        
+        if(loyalty_tb.isSelected()){
+        
+        loyal="yes";
+        }
+        
+       
+        if(suppliers_tb.isSelected()){
+        
+        sup="yes";
+        }
+        
+        if(settings_tb.isSelected()){
+        
+        settings="yes";
+        }
+        
+        
+        if(help_tb.isSelected()){
+        
+        help="yes";
+        }
+        
+         if(quick_launch_access_tb.isSelected()){
+        
+        quickLaunch="yes";
+        }
+        
+         if(app_access_tb.isSelected()){
+        
+        app="yes";
+        }
+        
+        
+        try {
+            
+            ConnDB.iud(" update user_permission SET user_type='"+roleName+"', notification='"+notific+"', dashboard='"+dash+"', inventory='"+invent+"', purchase='"+purchase+"', GRN='"+grn+"', sales='"+sales+"', loyality='"+loyal+"', supplier='"+sup+"', settings='"+settings+"', help='"+help+"', quick_access='"+quickLaunch+"', app='"+app+"' WHERE user_type='"+roleName+"' ");
+            
+            
+        } catch (Exception e) {
+        e.printStackTrace();
+        
+        }
+        
+        
+    }//GEN-LAST:event_update_role_btnActionPerformed
+
+    private void delete_role_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_role_btnActionPerformed
+     
+          String roleName=role_name_txt.getText();
+        
+        try {
+            
+            ConnDB.iud("delete from user_permission WHERE user_type='"+roleName+"' ");
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+        
+    }//GEN-LAST:event_delete_role_btnActionPerformed
+
+    private void search_user_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_user_btnActionPerformed
+       
+        String uname=username_txt.getText();
+        
+        ResultSet rs;
+        try {
+            
+            rs=ConnDB.search("select * from users where username='"+uname+"'");
+            while (rs.next()) {
+                
+                mobile_num_txt.setText(rs.getString("mobile_number"));
+                user_type_cmb.setSelectedItem(rs.getString("user_type"));
+                password_txt.setText(rs.getString("password"));
+                
+            }
+            
+            
+            
+        } catch (Exception e) {
+    
+        e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_search_user_btnActionPerformed
+
+    private void update_user_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_user_btnActionPerformed
+     
+        String uname=username_txt.getText();
+        int mobile=Integer.parseInt(mobile_num_txt.getText());
+        String type=user_type_cmb.getSelectedItem().toString();
+        String pass=new String(password_txt.getPassword()).toString();
+        String conPass=new String(confirm_password_txt.getPassword()).toString();
+        
+        try {
+            
+             ConnDB.iud(" update users SET password='"+pass+"', user_type='"+type+"', mobile_number='"+mobile+"'  where username='"+uname+"' ");
+            
+            
+            
+            
+        } catch (Exception e) {
+   
+            e.printStackTrace();
+        
+        }
+        
+        
+        
+    }//GEN-LAST:event_update_user_btnActionPerformed
+
+    private void delete_user_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_user_btnActionPerformed
+        
+        
+        
+        String uname=username_txt.getText();
+        
+        try {
+            
+            ConnDB.iud(" update users SET status='inactive' where username='"+uname+"' ");
+            
+        } catch (Exception e) {
+        
+            e.printStackTrace();
+        
+        }
+                
+    }//GEN-LAST:event_delete_user_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -700,4 +1231,61 @@ public class settings extends javax.swing.JFrame {
     private javax.swing.JComboBox user_type_cmb;
     private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
+
+private void loadPref() {
+       
+        ResultSet rs;
+        
+        try {
+            
+            rs=ConnDB.search("select * from prifixes");
+            
+            //(products,stock_count,stock_adjusment,purchase_order,grn,suppir_return,suppliers,invoice)
+            
+            while(rs.next()){
+            
+            product_pre_txt.setText(rs.getString("products"));
+            stock_count_pre_txt.setText(rs.getString("stock_count"));
+            stock_adj_pre_txt.setText(rs.getString("stock_adjusment"));
+            po_pre_txt.setText(rs.getString("purchase_order"));
+            grn_pre_txt.setText(rs.getString("grn"));
+            supplier_return_pre_txt.setText(rs.getString("suppir_return"));
+            supplier_txt.setText(rs.getString("suppliers"));
+            sales_invoice_pre_txt.setText(rs.getString("invoice"));
+            
+            
+            }
+            
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+        
+    
+    }
+
+    private void loadUserRoles() {
+       
+        ResultSet rs;
+           
+        try {
+            
+            rs=ConnDB.search("select distinct user_type from user_permission");
+            while(rs.next()){
+            
+            user_type_cmb.addItem(rs.getString("user_type"));
+            
+            }
+            
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+    
+    }
+
 }

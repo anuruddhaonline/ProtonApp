@@ -21,7 +21,7 @@ public class ConnDB {
     public static void createMyconnection() {
         try{
         Class.forName("com.mysql.jdbc.Driver");
-      con = DriverManager.getConnection("jdbc:mysql://148.66.136.214:3306/proton_db", "protonDB", "Codelife2017");
+      con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/proton_db", "root", "");
       con.createStatement().executeQuery("SET wait_timeout=1800000");
       
       

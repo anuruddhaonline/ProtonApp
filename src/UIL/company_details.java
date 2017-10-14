@@ -94,6 +94,7 @@ public class company_details extends javax.swing.JFrame {
         });
         jPanel1.add(set_details_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 450, 120, -1));
 
+        company_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         company_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(company_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 230, 30));
 
@@ -121,6 +122,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel26.setText("Category :");
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 150, -1, -1));
 
+        category_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         category_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(category_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 230, 30));
 
@@ -128,6 +130,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel27.setText("Owner Name :");
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 190, -1, -1));
 
+        owner_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         owner_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(owner_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 230, 30));
 
@@ -143,12 +146,15 @@ public class company_details extends javax.swing.JFrame {
         jLabel30.setText("City :");
         jPanel1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 390, -1, -1));
 
+        city_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         city_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(city_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 230, 30));
 
+        address_02_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         address_02_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(address_02_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 350, 230, 30));
 
+        address_01_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         address_01_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(address_01_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 230, 30));
 
@@ -164,6 +170,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel31.setText("Postal Code :");
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
+        postal_code_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         postal_code_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(postal_code_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 230, 30));
 
@@ -175,6 +182,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel32.setText("Telephone 02 :");
         jPanel1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
 
+        telephone_01_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         telephone_01_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(telephone_01_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 230, 30));
 
@@ -182,9 +190,11 @@ public class company_details extends javax.swing.JFrame {
         jLabel34.setText("Mobile No :");
         jPanel1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 190, -1, -1));
 
+        mobile_no_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         mobile_no_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(mobile_no_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 230, 30));
 
+        telephone_02_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         telephone_02_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(telephone_02_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 150, 230, 30));
 
@@ -196,6 +206,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel35.setText("Fax :");
         jPanel1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(531, 230, -1, -1));
 
+        fax_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         fax_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(fax_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, 230, 30));
 
@@ -203,6 +214,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel36.setText("E mail :");
         jPanel1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 270, -1, -1));
 
+        email_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         email_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(email_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 230, 30));
 
@@ -210,6 +222,7 @@ public class company_details extends javax.swing.JFrame {
         jLabel37.setText("Website :");
         jPanel1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(494, 310, -1, -1));
 
+        website_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         website_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(website_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 230, 30));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 400, 10));
@@ -228,7 +241,7 @@ public class company_details extends javax.swing.JFrame {
 
     private void set_details_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_set_details_btnActionPerformed
        
-        String comName = company_name_txt.getText();
+       String comName = company_name_txt.getText();
         String comCat = category_txt.getText();
         String ownerName = owner_name_txt.getText();
         String add01 = address_01_txt.getText();
@@ -295,6 +308,24 @@ public class company_details extends javax.swing.JFrame {
         }//ofNoLength
         }//mobilelength
         }//isempty
+        
+        company_name_txt.setText(null);
+        category_txt.setText(null);
+        owner_name_txt.setText(null);
+        
+        address_01_txt.setText(null);
+        address_02_txt.setText(null);
+        city_txt.setText(null);
+        postal_code_txt.setText(null);
+        
+        telephone_01_txt.setText(null);
+        telephone_02_txt.setText(null);
+        mobile_no_txt.setText(null);
+        fax_txt.setText(null);
+        email_txt.setText(null);
+        website_txt.setText(null);
+        
+        company_name_txt.grabFocus();
         
         
         

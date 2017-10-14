@@ -88,6 +88,7 @@ public class grn extends javax.swing.JFrame {
         jLabel3.setText("GRN ID :");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
+        grn_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         grn_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(grn_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
 
@@ -95,6 +96,7 @@ public class grn extends javax.swing.JFrame {
         jLabel7.setText("GRN Date :");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
 
+        product_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         product_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(product_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 230, 30));
 
@@ -185,6 +187,7 @@ public class grn extends javax.swing.JFrame {
         jLabel15.setText("Discount :");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 560, -1, -1));
 
+        supplier_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         supplier_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(supplier_name_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 230, 30));
 

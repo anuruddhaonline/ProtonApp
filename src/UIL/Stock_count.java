@@ -134,6 +134,11 @@ public class Stock_count extends javax.swing.JFrame {
         search_stock_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_stock_btn.setContentAreaFilled(false);
         search_stock_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon_hover.png"))); // NOI18N
+        search_stock_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_stock_btnActionPerformed(evt);
+            }
+        });
         jPanel1.add(search_stock_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 30, 30));
 
         jPanel2.setBackground(new java.awt.Color(153, 0, 51));
@@ -188,18 +193,39 @@ public class Stock_count extends javax.swing.JFrame {
      
         
         String productID= pro_id_txt.getText();
-        String transferID = stock_count_id_txt.getText();
+         String productName= product_name_txt.getText();
+        String stockCount = stock_count_id_txt.getText();
         String date=date_txt.getText();
         int systemCount= Integer.parseInt(system_count_txt.getText());
         int actualCount = Integer.parseInt(actual_count_txt.getText());
-        int dif=Integer.parseInt(stock_dif_txt.getText());
+        String dif= stock_dif_txt.getText();
+        
+        if(productID.isEmpty() || stockCount.isEmpty() || date.isEmpty() || actual_count_txt.getText().isEmpty() || dif.isEmpty()){}
         
         try {
-              ConnDB.iud("insert into stock_count values('"+stock_count_id_txt.getText()+"','"+productID+"','"+product_name_txt.getText()+"','"+date+"','"+systemCount+"','"+actualCount+"','"+dif+"')");
-        } catch (Exception e) {
             
-            e.printStackTrace();
+           ConnDB.iud("insert into stock_count(stock_count_id,product_code,product_name,date,system_count,actual_count,difference) VALUES ('"+stockCount+"','"+productID+"','"+productName+"','"+date+"','"+systemCount+"','"+actualCount+"','"+dif+"')   ");
+           
+           
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
         }
+        
+        
+        //clearing
+        stock_count_id_txt.setText(null);
+        pro_id_txt.setText(null);
+        product_name_txt.setText(null);
+        date_txt.setText(null);
+        system_count_txt.setText(null);
+        actual_count_txt.setText(null);
+        stock_dif_txt.setText(null);
+        
+        stock_count_id_txt.grabFocus();
+        
+        autoStockCount();
       
         
         
@@ -252,6 +278,30 @@ if(system_count_txt.getText().length()>0 &&actual_count_txt.getText().length()>0
       
 }
     }//GEN-LAST:event_actual_count_txtKeyReleased
+
+    private void search_stock_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_stock_btnActionPerformed
+       
+         String stockCount=stock_count_id_txt.getText();
+        
+        try {
+            
+           ResultSet rs=ConnDB.search("select * from stock_count where product_id='"+stockCount+"' ");
+           
+           pro_id_txt.setText(rs.getString("product_code"));
+           product_name_txt.setText(rs.getString("product_name"));
+           date_txt.setText(rs.getString("date"));
+           system_count_txt.setText(rs.getString("system_count"));
+           actual_count_txt.setText(rs.getString("actual_count"));
+           stock_dif_txt.setText(rs.getString("difference"));
+           
+           
+            
+        } catch (Exception e) {
+        
+        e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_search_stock_btnActionPerformed
 
     /**
      * @param args the command line arguments

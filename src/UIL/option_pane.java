@@ -15,12 +15,11 @@ public class option_pane extends javax.swing.JFrame {
     /**
      * Creates new form option_pane
      */
-    public option_pane(String heading,String message ) {
+    public option_pane( ) {
         initComponents();
         
         this.setLocationRelativeTo(null);
-        jLabel2.setText(heading);
-        jLabel3.setText(message);
+       
     }
 
     /**
@@ -82,6 +81,15 @@ public class option_pane extends javax.swing.JFrame {
         
     }//GEN-LAST:event_option_pane_close_btnActionPerformed
 
+    
+    public void message(String message){
+    jLabel3.setText(message);
+    
+    
+    
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -112,7 +120,7 @@ public class option_pane extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new option_pane("ffff","gggg").setVisible(true);
+                new option_pane().setVisible(true);
             }
         });
     }
@@ -124,4 +132,17 @@ public class option_pane extends javax.swing.JFrame {
     private javax.swing.JButton option_pane_close_btn;
     private javax.swing.JPanel option_pane_wrapper_panel;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+
+
+
+
 }
+
+
+
+
+

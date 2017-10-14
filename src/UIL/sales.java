@@ -14,6 +14,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import java.io.FileOutputStream;
+import java.io.*;
+import java.util.*;
+import java.sql.*;
+import com.itextpdf.text.*;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.pdf.*;
+import java.awt.Desktop;
+
 /**
  *
  * @author ASUS
@@ -22,6 +31,7 @@ public class sales extends javax.swing.JFrame {
 
     view_invoice view_invoice = new view_invoice();
     notification_popup notification_popup = new notification_popup();
+    option_pane op=new option_pane();
     
     double qty = 0.0;
     String count;
@@ -46,7 +56,7 @@ public class sales extends javax.swing.JFrame {
             available_txt.setEnabled(false);
             product_code_txt.setEnabled(false);
             complete_invoice_btn.setVisible(false);
-            save_and_print_btn.setVisible(false);
+            //save_and_print_btn.setVisible(false);
             String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
             invoice_date_txt.setText(timeStamp);
         auto();
@@ -97,12 +107,10 @@ public class sales extends javax.swing.JFrame {
         product_name_txt = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         item_count_lbl = new javax.swing.JLabel();
-        save_and_print_btn = new javax.swing.JButton();
         complete_invoice_btn = new javax.swing.JButton();
         search_invoice_btn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         search_product_btn = new javax.swing.JButton();
-        view_invoice_btn = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         add_new_invoice_clear_btn = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
@@ -320,12 +328,6 @@ public class sales extends javax.swing.JFrame {
         item_count_lbl.setText("LKR 0.00");
         jPanel1.add(item_count_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 680, -1, -1));
 
-        save_and_print_btn.setBackground(new java.awt.Color(34, 155, 60));
-        save_and_print_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        save_and_print_btn.setForeground(new java.awt.Color(255, 255, 255));
-        save_and_print_btn.setText("Save & Print");
-        jPanel1.add(save_and_print_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 670, -1, -1));
-
         complete_invoice_btn.setBackground(new java.awt.Color(34, 155, 60));
         complete_invoice_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         complete_invoice_btn.setForeground(new java.awt.Color(255, 255, 255));
@@ -335,7 +337,7 @@ public class sales extends javax.swing.JFrame {
                 complete_invoice_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 670, -1, -1));
+        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 670, -1, -1));
 
         search_invoice_btn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search_icon.png"))); // NOI18N
         search_invoice_btn.setContentAreaFilled(false);
@@ -360,17 +362,6 @@ public class sales extends javax.swing.JFrame {
             }
         });
         jPanel1.add(search_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 30, 30));
-
-        view_invoice_btn.setBackground(new java.awt.Color(34, 155, 60));
-        view_invoice_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        view_invoice_btn.setForeground(new java.awt.Color(255, 255, 255));
-        view_invoice_btn.setText("View Invoice");
-        view_invoice_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                view_invoice_btnActionPerformed(evt);
-            }
-        });
-        jPanel1.add(view_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 20, -1, -1));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
         add_new_invoice_clear_btn.setBackground(new java.awt.Color(34, 155, 60));
@@ -479,12 +470,22 @@ public class sales extends javax.swing.JFrame {
                  double qty2=Double.parseDouble(rs.getString("qty"));
                  
                double invqty=(double) dtm.getValueAt(i,3);
-               
+               double min=Double.parseDouble(rs.getString("min_stock_level"));
                  
                  double invo=qty2-invqty;
                  System.out.println(invo+"");
                  
                  ConnDB.iud("update inventory set qty='"+invo+"' where product_code='"+name+"'");
+                 
+                 if(min>invo){
+                   String timeStamp = new SimpleDateFormat("yyyy/MM/dd").format(Calendar.getInstance().getTime());
+                   String time = new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime());
+                   String dis=pname+" Exceed min Stock level";
+                  ConnDB.iud("insert into notification (date,time,title,description,section) values("
+                  + "'"+timeStamp+"','"+time+"','Min Stock Level Exceed','"+dis+"','Inventory') ");
+                 
+                 } 
+                 
                  }
                   
             } catch (Exception e) {
@@ -505,14 +506,9 @@ public class sales extends javax.swing.JFrame {
         
         }
 
-
+        generateInvoiceReport(invoiceId);
+            
     }//GEN-LAST:event_complete_invoice_btnActionPerformed
-
-    private void view_invoice_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_view_invoice_btnActionPerformed
-
-        view_invoice.setVisible(true);
-
-    }//GEN-LAST:event_view_invoice_btnActionPerformed
 
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
         String name1 = jList1.getSelectedValue().toString();
@@ -745,7 +741,10 @@ public class sales extends javax.swing.JFrame {
             int max = Integer.parseInt(count);
             int buy = Integer.parseInt(quantity_txt.getText());
             if (max < buy) {
-                p = new option_pane("Discount Limit Exceeded", "Discount valid for only " + max + " products ");
+                
+                op.setVisible(true);
+          op.message("Discount valid for only " + max + " products ");
+               
                 p.setVisible(true);
                 double dis = Double.parseDouble(discount_txt.getText());
                 discount1 = 0.0;
@@ -926,7 +925,7 @@ public class sales extends javax.swing.JFrame {
        
        balance_lbl.setText(bal+"");
         complete_invoice_btn.setVisible(true);
-            save_and_print_btn.setVisible(true);
+            //save_and_print_btn.setVisible(true);
        }else{
            System.out.println("net amount greater than chash");
        
@@ -1041,12 +1040,10 @@ public class sales extends javax.swing.JFrame {
     private javax.swing.JTable product_list_table;
     private javax.swing.JTextField product_name_txt;
     private javax.swing.JTextField quantity_txt;
-    private javax.swing.JButton save_and_print_btn;
     private javax.swing.JButton search_customer_mobile_btn;
     private javax.swing.JButton search_invoice_btn;
     private javax.swing.JButton search_product_btn;
     private javax.swing.JTextField unit_price_txt;
-    private javax.swing.JButton view_invoice_btn;
     // End of variables declaration//GEN-END:variables
 
     private void auto() {
@@ -1112,6 +1109,118 @@ public class sales extends javax.swing.JFrame {
         item_count_lbl.setText(qty1+"");
         
     
+    }
+
+    private void generateInvoiceReport(String inv_id) {
+        
+        String invoiceID = inv_id;
+        
+        try {
+            
+            ResultSet rs1 = ConnDB.search("select * from invoice where invoice_id = '"+invoiceID+"'");
+            
+            ResultSet rs2 = ConnDB.search("select * from invoice_items where invoice_id = '"+invoiceID+"'");
+            
+            OutputStream file = new FileOutputStream(new File("D:\\proton\\invoices\\"+invoiceID+".pdf"));
+ 
+                Document document = new Document();
+                PdfWriter.getInstance(document, file);
+ 
+                document.open();
+ 
+//                document.addAuthor("Krishna Srinivasan");
+//                document.addCreationDate();
+//                document.addCreator("JavaBeat");
+//                document.addTitle("Sample PDF");
+ 
+                //Create Paragraph
+                Paragraph paragraph = new Paragraph("PROTON",new Font(Font.FontFamily.TIMES_ROMAN, 18,
+                          Font.BOLD));
+                
+   
+ 
+                //New line
+                paragraph.add(new Paragraph(" "));
+                paragraph.add("Invoice");
+                paragraph.add(new Paragraph(" "));
+                
+                while(rs1.next()){
+                
+                    paragraph.add("Invoice ID : "+rs1.getString("invoice_id"));
+                    paragraph.add(new Paragraph(" "));
+                    paragraph.add("Invoice Date : "+rs1.getString("invoice_date"));
+                    paragraph.add(new Paragraph(" "));
+                    paragraph.add("Gross Amount : "+rs1.getString("gross_amount")+" ");
+                    paragraph.add("Discount : "+rs1.getString("discount")+" ");
+                    paragraph.add("Net Amount : "+rs1.getString("net_amount")+" ");
+                    paragraph.add(new Paragraph(" "));
+                    paragraph.add("Cash : "+rs1.getString("cash"));
+                    paragraph.add(new Paragraph(" "));
+                    paragraph.add("Balance : "+rs1.getString("balance"));
+                    paragraph.add(new Paragraph(" "));
+                
+                }
+                
+                paragraph.add("Product List");
+                paragraph.add(new Paragraph(" "));
+                
+                document.add(paragraph);
+ 
+                //Create a table in PDF
+                PdfPTable pdfTable = new PdfPTable(6);
+                PdfPCell cell1 = new PdfPCell(new Phrase("Code"));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfTable.addCell(cell1);
+ 
+                cell1 = new PdfPCell(new Phrase("Product Name"));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfTable.addCell(cell1);
+ 
+                cell1 = new PdfPCell(new Phrase("Unit Price"));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfTable.addCell(cell1);
+                
+                cell1 = new PdfPCell(new Phrase("Qty"));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfTable.addCell(cell1);
+                
+                cell1 = new PdfPCell(new Phrase("Subtotal"));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfTable.addCell(cell1);
+                
+                cell1 = new PdfPCell(new Phrase("Discount"));
+                cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+                pdfTable.addCell(cell1);
+                
+                
+                
+                pdfTable.setHeaderRows(1);
+ 
+                while(rs2.next()){
+                
+                    pdfTable.addCell(rs2.getString("product_code"));
+                    pdfTable.addCell(rs2.getString("product_name"));
+                    pdfTable.addCell(rs2.getString("unit_price"));
+                    pdfTable.addCell(rs2.getString("qty"));
+                    pdfTable.addCell(rs2.getString("subtotal"));
+                    pdfTable.addCell(rs2.getString("discount"));
+                    
+                
+                }
+ 
+                document.add(pdfTable);
+ 
+                document.close();
+                file.close();
+                
+                Desktop.getDesktop().open(new File("D:\\proton\\invoices\\"+invoiceID+".pdf"));
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
     }
 
 }

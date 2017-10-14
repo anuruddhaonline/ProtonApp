@@ -19,7 +19,6 @@ import javax.swing.JScrollPane;
  */
 public class help extends javax.swing.JFrame {
 
-   
     
     public help() {
         initComponents();
@@ -237,6 +236,7 @@ public class help extends javax.swing.JFrame {
     private void add_new_pro_clear_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btn1ActionPerformed
        
         this.setAlwaysOnTop(false);
+        
         
         try {
             

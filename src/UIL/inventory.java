@@ -7,6 +7,7 @@
 package UIL;
 
 
+import com.onbarcode.barcode.Code39;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
 import java.util.Vector;
@@ -23,6 +24,7 @@ public class inventory extends javax.swing.JFrame {
     stock_adjustment stock_adjustment = new stock_adjustment();
     Stock_count warehouse_transfers = new Stock_count();
     loyalty_products loyalty_products = new loyalty_products();
+     option_pane  op=new option_pane();
     
     public inventory() {
         initComponents();
@@ -31,6 +33,10 @@ public class inventory extends javax.swing.JFrame {
         jList1.setVisible(false);
         readymade_product_type_tb.setSelected(true);
         product_name_txt.grabFocus();
+        
+        
+        
+        
     }
 
     /**
@@ -73,7 +79,6 @@ public class inventory extends javax.swing.JFrame {
         max_stock_txt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         add_product_btn = new javax.swing.JButton();
-        stock_adjust_btn = new javax.swing.JButton();
         stock_count_btn = new javax.swing.JButton();
         product_search_button = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -126,6 +131,11 @@ public class inventory extends javax.swing.JFrame {
 
         selling_price_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         selling_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        selling_price_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                selling_price_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(selling_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 230, 30));
 
         product_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -142,11 +152,11 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(pack_size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 230, 30));
 
         product_category_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        product_category_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        product_category_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "drinks", "cakes", "dry Food", "Vegetable", "Fruits" }));
         inventory_panel.add(product_category_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 230, 30));
 
         product_unit_cmb.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        product_unit_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        product_unit_cmb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "kg", "g", "ml", "l" }));
         inventory_panel.add(product_unit_cmb, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 230, 30));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
@@ -228,10 +238,20 @@ public class inventory extends javax.swing.JFrame {
 
         stock_value_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         stock_value_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        stock_value_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                stock_value_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(stock_value_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 290, 230, 30));
 
         bin_location_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         bin_location_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        bin_location_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                bin_location_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(bin_location_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 140, 230, 30));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -240,6 +260,11 @@ public class inventory extends javax.swing.JFrame {
 
         min_stock_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         min_stock_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        min_stock_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                min_stock_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(min_stock_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 190, 230, 30));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -248,6 +273,11 @@ public class inventory extends javax.swing.JFrame {
 
         max_stock_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         max_stock_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
+        max_stock_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                max_stock_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(max_stock_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 240, 230, 30));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -264,17 +294,6 @@ public class inventory extends javax.swing.JFrame {
             }
         });
         inventory_panel.add(add_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 660, 130, -1));
-
-        stock_adjust_btn.setBackground(new java.awt.Color(34, 155, 60));
-        stock_adjust_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        stock_adjust_btn.setForeground(new java.awt.Color(255, 255, 255));
-        stock_adjust_btn.setText("Stock Adjustment");
-        stock_adjust_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stock_adjust_btnActionPerformed(evt);
-            }
-        });
-        inventory_panel.add(stock_adjust_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
         stock_count_btn.setBackground(new java.awt.Color(34, 155, 60));
         stock_count_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -312,6 +331,11 @@ public class inventory extends javax.swing.JFrame {
                 total_qty_txtActionPerformed(evt);
             }
         });
+        total_qty_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                total_qty_txtKeyTyped(evt);
+            }
+        });
         inventory_panel.add(total_qty_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 340, 230, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -319,6 +343,7 @@ public class inventory extends javax.swing.JFrame {
         inventory_panel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 470, -1, -1));
         inventory_panel.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 1208, 10));
 
+        supplier_code_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         supplier_code_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         supplier_code_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -349,6 +374,7 @@ public class inventory extends javax.swing.JFrame {
         jLabel20.setText("Product ID :");
         inventory_panel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
 
+        supplier_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         supplier_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         supplier_name_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -361,6 +387,7 @@ public class inventory extends javax.swing.JFrame {
         jLabel21.setText("Supplier Name :");
         inventory_panel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, -1, -1));
 
+        purchase_price_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         purchase_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         inventory_panel.add(purchase_price_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 230, 30));
 
@@ -376,7 +403,7 @@ public class inventory extends javax.swing.JFrame {
                 supplier_code_btnActionPerformed(evt);
             }
         });
-        inventory_panel.add(supplier_code_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, 30, 30));
+        inventory_panel.add(supplier_code_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 510, 30, 30));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -452,7 +479,7 @@ public class inventory extends javax.swing.JFrame {
                 add_loyalty_product_btnActionPerformed(evt);
             }
         });
-        inventory_panel.add(add_loyalty_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(804, 20, -1, -1));
+        inventory_panel.add(add_loyalty_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 20, -1, -1));
 
         getContentPane().add(inventory_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
@@ -515,7 +542,7 @@ public class inventory extends javax.swing.JFrame {
         if(productID.isEmpty()||productName.isEmpty() || pack_size_txt.getText().isEmpty() || selling_price_txt.getText().isEmpty() || unitOfMes.isEmpty() || category.isEmpty() || productType.isEmpty() ){}
         
          
-            ConnDB.iud("insert into product values('"+productID+"','"+productName+"','"+unitOfMes+"','"+category+"','"+ packSize+"','"+productType+"','"+ sellingPrice+"')");
+            ConnDB.iud("insert into product values('"+productID+"','"+productName+"','"+unitOfMes+"','"+category+"','"+ packSize+"','"+productType+"','"+ sellingPrice+"','active')");
               ConnDB.iud("INSERT INTO inventory( product_code, bin_location, min_stock_level, max_stock_level, qty, stock_value) values('"+productID+"','"+bin+"','"+min+"','"+max+"','"+qty+"','"+value+"')");
          
          
@@ -532,7 +559,17 @@ public class inventory extends javax.swing.JFrame {
 
             }
          
-         
+                Code39 barcode = new Code39();
+                barcode.setData(productID);
+                barcode.setX(2);
+                barcode.setY(60);
+                barcode.setBarcodeWidth(150);
+                barcode.setBarcodeHeight(80);
+                barcode.setShowText(true);
+                
+                barcode.setLeftMargin(0);
+                barcode.setRightMargin(0);
+                barcode.drawBarcode("D:\\proton\\barcode\\"+productID+".png");
          
          
          } catch (Exception e) {
@@ -542,7 +579,7 @@ public class inventory extends javax.swing.JFrame {
         
         
         System.out.println("");
-        
+         op.message("saved successfully");
         
         
         
@@ -628,21 +665,20 @@ public class inventory extends javax.swing.JFrame {
          
         
          dtm.addRow(v);
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void pack_size_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pack_size_txtKeyTyped
         
-        String text=pack_size_txt.getText();
+       char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
         
 
 
     }//GEN-LAST:event_pack_size_txtKeyTyped
-
-    private void stock_adjust_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_adjust_btnActionPerformed
-       
-        stock_adjustment.setVisible(true);
-        
-    }//GEN-LAST:event_stock_adjust_btnActionPerformed
 
     private void stock_count_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stock_count_btnActionPerformed
         
@@ -689,6 +725,19 @@ jScrollPane2.setVisible(true);
         supplier_code_txt.setText(jList1.getSelectedValue().toString());
         jList1.setVisible(false);
         jScrollPane2.setVisible(false);
+        
+        
+         ResultSet rs;
+        try {       
+            rs = ConnDB.search("select * from suppliers where supplier_code='"+supplier_code_txt.getText()+"' ");
+            while(rs.next()){
+            supplier_name_txt.setText(rs.getString("supplier_name"));
+            
+            
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(inventory.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jList1MouseClicked
 
     private void add_new_pro_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_pro_clear_btnActionPerformed
@@ -696,7 +745,21 @@ jScrollPane2.setVisible(true);
     }//GEN-LAST:event_add_new_pro_clear_btnActionPerformed
 
     private void supplier_code_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_code_btnActionPerformed
-        // TODO add your handling code here:
+         ResultSet rs;
+        try {       
+            rs = ConnDB.search("select * from suppliers where supplier_code='"+supplier_code_txt.getText()+"' ");
+            while(rs.next()){
+            supplier_name_txt.setText(rs.getString("supplier_name"));
+            
+            
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(inventory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+                     
+                     
+                     
     }//GEN-LAST:event_supplier_code_btnActionPerformed
 
     private void update_product_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_product_btnActionPerformed
@@ -787,6 +850,54 @@ jScrollPane2.setVisible(true);
         }
     }//GEN-LAST:event_delete_product_btnActionPerformed
 
+    private void selling_price_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_selling_price_txtKeyTyped
+        char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_selling_price_txtKeyTyped
+
+    private void bin_location_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bin_location_txtKeyTyped
+        char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_bin_location_txtKeyTyped
+
+    private void min_stock_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_min_stock_txtKeyTyped
+       char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_min_stock_txtKeyTyped
+
+    private void max_stock_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_max_stock_txtKeyTyped
+      char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_max_stock_txtKeyTyped
+
+    private void stock_value_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stock_value_txtKeyTyped
+       char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_stock_value_txtKeyTyped
+
+    private void total_qty_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_total_qty_txtKeyTyped
+      char t=evt.getKeyChar();
+            if(!Character.isDigit(t)){
+            
+                evt.consume();
+            }
+    }//GEN-LAST:event_total_qty_txtKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -873,7 +984,6 @@ jScrollPane2.setVisible(true);
     private javax.swing.JTextField purchase_price_txt;
     private javax.swing.JToggleButton readymade_product_type_tb;
     private javax.swing.JTextField selling_price_txt;
-    private javax.swing.JButton stock_adjust_btn;
     private javax.swing.JButton stock_count_btn;
     private javax.swing.JTextField stock_value_txt;
     private javax.swing.JButton supplier_code_btn;

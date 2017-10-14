@@ -152,7 +152,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Daily Sales"/>
+            <Property name="text" type="java.lang.String" value="Daily Net Sales"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -191,7 +191,7 @@
                   <Table columnCount="5" rowCount="4">
                     <Column editable="true" title="Product Code" type="java.lang.Object"/>
                     <Column editable="true" title="Product Name" type="java.lang.Object"/>
-                    <Column editable="true" title="Stock Level" type="java.lang.Object"/>
+                    <Column editable="true" title="Remaining Stock Level" type="java.lang.Object"/>
                     <Column editable="true" title="Reorder Level" type="java.lang.Object"/>
                     <Column editable="true" title="Product Type" type="java.lang.Object"/>
                   </Table>

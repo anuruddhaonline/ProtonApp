@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  * @author ASUS
  */
 public class suppliers extends javax.swing.JFrame {
-
+option_pane op=new option_pane();
     /**
      * Creates new form suppliers
      */
@@ -407,7 +407,29 @@ public class suppliers extends javax.swing.JFrame {
     }//GEN-LAST:event_add_supplier_btnActionPerformed
 
     private void add_new_supplier_clear_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add_new_supplier_clear_btnActionPerformed
-              clear_text();
+           
+       sup_code_txt.setText(null);
+       jComboBox1.setSelectedIndex(0);
+       supplier_name_txt.setText(null);
+       supplier_bank_name_txt.setText(null);
+       suupler_account_num_txt.setText(null);
+       
+       address_name_txt.setText(null);
+       address_1_txt.setText(null);
+       address_2_txt.setText(null);
+       city_txt.setText(null);
+       postal_code_txt.setText(null);
+       
+       mobile_txt.setText(null);
+       office_no_txt.setText(null);
+       email_txt.setText(null);
+       supplier_website_txt.setText(null);
+       
+         DefaultTableModel dtm=(DefaultTableModel)view_suppliers_jt.getModel();
+        dtm.setRowCount(0);
+        
+        
+        
     }//GEN-LAST:event_add_new_supplier_clear_btnActionPerformed
 
     private void suupler_account_num_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_suupler_account_num_txtKeyTyped

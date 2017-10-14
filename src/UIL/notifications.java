@@ -6,6 +6,10 @@
 
 package UIL;
 
+import java.sql.ResultSet;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ASUS
@@ -79,6 +83,31 @@ public class notifications extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    
+     public void noti(){
+        try {
+             ResultSet rs=ConnDB.search("select * from notification");
+             while(rs.next()){
+                 DefaultTableModel dtm=(DefaultTableModel)notification_table.getModel();
+              Vector v=new Vector();
+            
+           v.add(rs.getString("date"));
+           v.add(rs.getString("time"));
+           v.add(rs.getString("title"));
+           v.add(rs.getString("description"));
+           v.add(rs.getString("section"));
+       
+           
+           dtm.addRow(v);
+           
+                 
+             }
+        } catch (Exception e) {
+        e.printStackTrace();
+        
+        }
+     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

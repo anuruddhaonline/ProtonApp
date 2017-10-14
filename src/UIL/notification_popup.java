@@ -143,6 +143,12 @@ public void playSound() {
             e.printStackTrace();
         }
         
-}    
+}   
+
+public  void message(String headin){
+
+
+
+}
 
 }

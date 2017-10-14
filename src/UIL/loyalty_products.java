@@ -25,6 +25,7 @@ public class loyalty_products extends javax.swing.JFrame {
         initComponents();
         
         setLocationRelativeTo(null);
+        product_id_txt.grabFocus();
     }
 
     /**
@@ -157,6 +158,7 @@ public class loyalty_products extends javax.swing.JFrame {
         jLabel31.setText("Product Name :");
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
+        max_products_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         max_products_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(max_products_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 230, 30));
 

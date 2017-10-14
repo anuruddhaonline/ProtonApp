@@ -9,6 +9,7 @@ package UIL;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Toolkit;
+import java.sql.ResultSet;
 
 /**
  *
@@ -26,6 +27,9 @@ public class main extends javax.swing.JFrame {
     sales sales = new sales();
     settings settings = new settings();
     help help = new help();
+    option_pane op=new option_pane();
+    
+    password_recover password_recover = new password_recover();
     
     //other interfaces
     
@@ -40,6 +44,7 @@ public class main extends javax.swing.JFrame {
         
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         setBounds(0,0,1366, 768);
+         log();
         setVisible(true);
         setLocationRelativeTo(null);
         
@@ -274,6 +279,11 @@ public class main extends javax.swing.JFrame {
         logout_btn.setContentAreaFilled(false);
         logout_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         logout_btn.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout_icon_hover.png"))); // NOI18N
+        logout_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logout_btnActionPerformed(evt);
+            }
+        });
         menu_panel.add(logout_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 670, 140, 30));
 
         side_usertype_lbl.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -314,6 +324,11 @@ public class main extends javax.swing.JFrame {
         login_btn.setForeground(new java.awt.Color(255, 255, 255));
         login_btn.setText("Log In");
         login_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        login_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                login_btnActionPerformed(evt);
+            }
+        });
         login_panel.add(login_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 403, 350, 40));
 
         forgot_password_btn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -321,6 +336,11 @@ public class main extends javax.swing.JFrame {
         forgot_password_btn.setContentAreaFilled(false);
         forgot_password_btn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         forgot_password_btn.setLabel("Forgot your password?");
+        forgot_password_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forgot_password_btnActionPerformed(evt);
+            }
+        });
         login_panel.add(forgot_password_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 340, -1, -1));
 
         login_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login_panel_logo.png"))); // NOI18N
@@ -357,47 +377,33 @@ public class main extends javax.swing.JFrame {
     private void minimize_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minimize_btnActionPerformed
         
         this.setState(ICONIFIED);
-        dashboard.setState(ICONIFIED);
-        notifications.setState(ICONIFIED);
-        inventory.setState(ICONIFIED);
-        purchase.setState(ICONIFIED);
-        production.setState(ICONIFIED);
-        sales.setState(ICONIFIED);
-        customers.setState(ICONIFIED);
-        suppliers.setState(ICONIFIED);
-        settings.setState(ICONIFIED);
-        help.setState(ICONIFIED);
+        
     }//GEN-LAST:event_minimize_btnActionPerformed
 
     private void dashboard_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dashboard_tbActionPerformed
        
-        dashboard.setState (Frame.NORMAL);
         dashboard.setVisible(true);
     }//GEN-LAST:event_dashboard_tbActionPerformed
 
     private void notification_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notification_tbActionPerformed
        
-        notifications.setState (Frame.NORMAL);
         notifications.setVisible(true);
     }//GEN-LAST:event_notification_tbActionPerformed
 
     private void customer_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customer_tbActionPerformed
         
-        customers.setState (Frame.NORMAL);
         customers.setVisible(true);
         
     }//GEN-LAST:event_customer_tbActionPerformed
 
     private void supplier_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier_tbActionPerformed
         
-        suppliers.setState (Frame.NORMAL);
         suppliers.setVisible(true);
         
     }//GEN-LAST:event_supplier_tbActionPerformed
 
     private void inventory_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventory_tbActionPerformed
        
-       inventory.setState (Frame.NORMAL);
        inventory.setVisible(true);
        inventory.createPro();
         
@@ -405,36 +411,41 @@ public class main extends javax.swing.JFrame {
 
     private void purchase_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_purchase_tbActionPerformed
        
-        purchase.setState (Frame.NORMAL);
         purchase.setVisible(true);
         
     }//GEN-LAST:event_purchase_tbActionPerformed
 
     private void production_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_production_tbActionPerformed
         
-        production.setState (Frame.NORMAL);
         production.setVisible(true);
     }//GEN-LAST:event_production_tbActionPerformed
 
     private void invoice_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_invoice_tbActionPerformed
         
-        sales.setState (Frame.NORMAL);
         sales.setVisible(true);
         
     }//GEN-LAST:event_invoice_tbActionPerformed
 
     private void settings_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settings_tbActionPerformed
         
-        settings.setState (Frame.NORMAL);
         settings.setVisible(true);
         
     }//GEN-LAST:event_settings_tbActionPerformed
 
     private void help_tbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_help_tbActionPerformed
         
-        help.setState (Frame.NORMAL);
         help.setVisible(true);
         help.setAlwaysOnTop(true);
+        
+        dashboard.setVisible(false);
+        notifications.setVisible(false);
+        customers.setVisible(false);
+        suppliers.setVisible(false);
+        inventory.setVisible(false);
+        purchase.setVisible(false);
+        production.setVisible(false);
+        sales.setVisible(false);
+        settings.setVisible(false);
         
     }//GEN-LAST:event_help_tbActionPerformed
 
@@ -477,6 +488,133 @@ public class main extends javax.swing.JFrame {
         change_password.setVisible(true);
         
     }//GEN-LAST:event_user_icon_btnActionPerformed
+
+    private void login_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_login_btnActionPerformed
+       String username=username_txt.getText();
+        String pass=new String(password_txt.getText());
+        if(username.equals("") || pass.equals("")){
+            op.setVisible(true);
+          op.message("Empty Fields not allow");
+        
+        }else{
+        
+        try {
+            ResultSet rs=ConnDB.search("select * from users where username='"+username+"' and password='"+pass+"'");
+            if(rs.next()){
+               
+            String type=rs.getString("user_type");
+            ResultSet rs1=ConnDB.search("select * from user_permission where user_type='"+type+"' ");
+                
+                if(rs1.next()){
+                    
+                     side_username_lbl.setText(username+" ");
+                     side_usertype_lbl.setText(type+" ");
+                     menu_button.setVisible(true);
+                     menu_button.setEnabled(true);
+                     quick_links_tb.setVisible(true);
+                     login_border.setVisible(false);
+                     login_logo.setVisible(false);
+                     username_txt.setVisible(false);
+                     password_txt.setVisible(false);
+                     forgot_password_btn.setVisible(false);
+                     login_btn.setVisible(false);
+                     username_lbl.setVisible(false);
+                     password_lbl.setVisible(false);
+                     login_message_lbl.setVisible(false);
+                     menu_panel.setVisible(true);
+                     username_txt.setText("");
+                     password_txt.setText("");
+                  if(rs1.getString("notification").endsWith("yes")){
+                     notification_tb.setEnabled(true);
+                  }
+                 if(rs1.getString("dashboard").endsWith("yes")){
+                    dashboard_tb.setEnabled(true);
+                 }
+                if(rs1.getString("inventory").endsWith("yes")){
+                    inventory_tb.setEnabled(true);
+                 }
+                if(rs1.getString("purchase").endsWith("yes")){
+                     purchase_tb.setEnabled(true);
+                }
+                if(rs1.getString("GRN").endsWith("yes")){
+                     production_tb.setEnabled(true);
+                }
+                
+                 if(rs1.getString("sales").endsWith("yes")){
+                    invoice_tb.setEnabled(true);
+                }
+                
+                 if(rs1.getString("loyality").endsWith("yes")){
+                   customer_tb.setEnabled(true);
+                }
+                 
+                 if(rs1.getString("supplier").endsWith("yes")){
+                     supplier_tb.setEnabled(true);
+                }
+                 
+                  if(rs1.getString("settings").endsWith("yes")){
+                     settings_tb.setEnabled(true);
+                }
+                  
+                  
+                   if(rs1.getString("help").endsWith("yes")){
+                      help_tb.setEnabled(true);
+                }
+                   
+                  if(rs1.getString("quick_access").endsWith("yes")){
+                      quick_links_tb.setEnabled(true);
+                }
+                }
+                
+            op.setVisible(true);
+          op.message("Login Successfully");
+            }else{
+            
+                op.setVisible(true);
+          op.message("Login Failed");
+            }
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }
+        
+        }
+    }//GEN-LAST:event_login_btnActionPerformed
+
+    private void logout_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logout_btnActionPerformed
+                     menu_button.setVisible(false);
+                     menu_button.setEnabled(true);
+                     quick_links_tb.setVisible(false);
+                     login_border.setVisible(true);
+                     login_logo.setVisible(true);
+                     username_txt.setVisible(true);
+                     password_txt.setVisible(true);
+                     forgot_password_btn.setVisible(true);
+                     login_btn.setVisible(true);
+                     username_lbl.setVisible(true);
+                     password_lbl.setVisible(true);
+                     login_message_lbl.setVisible(true);
+                    menu_panel.setVisible(false);
+                    
+                    
+                        dashboard.setVisible(false);
+                        notifications.setVisible(false);
+                        sales.setVisible(false);
+                        purchase.setVisible(false);
+                        inventory.setVisible(false);
+                        production.setVisible(false);
+                        sales.setVisible(false);
+                        customers.setVisible(false);
+                        suppliers.setVisible(false);
+                        help.setVisible(false);
+                        settings.setVisible(false);
+    }//GEN-LAST:event_logout_btnActionPerformed
+
+    private void forgot_password_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgot_password_btnActionPerformed
+        
+        password_recover.setVisible(true);
+        
+    }//GEN-LAST:event_forgot_password_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -547,4 +685,26 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel username_lbl;
     private javax.swing.JTextField username_txt;
     // End of variables declaration//GEN-END:variables
+
+ private void log() {
+       menu_button.setEnabled(false);
+        quick_links_tb.setEnabled(false);
+        menu_panel.setEnabled(false);
+        notification_tb.setEnabled(false);
+        dashboard_tb.setEnabled(false);
+        inventory_tb.setEnabled(false);
+        purchase_tb.setEnabled(false);
+        production_tb.setEnabled(false);
+        invoice_tb.setEnabled(false);
+        customer_tb.setEnabled(false);
+        supplier_tb.setEnabled(false);
+        help_tb.setEnabled(false);
+       
+        
+        
+    }
+
+
+
+
 }

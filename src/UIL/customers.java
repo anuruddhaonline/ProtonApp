@@ -15,13 +15,14 @@ import javax.swing.table.DefaultTableModel;
  * @author ASUS
  */
 public class customers extends javax.swing.JFrame {
-
+option_pane op=new option_pane();
     /**
      * Creates new form customers
      */
     public customers() {
         initComponents();
         auto_loyal_no();
+        customer_name_txt.grabFocus();
     }
 
     /**
@@ -224,16 +225,7 @@ public class customers extends javax.swing.JFrame {
         view_loyalty_jt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         view_loyalty_jt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Loyalty Card", "Name", "Address Line 01", "Address Line 02", "Mobile Number", "E mail", "Issue Date", "Expire Date"
@@ -275,6 +267,7 @@ public class customers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void issue_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_issue_loyalty_btnActionPerformed
+        
         String loyal_card=loyalty_card_txt.getText();
         String honro = hon_combo.getSelectedItem().toString();
         String cus_name=customer_name_txt.getText();
@@ -288,14 +281,18 @@ public class customers extends javax.swing.JFrame {
         
         
         if(loyal_card.isEmpty() || honro.isEmpty() || cus_name.isEmpty() || add101.isEmpty() || add102.isEmpty() || mobile_txt.getText().isEmpty() ||email.isEmpty() || issue.isEmpty() || expire.isEmpty()){
+         op.setVisible(true);
+           op.message("empty fields need to be filled");
         
-            System.out.println("empty fields need to be filled");
+            
             
         }else{
             
             if( mobile_txt.getText().length()!=10){
+           op.setVisible(true);
+           op.message("mbile numver is not valid");
+        
            
-            System.out.println("mbile numver is not valid");
             
         }else{
             
@@ -306,8 +303,10 @@ public class customers extends javax.swing.JFrame {
         Boolean b = email1.matches(EMAIL_REGEX);
         
             if(!b){
-            
-                System.out.println("email is not valid");
+             op.setVisible(true);
+           op.message("email is not valid");
+        
+                
                 
             }else{
             
@@ -330,6 +329,24 @@ public class customers extends javax.swing.JFrame {
         }//emptyField
         
         
+        loyalty_card_txt.setText(null);
+        hon_combo.setSelectedIndex(0);
+        customer_name_txt.setText(null);
+        address_1_txt.setText(null);
+        address_2_txt.setText(null);
+        
+        mobile_txt.setText(null);
+        email_txt.setText(null);
+        
+        issue_date_txt.setText(null);
+        expire_date_txt.setText(null);
+        
+         DefaultTableModel dtm = (DefaultTableModel) view_loyalty_jt.getModel();
+        dtm.setRowCount(0);
+        
+        loyalty_card_txt.grabFocus();
+        auto_loyal_no();
+        
     }//GEN-LAST:event_issue_loyalty_btnActionPerformed
 
     private void mobile_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mobile_txtKeyTyped
@@ -342,6 +359,7 @@ public class customers extends javax.swing.JFrame {
     }//GEN-LAST:event_mobile_txtKeyTyped
 
     private void update_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_loyalty_btnActionPerformed
+       
        String loyal_card=loyalty_card_txt.getText();
         String honro = hon_combo.getSelectedItem().toString();
         String cus_name=customer_name_txt.getText();
@@ -368,7 +386,8 @@ public class customers extends javax.swing.JFrame {
     }//GEN-LAST:event_update_loyalty_btnActionPerformed
 
     private void delete_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delete_loyalty_btnActionPerformed
-         ResultSet rs;
+         
+        ResultSet rs;
         
         try {
             
@@ -378,6 +397,7 @@ public class customers extends javax.swing.JFrame {
         
         
         }
+        
     }//GEN-LAST:event_delete_loyalty_btnActionPerformed
 
     private void search_loyalty_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_loyalty_btnActionPerformed
@@ -597,5 +617,6 @@ public class customers extends javax.swing.JFrame {
     
     }
     
+     
     
 }
