@@ -566,8 +566,7 @@ public class main extends javax.swing.JFrame {
                 }
                 }
                 
-            op.setVisible(true);
-          op.message("Login Successfully");
+          
             }else{
             
                 op.setVisible(true);

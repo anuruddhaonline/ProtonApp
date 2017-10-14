@@ -21,6 +21,7 @@ public class notifications extends javax.swing.JFrame {
      */
     public notifications() {
         initComponents();
+        noti();
     }
 
     /**
@@ -57,10 +58,7 @@ public class notifications extends javax.swing.JFrame {
         notification_table.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         notification_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Date", "Time", "Title", "Description", "Section"
