@@ -37,6 +37,7 @@ public class main extends javax.swing.JFrame {
     change_password change_password = new change_password();
     notification_popup notification_popup = new notification_popup();
     
+    
     public main() {
         initComponents();
         
@@ -49,6 +50,8 @@ public class main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         menu_panel.setVisible(false);
+        
+        username_txt.grabFocus();
         
     }
 
@@ -564,6 +567,10 @@ public class main extends javax.swing.JFrame {
                   if(rs1.getString("quick_access").endsWith("yes")){
                       quick_links_tb.setEnabled(true);
                 }
+                  
+                  dashboard.setVisible(true);
+                  dashboard_tb.setSelected(true);
+                  
                 }
                 
           

@@ -113,12 +113,13 @@ public class purchase extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setText("Total Quantity : ");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 670, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 670, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel10.setText("Total Amount :");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 630, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, -1, -1));
 
+        supplier_name_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         supplier_name_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         supplier_name_txt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -139,11 +140,13 @@ public class purchase extends javax.swing.JFrame {
         product_list_table.setRowHeight(20);
         jScrollPane1.setViewportView(product_list_table);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 1130, 220));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 1130, 220));
 
+        supplier_id_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         supplier_id_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(supplier_id_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 230, 30));
 
+        pu_order_Id.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         pu_order_Id.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         jPanel1.add(pu_order_Id, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 230, 30));
 
@@ -156,7 +159,7 @@ public class purchase extends javax.swing.JFrame {
                 complete_print_invoice_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(complete_print_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(939, 660, -1, -1));
+        jPanel1.add(complete_print_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 660, -1, -1));
 
         complete_invoice_btn.setBackground(new java.awt.Color(34, 155, 60));
         complete_invoice_btn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -167,20 +170,21 @@ public class purchase extends javax.swing.JFrame {
                 complete_invoice_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1092, 660, -1, -1));
+        jPanel1.add(complete_invoice_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 660, -1, -1));
 
         total_amountl_lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         total_amountl_lbl.setText(" 0.0");
-        jPanel1.add(total_amountl_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 630, 70, -1));
+        jPanel1.add(total_amountl_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 630, 70, -1));
 
         total_qty_lbl.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         total_qty_lbl.setText("0");
-        jPanel1.add(total_qty_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 670, 70, -1));
+        jPanel1.add(total_qty_lbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 670, 70, -1));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel11.setText("Quantity :");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 340, -1, -1));
 
+        jList1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -203,6 +207,7 @@ public class purchase extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 230, 60));
 
+        qty_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         qty_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         qty_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,6 +281,7 @@ public class purchase extends javax.swing.JFrame {
         jLabel9.setText("Unit Price :");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
 
+        unit_price_txt.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         unit_price_txt.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true), javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 5)));
         unit_price_txt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -312,7 +318,7 @@ public class purchase extends javax.swing.JFrame {
                 delete_product_btnActionPerformed(evt);
             }
         });
-        jPanel1.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 30, 30));
+        jPanel1.add(delete_product_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 390, 30, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 720));
 
